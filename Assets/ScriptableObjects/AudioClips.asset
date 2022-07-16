@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13bc80c46bb5431e8f527c7d9e40b730, type: 3}
+  m_Name: AudioClips
+  m_EditorClassIdentifier: 
+  audios:
+  - key: GameBackground
+    audio:
+    - {fileID: 8300000, guid: 032501e8a3244584eb818d71b7a9fbc5, type: 3}
+    - {fileID: 8300000, guid: afef58e6ea93512428a55a8fab861c95, type: 3}
+    - {fileID: 8300000, guid: 4f3fefeaba8a809429fc75afed6cf1b8, type: 3}
+    - {fileID: 8300000, guid: f1e0443b98c0ba748a632cdb99e43b15, type: 3}
+    - {fileID: 8300000, guid: 80d5a094475bd364e8707466889e3538, type: 3}
+    - {fileID: 8300000, guid: 54f97cbb00a14f947a1a7f3c10974dc8, type: 3}
+    - {fileID: 8300000, guid: 0a52f403c510a3f4fb9bca83dec9c8a4, type: 3}
+    - {fileID: 8300000, guid: 9811a80694c640e4e8dc5c048e829923, type: 3}
+    - {fileID: 8300000, guid: 70f3b47b71476af47a456e22a8a0dec8, type: 3}
+    - {fileID: 8300000, guid: 79f4139f637d77446b3bfe0cf1126e71, type: 3}
+    - {fileID: 8300000, guid: 967b91197252c6e4aaf0412125dd0194, type: 3}
+    - {fileID: 8300000, guid: 7382c835257a8184594d7e0013752cc2, type: 3}

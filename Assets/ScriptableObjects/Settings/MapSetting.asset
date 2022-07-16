@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dd97c1a20640aa97ebb227d80ffa28, type: 3}
+  m_Name: MapSetting
+  m_EditorClassIdentifier: 
+  mapSettings:
+    roomFiller:
+      enemyChance: 15
+      shopChance: 10
+      exitChance: 10
+    mapMaker:
+      startRoomWidth:
+        left: 2
+        right: 5
+      startRoomHeight:
+        left: 3
+        right: 5
+      roomWidth:
+        left: 3
+        right: 8
+      roomHeight:
+        left: 3
+        right: 8
+      clearDeadEndMaxIterations: 20
