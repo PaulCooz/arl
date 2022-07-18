@@ -35,7 +35,7 @@ namespace Input
                     ""id"": ""04d8cae8-ef51-49e5-a042-a2f7d4f2b395"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Holding"",
                     ""initialStateCheck"": true
                 },
                 {
