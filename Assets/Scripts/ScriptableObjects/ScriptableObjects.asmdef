@@ -1,9 +1,7 @@
 {
-    "name": "Models",
+    "name": "ScriptableObjects",
     "rootNamespace": "",
-    "references": [
-        "GUID:459ac12f87fce8744b2f492148822f61"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
