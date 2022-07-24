@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Models.Realisations.Units.ShootingUnits
 {
-    public class PlayerShootingUnit : BaseShootingUnit
+    public class OctopusShootingUnit : BaseShootingUnit
     {
         public void Start()
         {
@@ -13,7 +13,7 @@ namespace Models.Realisations.Units.ShootingUnits
 
         private IEnumerator<WaitForSeconds> Shootings()
         {
-            var wait = new WaitForSeconds(2f);
+            var wait = new WaitForSeconds(5f);
             while (isActiveAndEnabled)
             {
                 yield return wait;

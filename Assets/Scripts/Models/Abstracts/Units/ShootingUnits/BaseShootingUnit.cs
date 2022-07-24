@@ -25,7 +25,7 @@ namespace Models.Abstracts.Units.ShootingUnits
             _unitsInRange.Remove(unit);
         }
 
-        public void AttackNearest()
+        protected void AttackNearest()
         {
             var nearest = (BaseShootingUnit) null;
             var minDist = float.MaxValue;
@@ -45,6 +45,7 @@ namespace Models.Abstracts.Units.ShootingUnits
 
         public void TakeDamage(in DamageData damageData)
         {
+            Health -= damageData.damage;
         }
     }
 }
