@@ -2,7 +2,8 @@
     "name": "Models.Realisations",
     "rootNamespace": "",
     "references": [
-        "GUID:e2c5c4975cada7b48a3d6ea67594efbf"
+        "GUID:e2c5c4975cada7b48a3d6ea67594efbf",
+        "GUID:fe99d762d5247c34db8409260867a16d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
