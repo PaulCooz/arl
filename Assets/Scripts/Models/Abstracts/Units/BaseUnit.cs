@@ -24,7 +24,7 @@ namespace Models.Abstracts.Units
 
         public void Translate(Vector2 delta)
         {
-            _moveDelta = (Time.deltaTime * moveSpeed) * delta;
+            _moveDelta += (Time.deltaTime * moveSpeed) * delta;
         }
 
         private void FixedUpdate()
