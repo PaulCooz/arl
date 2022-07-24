@@ -9,9 +9,17 @@ namespace Models.Abstracts.Guns
         public delegate void AttackAction(in BaseShootingUnit unit);
 
         [SerializeField]
-        protected BaseBullet bullet;
+        private Collider2D ownCollider;
+
+        [SerializeField]
+        private Transform gunBarrel;
         [SerializeField]
         private bool isHasBullet;
+
+        [SerializeField]
+        protected BaseBullet bulletPrefab;
+
+        private Vector2 BarrelPosition => gunBarrel.position;
 
         public event AttackAction OnAttack;
 
@@ -19,7 +27,24 @@ namespace Models.Abstracts.Guns
         {
             OnAttack?.Invoke(nearest);
 
-            if (isHasBullet) nearest.TakeDamage(bullet.damageData);
+            if (isHasBullet) PushBulletTo(nearest.Position);
+        }
+
+        private void PushBulletTo(in Vector2 position)
+        {
+            var bullet = Instantiate(bulletPrefab, transform);
+            var delta = position - BarrelPosition;
+
+            bullet.transform.position = BarrelPosition;
+            bullet.transform.rotation = Quaternion.Euler(0, 0, Angle(-delta));
+
+            bullet.IgnoreCollision(ownCollider);
+            bullet.Push(delta.normalized);
+        }
+
+        private float Angle(in Vector2 delta)
+        {
+            return Mathf.Atan(delta.y / delta.x) * Mathf.Rad2Deg;
         }
     }
 }

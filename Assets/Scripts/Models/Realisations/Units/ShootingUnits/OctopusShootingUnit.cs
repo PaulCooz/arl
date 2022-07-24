@@ -22,6 +22,7 @@ namespace Models.Realisations.Units.ShootingUnits
             while (isActiveAndEnabled)
             {
                 yield return fixedUpdate;
+                if (_player == null) yield break;
 
                 Translate((_player.Position - Position).normalized * moveSpeed);
             }

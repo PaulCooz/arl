@@ -59,7 +59,7 @@ namespace Models.Abstracts.Units.ShootingUnits
             gun.AttackTo(nearest);
         }
 
-        public void TakeDamage(in DamageData damageData)
+        public void TakeDamage(DamageData damageData)
         {
             Health -= damageData.damage;
         }
