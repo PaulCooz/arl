@@ -4,12 +4,15 @@ namespace Models.Abstracts.Units
 {
     public abstract class BaseUnit : MonoBehaviour
     {
+        private Vector2 _moveDelta;
         private int _health;
 
         [SerializeField]
+        private Rigidbody2D unitRigidbody;
+        [SerializeField]
         private int maxHealth;
         [SerializeField]
-        private float moveSpeed;
+        protected float moveSpeed;
 
         protected int Health
         {
@@ -17,11 +20,19 @@ namespace Models.Abstracts.Units
             set => _health = Mathf.Clamp(value, 0, maxHealth);
         }
 
+        public Vector2 Position => unitRigidbody.position;
+
         public void Translate(Vector2 delta)
         {
-            var translation = (Time.deltaTime * moveSpeed) * delta;
+            _moveDelta = (Time.deltaTime * moveSpeed) * delta;
+        }
 
-            transform.Translate(new Vector3(translation.x, translation.y, 0), Space.World);
+        private void FixedUpdate()
+        {
+            if (_moveDelta == Vector2.zero) return;
+
+            unitRigidbody.velocity += _moveDelta;
+            _moveDelta = Vector2.zero;
         }
     }
 }

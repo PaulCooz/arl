@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Models.Abstracts.Guns;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Models.Abstracts.Units.ShootingUnits
 {
@@ -11,18 +12,33 @@ namespace Models.Abstracts.Units.ShootingUnits
         [SerializeField]
         protected BaseGun gun;
 
+        protected event UnityAction<BaseShootingUnit> OnUnitAdd;
+        protected event UnityAction<BaseShootingUnit> OnUnitRemove;
+
+        private void AddUnit(BaseShootingUnit unit)
+        {
+            _unitsInRange.Add(unit);
+            OnUnitAdd?.Invoke(unit);
+        }
+
+        private void RemoveUnit(BaseShootingUnit unit)
+        {
+            _unitsInRange.Remove(unit);
+            OnUnitRemove?.Invoke(unit);
+        }
+
         private void OnTriggerEnter2D(Collider2D collider2d)
         {
             if (!collider2d.TryGetComponent<BaseShootingUnit>(out var unit)) return;
 
-            _unitsInRange.Add(unit);
+            AddUnit(unit);
         }
 
         private void OnTriggerExit2D(Collider2D collider2d)
         {
             if (!collider2d.TryGetComponent<BaseShootingUnit>(out var unit)) return;
 
-            _unitsInRange.Remove(unit);
+            RemoveUnit(unit);
         }
 
         protected void AttackNearest()
