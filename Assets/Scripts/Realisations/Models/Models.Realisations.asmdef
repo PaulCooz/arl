@@ -1,0 +1,17 @@
+{
+    "name": "Models.Realisations",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e2c5c4975cada7b48a3d6ea67594efbf",
+        "GUID:322f7a3b139682d4d96fe3b20638ca5f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
