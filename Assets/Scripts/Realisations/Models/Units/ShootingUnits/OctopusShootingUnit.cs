@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Keys;
-using Models.Abstracts.Units.ShootingUnits;
+using Abstracts.Models.Units.ShootingUnits;
+using Common.Keys;
 using UnityEngine;
 
-namespace Models.Realisations.Units.ShootingUnits
+namespace Realisations.Models.Units.ShootingUnits
 {
     public class OctopusShootingUnit : BaseShootingUnit
     {

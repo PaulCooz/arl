@@ -1,7 +1,7 @@
 ﻿using Input;
 using UnityEngine;
 
-namespace Controllers
+namespace Realisations.Controllers
 {
     public class MainControlsController : MonoBehaviour
     {

@@ -1,6 +1,6 @@
-﻿using Models.Abstracts.Guns.Bullets;
+﻿using Abstracts.Models.Guns.Bullets;
 
-namespace Models.Realisations.Guns.Bullets
+namespace Realisations.Models.Guns.Bullets
 {
     public class Bullet : BaseBullet
     {

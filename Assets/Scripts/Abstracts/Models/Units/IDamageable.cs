@@ -1,6 +1,6 @@
-﻿using Models.Abstracts.Guns;
+﻿using Abstracts.Models.Guns;
 
-namespace Models.Abstracts.Units
+namespace Abstracts.Models.Units
 {
     public interface IDamageable
     {

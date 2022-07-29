@@ -1,8 +1,8 @@
-﻿using Models.Abstracts.Guns;
+﻿using Abstracts.Models.Guns;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Models.Realisations.Guns
+namespace Realisations.Models.Guns
 {
     public class AttackListener : MonoBehaviour, IAttackListener
     {

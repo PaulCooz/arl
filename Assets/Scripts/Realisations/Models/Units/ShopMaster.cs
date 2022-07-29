@@ -1,8 +1,8 @@
-﻿using Keys;
-using Models.Abstracts.Units;
+﻿using Abstracts.Models.Units;
+using Common.Keys;
 using UnityEngine;
 
-namespace Models.Realisations.Units
+namespace Realisations.Models.Units
 {
     public class ShopMaster : BaseUnit
     {

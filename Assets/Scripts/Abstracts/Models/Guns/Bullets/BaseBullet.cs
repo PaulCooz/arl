@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Models.Abstracts.Guns.Bullets
+namespace Abstracts.Models.Guns.Bullets
 {
     public abstract class BaseBullet : MonoBehaviour
     {

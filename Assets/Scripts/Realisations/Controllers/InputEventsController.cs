@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Controllers
+namespace Realisations.Controllers
 {
     public class InputEventsController : MonoBehaviour
     {

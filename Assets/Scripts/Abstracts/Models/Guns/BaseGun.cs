@@ -1,8 +1,8 @@
-﻿using Models.Abstracts.Guns.Bullets;
-using Models.Abstracts.Units.ShootingUnits;
+﻿using Abstracts.Models.Guns.Bullets;
+using Abstracts.Models.Units.ShootingUnits;
 using UnityEngine;
 
-namespace Models.Abstracts.Guns
+namespace Abstracts.Models.Guns
 {
     public abstract class BaseGun : MonoBehaviour
     {

@@ -1,8 +1,8 @@
-﻿using Models.Abstracts.Guns;
-using Models.Abstracts.Units.ShootingUnits;
+﻿using Abstracts.Models.Guns;
+using Abstracts.Models.Units.ShootingUnits;
 using UnityEngine;
 
-namespace Models.Realisations.Guns
+namespace Realisations.Models.Guns
 {
     public class DummyGun : BaseGun
     {

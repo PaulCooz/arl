@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Models.Abstracts.Guns;
+using Abstracts.Models.Guns;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Models.Abstracts.Units.ShootingUnits
+namespace Abstracts.Models.Units.ShootingUnits
 {
     public abstract class BaseShootingUnit : BaseUnit
     {

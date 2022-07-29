@@ -1,4 +1,4 @@
-﻿namespace Keys
+﻿namespace Common.Keys
 {
     public static class Tags
     {

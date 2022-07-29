@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Views.Abstracts.UI.Dialogs
+namespace Abstracts.Views.UI.Dialogs
 {
     public abstract class BaseDialogView : MonoBehaviour
     {

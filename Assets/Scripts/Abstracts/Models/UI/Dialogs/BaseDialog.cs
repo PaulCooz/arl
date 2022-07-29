@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using Views.Abstracts.UI.Dialogs;
+﻿using Abstracts.Views.UI.Dialogs;
+using UnityEngine;
 
-namespace Models.Abstracts.UI.Dialogs
+namespace Abstracts.Models.UI.Dialogs
 {
     public abstract class BaseDialog : MonoBehaviour
     {

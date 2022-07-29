@@ -1,4 +1,4 @@
-﻿namespace Models.Abstracts.Guns
+﻿namespace Abstracts.Models.Guns
 {
     public interface IAttackListener
     {

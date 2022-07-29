@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Models.Abstracts.Guns;
+using Abstracts.Models.Guns;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Models.Abstracts.Units
+namespace Abstracts.Models.Units
 {
     public abstract class BaseUnit : MonoBehaviour
     {

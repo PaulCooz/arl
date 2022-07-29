@@ -1,6 +1,6 @@
-﻿using Models.Abstracts.Guns;
+﻿using Abstracts.Models.Guns;
 
-namespace Models.Realisations.Guns
+namespace Realisations.Models.Guns
 {
     public class PistolGun : BaseGun
     {

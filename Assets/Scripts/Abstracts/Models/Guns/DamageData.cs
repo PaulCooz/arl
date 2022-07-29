@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Models.Abstracts.Guns
+namespace Abstracts.Models.Guns
 {
     [Serializable]
     public struct DamageData

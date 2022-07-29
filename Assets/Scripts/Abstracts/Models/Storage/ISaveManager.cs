@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Models.Abstracts.Storage
+namespace Abstracts.Models.Storage
 {
     public interface ISaveManager
     {
