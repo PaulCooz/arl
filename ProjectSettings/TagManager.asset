@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ShopTrigger
-  - Collider
+  - Enemy
+  - GunTrigger
   layers:
   - Default
   - TransparentFX
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2911439801
     locked: 0
