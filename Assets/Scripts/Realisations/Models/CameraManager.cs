@@ -1,22 +1,18 @@
 using UnityEngine;
 
+// ReSharper disable Unity.InefficientPropertyAccess
+
 namespace Realisations.Models
 {
     public class CameraManager : MonoBehaviour
     {
         [SerializeField]
-        private Transform playerTransform;
+        private Rigidbody2D player;
 
-        public void SyncWithPlayer()
+        private void Update()
         {
-            var cam = transform;
-            var player = playerTransform.transform.position;
-
-            var pos = cam.position;
-            pos.x = player.x;
-            pos.y = player.y;
-
-            cam.position = pos;
+            var playerPos = player.transform.position;
+            transform.position = new Vector3(playerPos.x, playerPos.y, transform.position.z);
         }
     }
 }

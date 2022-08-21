@@ -7,7 +7,7 @@ namespace Realisations.Models.CollisionTriggers
     public class UnitCollisionTrigger : BaseCollisionTrigger
     {
         [SerializeField]
-        private bool isTriggerEnemy;
+        public bool isTriggerEnemy;
 
         protected override bool IsTrigger(in Collider2D other)
         {

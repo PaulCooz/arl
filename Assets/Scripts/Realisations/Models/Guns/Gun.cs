@@ -20,6 +20,8 @@ namespace Realisations.Models.Guns
         private float attackRadius;
         [SerializeField]
         private float delay;
+        [SerializeField]
+        private bool isFromPlayer;
 
         private void OnEnable()
         {
@@ -73,7 +75,7 @@ namespace Realisations.Models.Guns
                 Quaternion.Euler(0, 0, Mathf.Sign(direction.y) * Vector2.Angle(direction, Vector2.right))
             );
 
-            bullet.Push(direction);
+            bullet.Push(direction, isFromPlayer);
         }
 
         private float Distance(in BaseUnit target)

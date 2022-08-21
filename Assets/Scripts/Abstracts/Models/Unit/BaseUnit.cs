@@ -40,6 +40,11 @@ namespace Abstracts.Models.Unit
             _moveDelta += delta;
         }
 
+        public void TakeDamage(in int count)
+        {
+            Health -= count;
+        }
+
         private void FixedUpdate()
         {
             unitRigidbody.velocity = _moveDelta * speed;
