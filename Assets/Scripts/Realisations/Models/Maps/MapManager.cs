@@ -6,7 +6,7 @@ namespace Realisations.Models.Maps
 {
     public class MapManager : MonoBehaviour
     {
-        private MapGenerator mapGenerator;
+        private MapGenerator _mapGenerator;
 
         [SerializeField]
         private MapFiller mapFiller;
@@ -22,10 +22,10 @@ namespace Realisations.Models.Maps
                 array[i, j] = new List<Entities>();
             }
 
-            mapGenerator = new MapGenerator();
+            _mapGenerator = new MapGenerator();
             var roomFiller = new RoomFiller(array);
 
-            mapFiller.Fill(mapGenerator.GetNextMap(array, mapData, roomFiller));
+            mapFiller.Fill(_mapGenerator.GetNextMap(array, mapData, roomFiller));
         }
     }
 }

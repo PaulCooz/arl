@@ -6,74 +6,74 @@ namespace Common.Arrays
     {
         private class Node
         {
-            public readonly Node up;
+            public readonly Node Up;
 
-            public T value;
-            public Node left;
-            public Node right;
+            public T Value;
+            public Node Left;
+            public Node Right;
 
             public Node(in Node up)
             {
-                this.up = up;
+                Up = up;
             }
         }
 
-        private readonly Node root;
+        private readonly Node _root;
 
-        private Node current;
+        private Node _current;
 
-        public T CurrentValue => current.value;
+        public T CurrentValue => _current.Value;
 
         public BinaryTree(in T value)
         {
-            current = new Node(null) {value = value};
-            root = current;
+            _current = new Node(null) {Value = value};
+            _root = _current;
         }
 
         public List<T> GetAllLeaves()
         {
             var res = new List<T>();
-            Detour(root, ref res);
+            Detour(_root, ref res);
 
             return res;
         }
 
         private void Detour(in Node node, ref List<T> leaves)
         {
-            var hasLeft = node.left != null;
-            var hasRight = node.right != null;
+            var hasLeft = node.Left != null;
+            var hasRight = node.Right != null;
 
             if (!hasLeft && !hasRight)
             {
-                leaves.Add(node.value);
+                leaves.Add(node.Value);
                 return;
             }
 
-            if (hasLeft) Detour(node.left, ref leaves);
-            if (hasRight) Detour(node.right, ref leaves);
+            if (hasLeft) Detour(node.Left, ref leaves);
+            if (hasRight) Detour(node.Right, ref leaves);
         }
 
         public void AddNode(in T value, in bool isLeft)
         {
-            var newNode = new Node(current) {value = value};
+            var newNode = new Node(_current) {Value = value};
             if (isLeft)
             {
-                current.left = newNode;
+                _current.Left = newNode;
             }
             else
             {
-                current.right = newNode;
+                _current.Right = newNode;
             }
         }
 
         public void Down(in bool isLeft)
         {
-            current = isLeft ? current.left : current.right;
+            _current = isLeft ? _current.Left : _current.Right;
         }
 
         public void Up()
         {
-            current = current.up;
+            _current = _current.Up;
         }
     }
 }

@@ -7,6 +7,7 @@
         Wall,
         Enemy,
         Bonus,
+        Player,
         Exit
     }
 }

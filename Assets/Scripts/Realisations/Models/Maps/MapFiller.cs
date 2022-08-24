@@ -7,6 +7,14 @@ namespace Realisations.Models.Maps
 {
     public class MapFiller : MonoBehaviour
     {
+        private static readonly Vector3 PositionOffset = new(0.5f, 0.5f, 0);
+
+        [SerializeField]
+        private Transform playerTransform;
+
+        [SerializeField]
+        private Transform enemyPrefab;
+
         [SerializeField]
         private Tile[] floorTiles;
         [SerializeField]
@@ -29,6 +37,17 @@ namespace Realisations.Models.Maps
                 if (map[i, j].Contains(Entities.Wall))
                 {
                     wallsTilemap.SetTile(new Vector3Int(i, j), wallsTiles.Random());
+                }
+
+                if (map[i, j].Contains(Entities.Enemy))
+                {
+                    var enemy = Instantiate(enemyPrefab, new Vector3(i, j, 0) + PositionOffset, Quaternion.identity);
+                    enemy.SetParent(transform);
+                }
+
+                if (map[i, j].Contains(Entities.Player))
+                {
+                    playerTransform.position = new Vector3(i, j, 0) + PositionOffset;
                 }
             }
         }
