@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Abstracts.Models.Maps;
 using Common.Arrays;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Realisations.Models.Maps
 {
@@ -27,7 +28,10 @@ namespace Realisations.Models.Maps
                 roomFiller.Fill(rooms[i], i == 0);
             }
 
-            return new Map(array, mainRoom, data.height, data.width);
+            var map = new Map(array, mainRoom, data.height, data.width);
+            ConnectRooms(ref map, rooms);
+
+            return map;
         }
 
         private void CreateNextRooms(int minX, int maxX, int minY, int maxY)
@@ -60,7 +64,7 @@ namespace Realisations.Models.Maps
                 }
 
                 leftRoom = new Room(midH, room.Width, minX, minX + midH, minY, maxY);
-                rightRoom = new Room(midH, room.Width, minX + midH, maxX, minY, maxY);
+                rightRoom = new Room(midH + (room.Height & 1), room.Width, minX + midH, maxX, minY, maxY);
             }
             else
             {
@@ -73,10 +77,101 @@ namespace Realisations.Models.Maps
                 }
 
                 leftRoom = new Room(room.Height, midW, minX, maxX, minY, minY + midW);
-                rightRoom = new Room(room.Height, midW, minX, maxX, minY + midW, maxY);
+                rightRoom = new Room(room.Height, midW + (room.Width & 1), minX, maxX, minY + midW, maxY);
             }
 
             return true;
+        }
+
+        private void ConnectRooms(ref Map map, in List<Room> rooms)
+        {
+            var connected = new bool[rooms.Count, rooms.Count];
+            for (var i = 0; i < rooms.Count; i++)
+            for (var j = 0; j < rooms.Count; j++)
+            {
+                connected[i, j] = i == j;
+            }
+
+            for (var i = 0; i < rooms.Count; i++)
+            for (var j = 0; j < rooms.Count; j++)
+            {
+                if (connected[i, j]) continue;
+
+                var leftTopI = rooms[i].LeftTop;
+                var leftTopJ = rooms[j].LeftTop;
+                var rightBottomI = rooms[i].RightBottom;
+                var rightBottomJ = rooms[j].RightBottom;
+
+                var minCommonX = Mathf.Max(leftTopI.x, leftTopJ.x) + 1;
+                var maxCommonX = Mathf.Min(rightBottomI.x, rightBottomJ.x) - 1;
+                var minCommonY = Mathf.Max(leftTopI.y, leftTopJ.y) + 1;
+                var maxCommonY = Mathf.Min(rightBottomI.y, rightBottomJ.y) - 1;
+
+                if (minCommonX < maxCommonX)
+                {
+                    for (var h = minCommonX; h < maxCommonX; h++)
+                    {
+                        if (!CanDoRow(h, map, rooms[i], rooms[j])) continue;
+
+                        DoRow(h, map, rooms[i], rooms[j]);
+                        connected[i, j] = connected[j, i] = true;
+                        break;
+                    }
+                }
+                else if (minCommonY < maxCommonY)
+                {
+                    for (var w = minCommonY; w < maxCommonY; w++)
+                    {
+                        if (!CanDoColumn(w, map, rooms[i], rooms[j])) continue;
+
+                        DoColumn(w, map, rooms[i], rooms[j]);
+                        connected[i, j] = connected[j, i] = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private bool CanDoRow(in int h, in Map map, Room roomA, Room roomB)
+        {
+            if (roomA.RightBottom.y >= roomB.LeftTop.y) (roomA, roomB) = (roomB, roomA);
+            for (var w = roomA.RightBottom.y + 1; w < roomB.LeftTop.y - 1; w++)
+            {
+                if (map[h, w].Contains(Entities.Wall)) return false;
+            }
+
+            return true;
+        }
+
+        private void DoRow(in int h, in Map map, Room roomA, Room roomB)
+        {
+            if (roomA.RightBottom.y > roomB.LeftTop.y) (roomA, roomB) = (roomB, roomA);
+            for (var w = roomA.RightBottom.y - 1; w <= roomB.LeftTop.y; w++)
+            {
+                if (map[h, w].Contains(Entities.Wall)) map[h, w].Remove(Entities.Wall);
+                map[h, w].Add(Entities.Floor);
+            }
+        }
+
+        private bool CanDoColumn(in int w, in Map map, Room roomA, Room roomB)
+        {
+            if (roomA.RightBottom.x > roomB.LeftTop.x) (roomA, roomB) = (roomB, roomA);
+            for (var h = roomA.RightBottom.x + 1; h < roomB.LeftTop.x - 1; h++)
+            {
+                if (map[h, w].Contains(Entities.Wall)) return false;
+            }
+
+            return true;
+        }
+
+        private void DoColumn(in int w, in Map map, Room roomA, Room roomB)
+        {
+            if (roomA.RightBottom.x > roomB.LeftTop.x) (roomA, roomB) = (roomB, roomA);
+            for (var h = roomA.RightBottom.x - 1; h <= roomB.LeftTop.x; h++)
+            {
+                if (map[h, w].Contains(Entities.Wall)) map[h, w].Remove(Entities.Wall);
+                map[h, w].Add(Entities.Floor);
+            }
         }
     }
 }

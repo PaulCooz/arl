@@ -30,7 +30,7 @@ namespace Realisations.Models.Maps
 
         private bool IsBorder(in Room room, in int i, in int j)
         {
-            return i == room.LeftTop.x || i == room.RightBottom.x - 1 || j == room.LeftTop.x || j == room.RightBottom.y - 1;
+            return i == room.LeftTop.x || i == room.RightBottom.x - 1 || j == room.LeftTop.y || j == room.RightBottom.y - 1;
         }
     }
 }
