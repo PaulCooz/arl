@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 931391869}
   - component: {fileID: 931391868}
   - component: {fileID: 931391867}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ MonoBehaviour:
   gunBarrel: {fileID: 931391866}
   attackRadius: 2.5
   delay: 1.2
-  isFromPlayer: 0
+  isFromPlayer: 1
 --- !u!114 &931391868
 MonoBehaviour:
   m_ObjectHideFlags: 0
