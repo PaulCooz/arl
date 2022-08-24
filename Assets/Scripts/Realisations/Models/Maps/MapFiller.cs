@@ -41,15 +41,20 @@ namespace Realisations.Models.Maps
 
                 if (map[i, j].Contains(Entities.Enemy))
                 {
-                    var enemy = Instantiate(enemyPrefab, new Vector3(i, j, 0) + PositionOffset, Quaternion.identity);
+                    var enemy = Instantiate(enemyPrefab, GetPosition(i, j), Quaternion.identity);
                     enemy.SetParent(transform);
                 }
 
                 if (map[i, j].Contains(Entities.Player))
                 {
-                    playerTransform.position = new Vector3(i, j, 0) + PositionOffset;
+                    playerTransform.position = GetPosition(i, j);
                 }
             }
+        }
+
+        private Vector3 GetPosition(in int i, in int j)
+        {
+            return new Vector3(i, j, 0) + PositionOffset;
         }
     }
 }
