@@ -49,7 +49,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 4
 --- !u!114 &7946169029218067336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   ownUnit: {fileID: 7946169030449215716}
   unitCollisionTrigger: {fileID: 7946169029218067336}
   gunBarrel: {fileID: 7946169029218067342}
-  attackRadius: 2.5
+  attackRadius: 4
   delay: 1.2
   isFromPlayer: 0
 --- !u!1 &7946169029389667803

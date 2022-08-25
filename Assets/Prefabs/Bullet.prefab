@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionTrigger: {fileID: 8548690665993552674}
   bulletRigidbody: {fileID: 2795096508447178059}
-  force: 10
+  force: 3
 --- !u!1 &4330200466516338192
 GameObject:
   m_ObjectHideFlags: 0
