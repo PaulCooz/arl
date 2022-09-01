@@ -20,6 +20,8 @@ namespace Realisations.Models.Maps
         [SerializeField]
         private Tile[] wallsTiles;
         [SerializeField]
+        private Tile[] exitTiles;
+        [SerializeField]
         private Tilemap floorTilemap;
         [SerializeField]
         private Tilemap wallsTilemap;
@@ -48,6 +50,11 @@ namespace Realisations.Models.Maps
                 if (map[i, j].Contains(Entities.Player))
                 {
                     playerTransform.position = GetPosition(i, j);
+                }
+
+                if (map[i, j].Contains(Entities.Exit))
+                {
+                    floorTilemap.SetTile(new Vector3Int(i, j), exitTiles.Random());
                 }
             }
         }

@@ -210,6 +210,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fe599bbb3eb6f24d8ce5789260755df, type: 2}
   wallsTiles:
   - {fileID: 11400000, guid: 26bcf4f15c6fe3745af87f182e781f01, type: 2}
+  exitTiles:
+  - {fileID: 11400000, guid: aaed9ec32fe1bd643ae4db2694239e94, type: 2}
   floorTilemap: {fileID: 1798997982}
   wallsTilemap: {fileID: 1841617313}
 --- !u!1 &236966667

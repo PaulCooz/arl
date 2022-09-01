@@ -13,13 +13,14 @@ namespace Realisations.Models.Maps
             _array = array;
         }
 
-        public void Fill(in Room room, in bool isFirst)
+        public void Fill(in Room room, in bool isFirst, in bool isLast)
         {
             var setPlayer = false;
+            var setExit = false;
             for (var i = room.LeftTop.x; i < room.RightBottom.x; i++)
             for (var j = room.LeftTop.y; j < room.RightBottom.y; j++)
             {
-                if (IsBorder(room, i, j))
+                if (room.IsBorder(i, j))
                 {
                     _array[i, j].Add(Entities.Wall);
                 }
@@ -33,6 +34,12 @@ namespace Realisations.Models.Maps
                         _array[i, j].Add(Entities.Player);
                     }
 
+                    if (isLast && !setExit && !room.IsBorder(i, j, 1))
+                    {
+                        setExit = true;
+                        _array[i, j].Add(Entities.Exit);
+                    }
+
                     if (!isFirst && Random.Range(0, 100) < 10)
                     {
                         _array[i, j].Add(Entities.Enemy);
@@ -41,9 +48,5 @@ namespace Realisations.Models.Maps
             }
         }
 
-        private bool IsBorder(in Room room, in int i, in int j)
-        {
-            return i == room.LeftTop.x || i == room.RightBottom.x - 1 || j == room.LeftTop.y || j == room.RightBottom.y - 1;
-        }
     }
 }
