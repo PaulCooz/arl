@@ -8,13 +8,22 @@ namespace Realisations.Models.Maps
     {
         private MapGenerator _mapGenerator;
 
+        private bool _isFirst = true;
+
         [SerializeField]
-        private MapFiller mapFiller;
+        private MapDrawer mapDrawer;
         [SerializeField]
         private MapData mapData;
 
         private void Start()
         {
+            NextLevel();
+        }
+
+        public void NextLevel()
+        {
+            if (!_isFirst) mapDrawer.Clear();
+
             var array = new List<Entities>[mapData.height, mapData.width];
             for (var i = 0; i < mapData.height; i++)
             for (var j = 0; j < mapData.width; j++)
@@ -25,7 +34,9 @@ namespace Realisations.Models.Maps
             _mapGenerator = new MapGenerator();
             var roomFiller = new RoomFiller(array);
 
-            mapFiller.Fill(_mapGenerator.GetNextMap(array, mapData, roomFiller));
+            mapDrawer.Draw(_mapGenerator.GetNextMap(array, mapData, roomFiller));
+
+            _isFirst = false;
         }
     }
 }
