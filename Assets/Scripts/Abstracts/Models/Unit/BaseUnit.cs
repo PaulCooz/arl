@@ -1,5 +1,6 @@
 ﻿using Common.Editor;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Abstracts.Models.Unit
 {
@@ -16,6 +17,9 @@ namespace Abstracts.Models.Unit
         private float speed;
         [SerializeField]
         private int maxHealth;
+
+        [SerializeField]
+        private UnityEvent onDie;
 
         public Vector2 Position => unitRigidbody.position;
 
@@ -53,7 +57,8 @@ namespace Abstracts.Models.Unit
 
         private void Die()
         {
-            Debug.Log($"{this} is die!");
+            onDie.Invoke();
+            Destroy(transform.parent.gameObject);
         }
     }
 }

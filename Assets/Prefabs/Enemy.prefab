@@ -385,6 +385,9 @@ MonoBehaviour:
   unitRigidbody: {fileID: 7946169029389667797}
   speed: 10
   maxHealth: 5
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7946169030449215719
 MonoBehaviour:
   m_ObjectHideFlags: 0
