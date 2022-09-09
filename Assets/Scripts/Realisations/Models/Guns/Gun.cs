@@ -3,6 +3,7 @@ using Abstracts.Models.Unit;
 using Common.Arrays;
 using Realisations.Models.CollisionTriggers;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Realisations.Models.Guns
 {
@@ -23,6 +24,9 @@ namespace Realisations.Models.Guns
         [SerializeField]
         private bool isFromPlayer;
 
+        [SerializeField]
+        private UnityEvent<float> reloadStatus;
+
         private void OnEnable()
         {
             StartCoroutine(ShootInvoking());
@@ -32,7 +36,14 @@ namespace Realisations.Models.Guns
         {
             while (isActiveAndEnabled)
             {
-                yield return new WaitForSeconds(delay);
+                var time = 0f;
+                while (time < delay)
+                {
+                    time += Time.deltaTime;
+                    reloadStatus.Invoke(time / delay);
+
+                    yield return null;
+                }
 
                 ShootToNearest();
             }
@@ -50,7 +61,8 @@ namespace Realisations.Models.Guns
             {
                 var distance = Distance(target);
                 var position = gunBarrel.position;
-                var hit = Physics2D.Raycast(
+                var hit = Physics2D.Raycast
+                (
                     position,
                     target.transform.position - position,
                     attackRadius
@@ -69,7 +81,8 @@ namespace Realisations.Models.Guns
         private void ShootTo(in BaseUnit enemy)
         {
             var direction = (enemy.Position - ownUnit.Position).normalized;
-            var bullet = Instantiate(
+            var bullet = Instantiate
+            (
                 bulletPrefab,
                 gunBarrel.position,
                 Quaternion.Euler(0, 0, Mathf.Sign(direction.y) * Vector2.Angle(direction, Vector2.right))
@@ -83,7 +96,6 @@ namespace Realisations.Models.Guns
             return Vector2.Distance(target.Position, ownUnit.Position);
         }
 
-#if UNITY_EDITOR
         public void OnBeforeSerialize()
         {
             if (unitCollisionTrigger == null || unitCollisionTrigger.Collider == null) return;
@@ -91,6 +103,5 @@ namespace Realisations.Models.Guns
         }
 
         public void OnAfterDeserialize() { }
-#endif
     }
 }

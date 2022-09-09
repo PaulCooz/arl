@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Abstracts.Models.Unit
 {
-    public abstract class BaseUnit : MonoBehaviour
+    public abstract class BaseUnit : MonoBehaviour, ISerializationCallbackReceiver
     {
         private Vector2 _moveDelta;
 
@@ -19,6 +19,8 @@ namespace Abstracts.Models.Unit
         private int maxHealth;
 
         [SerializeField]
+        private UnityEvent<int, int> onHealthChange;
+        [SerializeField]
         private UnityEvent onDie;
 
         public Vector2 Position => unitRigidbody.position;
@@ -30,7 +32,14 @@ namespace Abstracts.Models.Unit
             {
                 health = Mathf.Clamp(value, 0, maxHealth);
 
-                if (health <= 0) Die();
+                if (health <= 0)
+                {
+                    Die();
+                }
+                else
+                {
+                    onHealthChange.Invoke(health, maxHealth);
+                }
             }
         }
 
@@ -60,5 +69,12 @@ namespace Abstracts.Models.Unit
             onDie.Invoke();
             Destroy(transform.parent.gameObject);
         }
+
+        public void OnBeforeSerialize()
+        {
+            onHealthChange.Invoke(0, maxHealth);
+        }
+
+        public void OnAfterDeserialize() { }
     }
 }
