@@ -432,7 +432,7 @@ MonoBehaviour:
   unitCollisionTrigger: {fileID: 931391868}
   gunBarrel: {fileID: 931391866}
   attackRadius: 4
-  delay: 1.2
+  delay: 0.8
   isFromPlayer: 1
 --- !u!114 &931391868
 MonoBehaviour:
