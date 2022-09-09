@@ -11,6 +11,9 @@ namespace Realisations.Controllers
         private Vector2? _startPosition;
 
         [SerializeField]
+        private float maxDistance;
+
+        [SerializeField]
         private InputEventsController inputEvents;
         [SerializeField]
         private UnityEvent<Vector2> onPointChange;
@@ -24,12 +27,12 @@ namespace Realisations.Controllers
         {
             _pointer = eventData;
             _startPosition = eventData.position;
+
+            SetDownPosition();
         }
 
-        public void Update()
+        private void SetDownPosition()
         {
-            if (!_startPosition.HasValue) return;
-
             var rect = _rectTransform.rect;
             RectTransformUtility.ScreenPointToLocalPointInRectangle
             (
@@ -38,9 +41,17 @@ namespace Realisations.Controllers
                 _pointer.enterEventCamera,
                 out var localPoint
             );
-            onPointChange.Invoke(new Vector2(-localPoint.x / rect.height, -localPoint.y / rect.width));
 
-            inputEvents.Move((_pointer.position - _startPosition.Value).normalized);
+            onPointChange.Invoke(new Vector2(-localPoint.x / rect.height, -localPoint.y / rect.width));
+        }
+
+        public void Update()
+        {
+            if (!_startPosition.HasValue) return;
+
+            var distance = Vector2.Distance(_pointer.position, _startPosition.Value);
+            var strength = Mathf.Clamp(distance, 0f, maxDistance) / maxDistance;
+            inputEvents.Move(strength * (_pointer.position - _startPosition.Value).normalized);
         }
 
         public void OnPointerUp(PointerEventData eventData)

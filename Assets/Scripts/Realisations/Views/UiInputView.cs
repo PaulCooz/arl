@@ -10,6 +10,11 @@ namespace Realisations.Views
         [SerializeField]
         private Image image;
 
+        private void Awake()
+        {
+            image.material = Instantiate(image.material);
+        }
+
         public void UpdatePosition(Vector2 pos)
         {
             image.material.SetVector(Offset, pos);

@@ -967,6 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d3e42cd675485a9572457e3e2520c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 255
   inputEvents: {fileID: 434932317}
   onPointChange:
     m_PersistentCalls:
