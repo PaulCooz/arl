@@ -16,7 +16,9 @@ namespace Realisations.Controllers
         [SerializeField]
         private InputEventsController inputEvents;
         [SerializeField]
-        private UnityEvent<Vector2> onPointChange;
+        private UnityEvent<Vector2> onPointDown;
+        [SerializeField]
+        private UnityEvent<Vector2, float> onPointChange;
 
         private void Start()
         {
@@ -42,7 +44,7 @@ namespace Realisations.Controllers
                 out var localPoint
             );
 
-            onPointChange.Invoke(new Vector2(-localPoint.x / rect.height, -localPoint.y / rect.width));
+            onPointDown.Invoke(new Vector2(-localPoint.x / rect.height, -localPoint.y / rect.width));
         }
 
         public void Update()
@@ -51,7 +53,10 @@ namespace Realisations.Controllers
 
             var distance = Vector2.Distance(_pointer.position, _startPosition.Value);
             var strength = Mathf.Clamp(distance, 0f, maxDistance) / maxDistance;
-            inputEvents.Move(strength * (_pointer.position - _startPosition.Value).normalized);
+            var direction = (_pointer.position - _startPosition.Value).normalized;
+
+            onPointChange.Invoke(direction, strength);
+            inputEvents.Move(strength * direction);
         }
 
         public void OnPointerUp(PointerEventData eventData)
