@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Abstracts.Models.Maps;
+﻿using Abstracts.Models.Maps;
 using Common.Arrays;
 using Realisations.Models.CollisionTriggers;
 using UnityEngine;
@@ -10,8 +9,6 @@ namespace Realisations.Models.Maps
     public class MapDrawer : MonoBehaviour
     {
         private static readonly Vector3 PositionOffset = new(0.5f, 0.5f, 0);
-
-        private readonly Queue<Component> _objects = new();
 
         [SerializeField]
         private Transform playerTransform;
@@ -53,8 +50,6 @@ namespace Realisations.Models.Maps
                 {
                     var enemy = Instantiate(enemyPrefab, GetPosition(i, j), Quaternion.identity);
                     enemy.SetParent(transform);
-
-                    _objects.Enqueue(enemy);
                 }
 
                 if (map[i, j].Contains(Entities.Player))
@@ -68,8 +63,6 @@ namespace Realisations.Models.Maps
                     exit.Init(gameMaster);
                     exit.transform.SetParent(transform);
 
-                    _objects.Enqueue(exit);
-
                     floorTilemap.SetTile(new Vector3Int(i, j), exitTiles.Random());
                 }
             }
@@ -79,11 +72,6 @@ namespace Realisations.Models.Maps
         {
             floorTilemap.ClearAllTiles();
             wallsTilemap.ClearAllTiles();
-
-            while (!_objects.IsEmpty())
-            {
-                Destroy(_objects.Dequeue().gameObject);
-            }
         }
 
         private Vector3 GetPosition(in int i, in int j)

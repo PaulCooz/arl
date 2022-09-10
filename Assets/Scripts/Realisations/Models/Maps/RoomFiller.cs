@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Abstracts.Models.Maps;
-using UnityEngine;
+using Common;
 
 namespace Realisations.Models.Maps
 {
@@ -13,7 +13,7 @@ namespace Realisations.Models.Maps
             _array = array;
         }
 
-        public void Fill(in Room room, in bool isFirst, in bool isLast)
+        public void Fill(in Room room, in bool isFirst, in bool isLast, in System.Random random)
         {
             var setPlayer = false;
             var setExit = false;
@@ -40,13 +40,12 @@ namespace Realisations.Models.Maps
                         _array[i, j].Add(Entities.Exit);
                     }
 
-                    if (!isFirst && Random.Range(0, 100) < 10)
+                    if (!isFirst && random.Chance(10))
                     {
                         _array[i, j].Add(Entities.Enemy);
                     }
                 }
             }
         }
-
     }
 }

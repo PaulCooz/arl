@@ -25,7 +25,7 @@ namespace Realisations.Models.Maps
             var rooms = _roomTree.GetAllLeaves();
             for (var i = 0; i < rooms.Count; i++)
             {
-                roomFiller.Fill(rooms[i], i == 0, i == rooms.Count - 1);
+                roomFiller.Fill(rooms[i], i == 0, i == rooms.Count - 1, _random);
             }
 
             var map = new Map(array, mainRoom, _data.height, _data.width);

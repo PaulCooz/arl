@@ -15,8 +15,16 @@ namespace Realisations.Models.CollisionTriggers
 
         protected override bool IsTrigger(in Collider2D other)
         {
+            if (!enabled) return false;
+
             var isPlayer = other.CompareTag(Tags.Player);
-            if (isPlayer) _gameMaster.NextLevel();
+            if (isPlayer)
+            {
+                _gameMaster.NextLevel();
+
+                enabled = false;
+                Destroy(gameObject);
+            }
 
             return isPlayer;
         }

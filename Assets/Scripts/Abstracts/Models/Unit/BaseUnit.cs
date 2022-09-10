@@ -43,7 +43,7 @@ namespace Abstracts.Models.Unit
             }
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             Health = maxHealth;
         }
@@ -64,7 +64,7 @@ namespace Abstracts.Models.Unit
             _moveDelta.x = _moveDelta.y = 0;
         }
 
-        private void Die()
+        protected virtual void Die()
         {
             onDie.Invoke();
             Destroy(transform.parent.gameObject);

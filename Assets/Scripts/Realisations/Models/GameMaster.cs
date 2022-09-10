@@ -7,8 +7,11 @@ namespace Realisations.Models
     {
         public UnityEvent onNextLevel;
 
+        public static event UnityAction OnLevelDone;
+
         public void NextLevel()
         {
+            OnLevelDone?.Invoke();
             onNextLevel.Invoke();
         }
     }

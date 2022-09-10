@@ -2,6 +2,6 @@
 {
     public interface IRoomFiller
     {
-        void Fill(in Room room, in bool isFirst, in bool isLast);
+        void Fill(in Room room, in bool isFirst, in bool isLast, in System.Random random);
     }
 }
