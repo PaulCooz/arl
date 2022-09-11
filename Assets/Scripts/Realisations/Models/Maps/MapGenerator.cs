@@ -98,9 +98,11 @@ namespace Realisations.Models.Maps
             for (var i = 0; i < rooms.Count; i++)
             for (var j = i + 1; j < rooms.Count; j++)
             {
-                if ((rooms[i].IsConnected(rooms[j]) && _random.Chance(50)) ||
-                    ((i == start || i == exit) && rooms[i].IsImpasse) ||
-                    ((j == start || j == exit) && rooms[j].IsImpasse)) continue;
+                var isTooMuchConnected = rooms[i].IsConnected(rooms[j]) && _random.Chance(50);
+                var isHaveOneWayI = (i == start || i == exit) && rooms[i].IsImpasse;
+                var isHaveOneWayJ = (j == start || j == exit) && rooms[j].IsImpasse;
+
+                if (isTooMuchConnected || isHaveOneWayI || isHaveOneWayJ) continue;
 
                 var leftTopI = rooms[i].LeftTop;
                 var leftTopJ = rooms[j].LeftTop;
