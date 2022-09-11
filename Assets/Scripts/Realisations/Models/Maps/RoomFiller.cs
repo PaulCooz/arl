@@ -13,7 +13,7 @@ namespace Realisations.Models.Maps
             _array = array;
         }
 
-        public void Fill(in Room room, in bool isFirst, in bool isLast, in System.Random random)
+        public void Fill(in Room room, in bool isStart, in bool isExit, in System.Random random)
         {
             var setPlayer = false;
             var setExit = false;
@@ -28,19 +28,19 @@ namespace Realisations.Models.Maps
                 {
                     _array[i, j].Add(Entities.Floor);
 
-                    if (isFirst && !setPlayer)
+                    if (isStart && !setPlayer)
                     {
                         setPlayer = true;
                         _array[i, j].Add(Entities.Player);
                     }
 
-                    if (isLast && !setExit && !room.IsBorder(i, j, 1))
+                    if (isExit && !setExit && !room.IsBorder(i, j, 1))
                     {
                         setExit = true;
                         _array[i, j].Add(Entities.Exit);
                     }
 
-                    if (!isFirst && random.Chance(10))
+                    if (!isStart && random.Chance(10))
                     {
                         _array[i, j].Add(Entities.Enemy);
                     }

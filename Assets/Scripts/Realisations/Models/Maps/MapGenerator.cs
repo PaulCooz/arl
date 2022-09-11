@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Abstracts.Models.Maps;
+using Common;
 using Common.Arrays;
 using UnityEngine;
 using Random = System.Random;
@@ -23,15 +24,24 @@ namespace Realisations.Models.Maps
             CreateNextRooms(0, mainRoom.Height, 0, mainRoom.Width);
 
             var rooms = _roomTree.GetAllLeaves();
-            for (var i = 0; i < rooms.Count; i++)
-            {
-                roomFiller.Fill(rooms[i], i == 0, i == rooms.Count - 1, _random);
-            }
+            var start = _random.Next(0, rooms.Count);
+            var exit = _random.Next(0, rooms.Count);
+            if (start == exit) exit = (exit + 1) % rooms.Count;
+
+            FillRooms(roomFiller, rooms, start, exit);
 
             var map = new Map(array, mainRoom, _data.height, _data.width);
-            ConnectRooms(ref map, rooms);
+            ConnectRooms(ref map, rooms, start, exit);
 
             return map;
+        }
+
+        private void FillRooms(in IRoomFiller roomFiller, in IReadOnlyList<Room> rooms, in int start, in int exit)
+        {
+            for (var i = 0; i < rooms.Count; i++)
+            {
+                roomFiller.Fill(rooms[i], i == start, i == exit, _random);
+            }
         }
 
         private void CreateNextRooms(int minX, int maxX, int minY, int maxY)
@@ -83,19 +93,14 @@ namespace Realisations.Models.Maps
             return true;
         }
 
-        private void ConnectRooms(ref Map map, in List<Room> rooms)
+        private void ConnectRooms(ref Map map, in List<Room> rooms, in int start, in int exit)
         {
-            var connected = new bool[rooms.Count, rooms.Count];
             for (var i = 0; i < rooms.Count; i++)
-            for (var j = 0; j < rooms.Count; j++)
+            for (var j = i + 1; j < rooms.Count; j++)
             {
-                connected[i, j] = i == j;
-            }
-
-            for (var i = 0; i < rooms.Count; i++)
-            for (var j = 0; j < rooms.Count; j++)
-            {
-                if (connected[i, j]) continue;
+                if ((rooms[i].IsConnected(rooms[j]) && _random.Chance(50)) ||
+                    ((i == start || i == exit) && rooms[i].IsImpasse) ||
+                    ((j == start || j == exit) && rooms[j].IsImpasse)) continue;
 
                 var leftTopI = rooms[i].LeftTop;
                 var leftTopJ = rooms[j].LeftTop;
@@ -109,24 +114,38 @@ namespace Realisations.Models.Maps
 
                 if (minCommonX < maxCommonX)
                 {
+                    var row = (int?) null;
                     for (var h = minCommonX; h < maxCommonX; h++)
                     {
-                        if (!CanDoRow(h, map, rooms[i], rooms[j])) continue;
+                        if (CanDoRow(h, map, rooms[i], rooms[j]) && (!row.HasValue || !_random.Chance(50)))
+                        {
+                            row = h;
+                        }
+                    }
 
-                        DoRow(h, map, rooms[i], rooms[j]);
-                        connected[i, j] = connected[j, i] = true;
-                        break;
+                    if (row.HasValue)
+                    {
+                        DoRow(row.Value, map, rooms[i], rooms[j]);
+                        rooms[i].Neighbours.Add(rooms[j]);
+                        rooms[j].Neighbours.Add(rooms[i]);
                     }
                 }
                 else if (minCommonY < maxCommonY)
                 {
+                    var column = (int?) null;
                     for (var w = minCommonY; w < maxCommonY; w++)
                     {
-                        if (!CanDoColumn(w, map, rooms[i], rooms[j])) continue;
+                        if (CanDoColumn(w, map, rooms[i], rooms[j]) && (!column.HasValue || !_random.Chance(50)))
+                        {
+                            column = w;
+                        }
+                    }
 
-                        DoColumn(w, map, rooms[i], rooms[j]);
-                        connected[i, j] = connected[j, i] = true;
-                        break;
+                    if (column.HasValue)
+                    {
+                        DoColumn(column.Value, map, rooms[i], rooms[j]);
+                        rooms[i].Neighbours.Add(rooms[j]);
+                        rooms[j].Neighbours.Add(rooms[i]);
                     }
                 }
             }
@@ -135,7 +154,7 @@ namespace Realisations.Models.Maps
         private bool CanDoRow(in int h, in Map map, Room roomA, Room roomB)
         {
             if (roomA.RightBottom.y >= roomB.LeftTop.y) (roomA, roomB) = (roomB, roomA);
-            for (var w = roomA.RightBottom.y + 1; w < roomB.LeftTop.y - 1; w++)
+            for (var w = roomA.RightBottom.y; w < roomB.LeftTop.y; w++)
             {
                 if (map[h, w].Contains(Entities.Wall)) return false;
             }
@@ -156,7 +175,7 @@ namespace Realisations.Models.Maps
         private bool CanDoColumn(in int w, in Map map, Room roomA, Room roomB)
         {
             if (roomA.RightBottom.x > roomB.LeftTop.x) (roomA, roomB) = (roomB, roomA);
-            for (var h = roomA.RightBottom.x + 1; h < roomB.LeftTop.x - 1; h++)
+            for (var h = roomA.RightBottom.x; h < roomB.LeftTop.x; h++)
             {
                 if (map[h, w].Contains(Entities.Wall)) return false;
             }

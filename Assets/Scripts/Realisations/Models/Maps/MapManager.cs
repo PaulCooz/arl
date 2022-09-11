@@ -23,6 +23,7 @@ namespace Realisations.Models.Maps
         public void NextLevel()
         {
             if (!_isFirst) mapDrawer.Clear();
+            mapData.seed++;
 
             var array = new List<Entities>[mapData.height, mapData.width];
             for (var i = 0; i < mapData.height; i++)
