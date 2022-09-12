@@ -34,6 +34,8 @@ namespace Realisations.Models.Guns
 
         private IEnumerator<WaitForSeconds> ShootInvoking()
         {
+            yield return new WaitForSeconds(Random.Range(0f, delay));
+
             while (isActiveAndEnabled)
             {
                 var time = 0f;

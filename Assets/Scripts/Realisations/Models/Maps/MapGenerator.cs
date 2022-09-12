@@ -48,7 +48,7 @@ namespace Realisations.Models.Maps
         {
             var room = _roomTree.CurrentValue;
             var isDivide = DivideRoom(minX, maxX, minY, maxY, room, out var leftRoom, out var rightRoom);
-            var stopDividing = _roomTree.Count > 3 && _random.Chance(20);
+            var stopDividing = _roomTree.Count > 3 && _random.Chance(25);
             if (!isDivide || stopDividing) return;
 
             _roomTree.AddNode(leftRoom, true);
