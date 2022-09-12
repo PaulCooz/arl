@@ -47,7 +47,9 @@ namespace Realisations.Models.Maps
         private void CreateNextRooms(int minX, int maxX, int minY, int maxY)
         {
             var room = _roomTree.CurrentValue;
-            if (!DivideRoom(minX, maxX, minY, maxY, room, out var leftRoom, out var rightRoom)) return;
+            var isDivide = DivideRoom(minX, maxX, minY, maxY, room, out var leftRoom, out var rightRoom);
+            var stopDividing = _roomTree.Count > 3 && _random.Chance(20);
+            if (!isDivide || stopDividing) return;
 
             _roomTree.AddNode(leftRoom, true);
             _roomTree.Down(true);
