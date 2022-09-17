@@ -11,24 +11,32 @@ namespace Realisations.Views
         private static readonly int Direction = Shader.PropertyToID("_Direction");
 
         private Vector2 _downPos;
+        private Material _material;
 
         [SerializeField]
         private Image image;
 
+        public bool IsShowing
+        {
+            get => image.enabled;
+            set => image.enabled = value;
+        }
+
         private void Awake()
         {
-            image.material = Instantiate(image.material);
+            _material = Instantiate(image.material);
+            image.material = _material;
         }
 
         public void SetPosition(Vector2 pos)
         {
             _downPos = pos;
-            image.material.SetVector(Offset, pos);
+            _material.SetVector(Offset, pos);
         }
 
         public void UpdateDirection(Vector2 pos, float strength)
         {
-            image.material.SetVector(Direction, _downPos - LengthScale * pos * strength);
+            _material.SetVector(Direction, _downPos - LengthScale * pos * strength);
         }
     }
 }

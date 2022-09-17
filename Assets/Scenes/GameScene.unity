@@ -885,7 +885,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109002537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1254,6 +1254,21 @@ MonoBehaviour:
       - m_Target: {fileID: 1109002541}
         m_TargetAssemblyTypeName: Realisations.Views.UiInputView, Realisations.Views
         m_MethodName: UpdateDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  changeEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109002541}
+        m_TargetAssemblyTypeName: Realisations.Views.UiInputView, Realisations.Views
+        m_MethodName: set_IsShowing
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1777,7 +1792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133f6154f3c147ec8cc2acb4d1a423a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunReload: {fileID: 0}
   healthText: {fileID: 24036920}
 --- !u!1 &1949221674
 GameObject:
@@ -1939,7 +1953,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
 --- !u!1 &2079784872
 GameObject:
   m_ObjectHideFlags: 0

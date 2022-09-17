@@ -19,6 +19,8 @@ namespace Realisations.Controllers
         private UnityEvent<Vector2> onPointDown;
         [SerializeField]
         private UnityEvent<Vector2, float> onPointChange;
+        [SerializeField]
+        private UnityEvent<bool> changeEnable;
 
         private void Start()
         {
@@ -29,6 +31,7 @@ namespace Realisations.Controllers
         {
             _pointer = eventData;
             _startPosition = eventData.position;
+            changeEnable.Invoke(true);
 
             SetDownPosition();
         }
@@ -63,6 +66,7 @@ namespace Realisations.Controllers
         {
             _pointer = null;
             _startPosition = null;
+            changeEnable.Invoke(false);
         }
     }
 }
