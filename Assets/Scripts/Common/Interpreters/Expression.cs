@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Common.Interpreters
@@ -61,37 +59,20 @@ namespace Common.Interpreters
     {
         private static readonly Regex BooleanTruePattern = new("^(1|true|t|yes|y|on)$", RegexOptions.IgnoreCase);
 
+        public bool Value => BooleanTruePattern.IsMatch(StringValue);
+
         public BooleanExpression(bool value) : base(value.ToString()) { }
         public BooleanExpression(string value) : base(BooleanTruePattern.IsMatch(value).ToString()) { }
     }
 
     public class BinaryExpression : Expression
     {
-        public readonly Expression Expression;
+        public BinaryExpression(in Core.Token token, in Expression left, in Expression right)
+            : base(GetExpression(token, left, right).StringValue) { }
 
-        public BinaryExpression(in Token token, in Expression left, in Expression right)
-            : base(token.ToString())
+        private static Expression GetExpression(in Core.Token token, in Expression left, in Expression right)
         {
-            Expression = GetExpression(token, left, right);
-        }
-
-        private Expression GetExpression(in Token token, in Expression left, in Expression right)
-        {
-            return token switch
-            {
-                Token.And => Operations.And(left, right),
-                Token.Or => Operations.Or(left, right),
-                Token.Equals => Operations.Equals(left, right),
-                Token.Less => Operations.Less(left, right),
-                Token.Greater => Operations.Greater(left, right),
-
-                Token.Plus => Operations.Sum(left, right),
-                Token.Minus => Operations.Sub(left, right),
-                Token.Mult => Operations.Mul(left, right),
-                Token.Div => Operations.Div(left, right),
-
-                _ => throw new ArgumentOutOfRangeException(nameof(token), token, null)
-            };
+            return Context.GetOperation(token).Invoke(left, right);
         }
     }
 
@@ -100,19 +81,9 @@ namespace Common.Interpreters
         public CallExpression(string name, IReadOnlyList<Expression> args)
             : base(CallMethod(name, args)) { }
 
-        private static string CallMethod(string name, IReadOnlyList<Expression> args)
+        private static string CallMethod(in string name, in IReadOnlyList<Expression> args)
         {
-            var values = new object[args.Count];
-            for (var i = 0; i < args.Count; i++)
-            {
-                values[i] = (float) new NumberExpression(args[i].StringValue).ValueDouble;
-            }
-
-            var method = typeof(UnityEngine.Mathf)
-                .GetMethods()
-                .FirstOrDefault(method => Tools.EqualsMethod(values, method, name));
-
-            return method != null ? method.Invoke(null, values).ToString() : throw new NullReferenceException();
+            return Context.GetFunction(name).Invoke(args).StringValue;
         }
     }
 }

@@ -5,35 +5,19 @@ namespace Common.Interpreters
 {
     public class Interpreter
     {
-        private static readonly Dictionary<Token, int> OperationPrecedence = new()
-        {
-            {Token.And, 5},
-            {Token.Or, 5},
-
-            {Token.Equals, 10},
-            {Token.Less, 10},
-            {Token.Greater, 10},
-
-            {Token.Plus, 20},
-            {Token.Minus, 20},
-
-            {Token.Mult, 40},
-            {Token.Div, 40}
-        };
-
         private readonly string _str;
         private int _index;
 
         private char _currentChar;
-        private Token _prevToken;
-        private Token _currentToken;
+        private Core.Token _prevToken;
+        private Core.Token _currentToken;
 
         private string _currentIdentifier;
         private string _currentNumber;
 
         public Value Value;
 
-        private Token CurrentToken
+        private Core.Token CurrentToken
         {
             get => _currentToken;
             set
@@ -82,20 +66,20 @@ namespace Common.Interpreters
                 switch (id)
                 {
                     case "or":
-                        CurrentToken = Token.Or;
+                        CurrentToken = Core.Token.Or;
                         return;
 
                     case "and":
-                        CurrentToken = Token.And;
+                        CurrentToken = Core.Token.And;
                         return;
                 }
 
-                CurrentToken = Token.Identifier;
+                CurrentToken = Core.Token.Identifier;
                 return;
             }
 
             if (Tools.IsDigitOrDot(_currentChar) ||
-                (_currentChar == '-' && Tools.IsDigitOrDot(NextChar(false)) && _prevToken == Token.Number))
+                (_currentChar == '-' && Tools.IsDigitOrDot(NextChar(false)) && _prevToken == Core.Token.Number))
             {
                 var number = new StringBuilder();
                 do
@@ -105,7 +89,7 @@ namespace Common.Interpreters
                 } while (Tools.IsDigitOrDot(_currentChar) || _currentChar == 'f');
 
                 _currentNumber = number.ToString();
-                CurrentToken = Token.Number;
+                CurrentToken = Core.Token.Number;
                 return;
             }
 
@@ -120,35 +104,35 @@ namespace Common.Interpreters
 
                 if (operation.ToString() == ":=")
                 {
-                    CurrentToken = Token.Assignment;
+                    CurrentToken = Core.Token.Assignment;
                     return;
                 }
             }
 
             CurrentToken = _currentChar switch
             {
-                '+' => Token.Plus,
-                '-' => Token.Minus,
-                '*' => Token.Mult,
-                '/' => Token.Div,
+                '+' => Core.Token.Plus,
+                '-' => Core.Token.Minus,
+                '*' => Core.Token.Mult,
+                '/' => Core.Token.Div,
 
-                '=' => Token.Equals,
-                '<' => Token.Less,
-                '>' => Token.Greater,
+                '=' => Core.Token.Equals,
+                '<' => Core.Token.Less,
+                '>' => Core.Token.Greater,
 
-                '(' => Token.BrakeCirLeft,
-                ')' => Token.BrakeCirRight,
+                '(' => Core.Token.BrakeCirLeft,
+                ')' => Core.Token.BrakeCirRight,
 
-                ';' => Token.Split,
+                ';' => Core.Token.Split,
 
-                _ => Token.Exit
+                _ => Core.Token.Exit
             };
             _currentChar = NextChar();
         }
 
         private int GetTokPrecedence()
         {
-            return OperationPrecedence.ContainsKey(CurrentToken) ? OperationPrecedence[CurrentToken] : -1;
+            return Core.OperationPrecedence.ContainsKey(CurrentToken) ? Core.OperationPrecedence[CurrentToken] : -1;
         }
 
         private Expression ParseIdentifierExpression()
@@ -157,14 +141,14 @@ namespace Common.Interpreters
 
             GetNextToken();
 
-            if (CurrentToken != Token.BrakeCirLeft)
+            if (CurrentToken != Core.Token.BrakeCirLeft)
             {
                 return ParseVariableExpression(idName);
             }
 
             GetNextToken(); // eat (
             var args = new List<Expression>();
-            if (CurrentToken != Token.BrakeCirRight)
+            if (CurrentToken != Core.Token.BrakeCirRight)
             {
                 while (true)
                 {
@@ -178,10 +162,10 @@ namespace Common.Interpreters
                         return null;
                     }
 
-                    if (CurrentToken == Token.BrakeCirRight)
+                    if (CurrentToken == Core.Token.BrakeCirRight)
                         break;
 
-                    if (CurrentToken != Token.Split)
+                    if (CurrentToken != Core.Token.Split)
                         return null;
 
                     GetNextToken();
@@ -195,7 +179,7 @@ namespace Common.Interpreters
 
         private Expression ParseVariableExpression(string idName)
         {
-            if (CurrentToken != Token.Assignment)
+            if (CurrentToken != Core.Token.Assignment)
             {
                 return Context.GetVariable(idName);
             }
@@ -220,7 +204,7 @@ namespace Common.Interpreters
         {
             GetNextToken(); // eat (.
             var expression = ParseExpression();
-            if (expression == null || CurrentToken != Token.BrakeCirRight)
+            if (expression == null || CurrentToken != Core.Token.BrakeCirRight)
             {
                 return null;
             }
@@ -234,13 +218,13 @@ namespace Common.Interpreters
         {
             switch (CurrentToken)
             {
-                case Token.Identifier:
+                case Core.Token.Identifier:
                     return ParseIdentifierExpression();
 
-                case Token.Number:
+                case Core.Token.Number:
                     return ParseNumberExpression();
 
-                case Token.BrakeCirLeft:
+                case Core.Token.BrakeCirLeft:
                     return ParseParenExpr();
 
                 default:
@@ -268,7 +252,7 @@ namespace Common.Interpreters
                     if (rhs == null) return null;
                 }
 
-                lhs = new BinaryExpression(binOp, lhs, rhs).Expression;
+                lhs = new BinaryExpression(binOp, lhs, rhs);
             }
         }
 
