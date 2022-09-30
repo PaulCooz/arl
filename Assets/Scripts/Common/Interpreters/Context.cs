@@ -8,6 +8,10 @@ namespace Common.Interpreters
         private static readonly IDictionary<string, Expression> Variables;
         private static readonly IDictionary<Core.Token, Core.BinOperation> Operations;
 
+        private readonly IDictionary<string, Core.Function> _localFunctions;
+        private readonly IDictionary<string, Expression> _localVariables;
+        private readonly IDictionary<Core.Token, Core.BinOperation> _localOperations;
+
         static Context()
         {
             Variables = new Dictionary<string, Expression>();
@@ -17,22 +21,31 @@ namespace Common.Interpreters
             StandardContext.Fill(Functions, Variables, Operations);
         }
 
-        public static Expression GetVariable(in string name)
+        public Context()
+        {
+            _localVariables = new Dictionary<string, Expression>();
+            _localFunctions = new Dictionary<string, Core.Function>();
+            _localOperations = new Dictionary<Core.Token, Core.BinOperation>();
+        }
+
+        #region Global
+
+        public static Expression GetGlobalVariable(in string name)
         {
             return Variables.ContainsKey(name) ? Variables[name] : new Expression(name);
         }
 
-        public static Core.BinOperation GetOperation(in Core.Token token)
+        public static Core.BinOperation GetGlobalOperation(in Core.Token token)
         {
             return Operations[token];
         }
 
-        public static Core.Function GetFunction(in string name)
+        public static Core.Function GetGlobalFunction(in string name)
         {
             return Functions[name];
         }
 
-        public static void SetVariable(in string name, in Expression expression)
+        public static void SetGlobalVariable(in string name, in Expression expression)
         {
             if (Variables.ContainsKey(name))
             {
@@ -44,12 +57,12 @@ namespace Common.Interpreters
             }
         }
 
-        public static void SetVariable(in VariableExpression variable)
+        public static void SetGlobalVariable(in VariableExpression variable)
         {
-            SetVariable(variable.Name, variable.Value);
+            SetGlobalVariable(variable.Name, variable.Value);
         }
 
-        public static void SetOperation(in Core.Token token, in Core.BinOperation binOperation)
+        public static void SetGlobalOperation(in Core.Token token, in Core.BinOperation binOperation)
         {
             if (Operations.ContainsKey(token))
             {
@@ -61,7 +74,7 @@ namespace Common.Interpreters
             }
         }
 
-        public static void SetFunction(in string name, in Core.Function function)
+        public static void SetGlobalFunction(in string name, in Core.Function function)
         {
             if (Functions.ContainsKey(name))
             {
@@ -72,5 +85,68 @@ namespace Common.Interpreters
                 Functions.Add(name, function);
             }
         }
+
+        #endregion // Global
+
+        #region Local
+
+        public Expression GetVariable(in string name)
+        {
+            return _localVariables.ContainsKey(name) ? _localVariables[name] : GetGlobalVariable(name);
+        }
+
+        public Core.BinOperation GetOperation(in Core.Token token)
+        {
+            return _localOperations.ContainsKey(token) ? _localOperations[token] : GetGlobalOperation(token);
+        }
+
+        public Core.Function GetFunction(in string name)
+        {
+            return _localFunctions.ContainsKey(name) ? _localFunctions[name] : GetGlobalFunction(name);
+        }
+
+        public void SetVariable(in string name, in Expression expression)
+        {
+            if (_localVariables.ContainsKey(name))
+            {
+                _localVariables[name] = expression;
+            }
+            else
+            {
+                _localVariables.Add(name, expression);
+            }
+        }
+
+        public void SetVariable(in VariableExpression variable)
+        {
+            SetVariable(variable.Name, variable.Value);
+        }
+
+        public void SetOperation(in Core.Token token, in Core.BinOperation binOperation)
+        {
+            if (_localOperations.ContainsKey(token))
+            {
+                _localOperations[token] = binOperation;
+            }
+            else
+            {
+                _localOperations.Add(token, binOperation);
+            }
+        }
+
+        public void SetFunction(in string name, in Core.Function function)
+        {
+            if (_localFunctions.ContainsKey(name))
+            {
+                _localFunctions[name] = function;
+            }
+            else
+            {
+                _localFunctions.Add(name, function);
+            }
+        }
+
+        #endregion // Local
+
     }
 }

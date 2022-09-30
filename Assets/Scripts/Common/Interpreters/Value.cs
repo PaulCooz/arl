@@ -8,7 +8,15 @@ namespace Common.Interpreters
 
         public readonly string StringValue;
 
-        public int IntValue => Convert.ToInt32(StringValue);
+        public int IntValue
+        {
+            get
+            {
+                Tools.ParseNumber(StringValue, out var result);
+                return result;
+            }
+        }
+
         public double DoubleValue => Convert.ToDouble(StringValue);
 
         public Value(string stringValue)

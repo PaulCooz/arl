@@ -27,7 +27,7 @@ namespace Realisations.Models.Guns
         [SerializeField]
         private UnityEvent<float> reloadStatus;
 
-        public string UnitName { get; set; }
+        public BaseUnit OwnUnit { get; set; }
 
         private void OnEnable()
         {
@@ -92,7 +92,7 @@ namespace Realisations.Models.Guns
                 Quaternion.Euler(0, 0, Mathf.Sign(direction.y) * Vector2.Angle(direction, Vector2.right))
             );
 
-            bullet.Setup(UnitName);
+            bullet.Setup(OwnUnit);
             bullet.Push(direction, isFromPlayer);
         }
 

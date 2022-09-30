@@ -9,6 +9,8 @@ namespace Editor.Scripts
         private TextField _inputTextField;
         private TextField _outputTextField;
 
+        private Context _context;
+
         [MenuItem("Test/Expression Test")]
         public static void Init()
         {
@@ -27,7 +29,9 @@ namespace Editor.Scripts
 
         private void Execute()
         {
-            _outputTextField.value = new Interpreter(_inputTextField.value).Value.StringValue;
+            if (_context == null) _context = new Context();
+
+            _outputTextField.value = new Interpreter(_inputTextField.value, _context).Value.StringValue;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Abstracts.Models.Unit
         private string unitName;
 
         [SerializeField]
-        private UnityEvent<string> onAwakeUnit;
+        private UnityEvent<BaseUnit> onAwakeUnit;
         [SerializeField]
         private UnityEvent<int, int> onHealthChange;
         [SerializeField]
@@ -33,9 +33,9 @@ namespace Abstracts.Models.Unit
         public int Health
         {
             get => health;
-            private set
+            set
             {
-                health = Mathf.Clamp(value, 0, maxHealth);
+                health = Mathf.Max(value, 0);
 
                 if (health <= 0)
                 {
@@ -51,17 +51,12 @@ namespace Abstracts.Models.Unit
         protected virtual void Awake()
         {
             Health = maxHealth;
-            onAwakeUnit.Invoke(Name);
+            onAwakeUnit.Invoke(this);
         }
 
         public void Translate(Vector2 delta)
         {
             _moveDelta += delta;
-        }
-
-        public void TakeDamage(in int count)
-        {
-            Health -= count;
         }
 
         private void FixedUpdate()

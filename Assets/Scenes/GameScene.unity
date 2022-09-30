@@ -773,7 +773,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 931391867}
         m_TargetAssemblyTypeName: Realisations.Models.Guns.Gun, Models.Realisations
-        m_MethodName: set_UnitName
+        m_MethodName: set_OwnUnit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

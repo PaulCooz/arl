@@ -34,6 +34,11 @@ namespace Common.Interpreters
             valInt = (int) valDouble;
         }
 
+        public static void ParseNumber(in string value, out int valInt)
+        {
+            ParseNumber(value, out _, out valInt, out _);
+        }
+
         public static string ToArray(IEnumerable<Expression> elements)
         {
             var sb = new StringBuilder();
@@ -55,6 +60,22 @@ namespace Common.Interpreters
             }
 
             sb.Append(']');
+            return sb.ToString();
+        }
+
+        public static string Concat(IEnumerable<Expression> expressions)
+        {
+            var sb = new StringBuilder();
+            foreach (var expression in expressions)
+            {
+                sb.Append
+                (
+                    expression is StringExpression
+                        ? expression.StringValue.Substring(1, expression.StringValue.Length - 2)
+                        : expression.StringValue
+                );
+            }
+
             return sb.ToString();
         }
     }

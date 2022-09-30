@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace Common.Interpreters
@@ -73,13 +74,13 @@ namespace Common.Interpreters
 
         private static Expression Log(in IReadOnlyList<Expression> expressions)
         {
-            Debug.Log(Tools.ToArray(expressions));
-            return new Expression("");
+            Debug.Log(Tools.Concat(expressions));
+            return Expression.Empty;
         }
 
         private static Expression Error(in IReadOnlyList<Expression> expressions)
         {
-            Debug.LogError(Tools.ToArray(expressions));
+            Debug.LogError(Tools.Concat(expressions));
             throw new Exception("expression error!");
         }
 

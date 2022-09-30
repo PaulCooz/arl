@@ -5,7 +5,9 @@ namespace Common.Interpreters
 {
     public class Interpreter
     {
-        private readonly string _str;
+        private readonly Context _context;
+
+        private string _str;
         private int _index;
 
         private char _currentChar;
@@ -28,9 +30,20 @@ namespace Common.Interpreters
             }
         }
 
-        public Interpreter(string s)
+        public Interpreter(string s, Context context)
         {
-            _str = s;
+            _context = context;
+
+            var lines = s.Split('\n');
+            foreach (var line in lines)
+            {
+                Execute(line);
+            }
+        }
+
+        private void Execute(string code)
+        {
+            _str = code;
             _index = 0;
             _currentChar = NextChar();
 
@@ -222,20 +235,20 @@ namespace Common.Interpreters
 
             GetNextToken(); // eat )
 
-            return new CallExpression(idName, args);
+            return new CallExpression(idName, args, _context);
         }
 
         private Expression ParseVariableExpression(string idName)
         {
             if (CurrentToken != Core.Token.Assignment)
             {
-                return Context.GetVariable(idName);
+                return _context.GetVariable(idName);
             }
 
             GetNextToken(); // eat :=
 
             var variableExpression = new VariableExpression(idName, ParseExpression());
-            Context.SetVariable(variableExpression);
+            _context.SetVariable(variableExpression);
 
             return variableExpression;
         }
@@ -346,7 +359,7 @@ namespace Common.Interpreters
                     if (rhs == null) return null;
                 }
 
-                lhs = new BinaryExpression(binOp, lhs, rhs);
+                lhs = new BinaryExpression(binOp, lhs, rhs, _context);
             }
         }
 

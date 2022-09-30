@@ -1,4 +1,5 @@
 ﻿using System;
+using Abstracts.Models.Unit;
 using Common;
 using Common.Keys;
 using Common.Storages.Configs;
@@ -11,13 +12,13 @@ namespace Realisations.Views.Guns.Bullets
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        public void Setup(string unitName)
+        public void Setup(BaseUnit ownUnit)
         {
             var color = ConvertHelper.ArrayToColor
             (
                 Config.Get
                 (
-                    unitName,
+                    ownUnit.Name,
                     ConfigKey.BulletColor,
                     Array.Empty<byte>()
                 )

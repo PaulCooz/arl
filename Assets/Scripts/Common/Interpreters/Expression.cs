@@ -7,6 +7,8 @@ namespace Common.Interpreters
     {
         public string StringValue;
 
+        public static Expression Empty => new("");
+
         public Expression(string stringValue)
         {
             StringValue = stringValue;
@@ -77,23 +79,28 @@ namespace Common.Interpreters
 
     public class BinaryExpression : Expression
     {
-        public BinaryExpression(in Core.Token token, in Expression left, in Expression right)
-            : base(GetExpression(token, left, right).StringValue) { }
+        public BinaryExpression(in Core.Token token, in Expression left, in Expression right, in Context context)
+            : base(GetExpression(token, left, right, context).StringValue) { }
 
-        private static Expression GetExpression(in Core.Token token, in Expression left, in Expression right)
+        private static Expression GetExpression
+        (
+            in Core.Token token,
+            in Expression left, in Expression right,
+            in Context context
+        )
         {
-            return Context.GetOperation(token).Invoke(left, right);
+            return context.GetOperation(token).Invoke(left, right);
         }
     }
 
     public class CallExpression : Expression
     {
-        public CallExpression(string name, IReadOnlyList<Expression> args)
-            : base(CallMethod(name, args)) { }
+        public CallExpression(string name, IReadOnlyList<Expression> args, in Context context)
+            : base(CallMethod(name, args, context)) { }
 
-        private static string CallMethod(in string name, in IReadOnlyList<Expression> args)
+        private static string CallMethod(in string name, in IReadOnlyList<Expression> args, in Context context)
         {
-            return Context.GetFunction(name).Invoke(args).StringValue;
+            return context.GetFunction(name).Invoke(args).StringValue;
         }
     }
 }
