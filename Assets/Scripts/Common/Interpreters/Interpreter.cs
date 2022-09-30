@@ -14,6 +14,7 @@ namespace Common.Interpreters
 
         private string _currentIdentifier;
         private string _currentNumber;
+        private string _currentString;
 
         public Value Value;
 
@@ -50,6 +51,7 @@ namespace Common.Interpreters
         {
             while (char.IsWhiteSpace(_currentChar)) _currentChar = NextChar();
 
+            if (GetString()) return;
             if (GetIdentifier()) return;
             if (GetNumber()) return;
             if (GetAssignment()) return;
@@ -76,6 +78,30 @@ namespace Common.Interpreters
                 _ => Core.Token.Exit
             };
             _currentChar = NextChar();
+        }
+
+        private bool GetString()
+        {
+            if (_currentChar is '\"' or '\'')
+            {
+                var sb = new StringBuilder();
+                do
+                {
+                    sb.Append(_currentChar);
+                    _currentChar = _index < _str.Length ? _str[_index] : '\0';
+                    _index++;
+                } while (_currentChar is not ('\"' or '\''));
+
+                sb.Append(_currentChar);
+                _currentChar = _index < _str.Length ? _str[_index] : '\0';
+                _index++;
+
+                _currentString = sb.ToString();
+                CurrentToken = Core.Token.String;
+                return true;
+            }
+
+            return false;
         }
 
         private bool GetIdentifier()
@@ -222,6 +248,14 @@ namespace Common.Interpreters
             return result;
         }
 
+        private Expression ParseStringExpression()
+        {
+            var result = new StringExpression(_currentString);
+            GetNextToken();
+
+            return result;
+        }
+
         private Expression ParseParenExpr()
         {
             GetNextToken(); // eat (.
@@ -277,6 +311,9 @@ namespace Common.Interpreters
 
                 case Core.Token.Number:
                     return ParseNumberExpression();
+
+                case Core.Token.String:
+                    return ParseStringExpression();
 
                 case Core.Token.BrakeCirLeft:
                     return ParseParenExpr();

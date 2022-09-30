@@ -16,6 +16,8 @@ namespace Common.Interpreters
             functions.Add("if", If);
             functions.Add("min", Min);
             functions.Add("max", Max);
+            functions.Add("log", Log);
+            functions.Add("error", Error);
 
             operations.Add(Core.Token.And, And);
             operations.Add(Core.Token.Or, Or);
@@ -67,6 +69,18 @@ namespace Common.Interpreters
             }
 
             return left.ValueDouble < right.ValueDouble ? right : left;
+        }
+
+        private static Expression Log(in IReadOnlyList<Expression> expressions)
+        {
+            Debug.Log(Tools.ToArray(expressions));
+            return new Expression("");
+        }
+
+        private static Expression Error(in IReadOnlyList<Expression> expressions)
+        {
+            Debug.LogError(Tools.ToArray(expressions));
+            throw new Exception("expression error!");
         }
 
         private static Expression BinaryOpNumbers

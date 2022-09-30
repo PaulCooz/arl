@@ -10,6 +10,7 @@ namespace Common.Interpreters
 
             Identifier,
             Number,
+            String,
 
             Plus, // +
             Minus, // -
@@ -29,6 +30,8 @@ namespace Common.Interpreters
 
             BrakeSqrLeft, // [
             BrakeSqrRight, // ]
+
+            Quotes, // " or '
 
             Assignment // :=
         }
