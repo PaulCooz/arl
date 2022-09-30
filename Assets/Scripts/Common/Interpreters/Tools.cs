@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Common.Interpreters
@@ -31,6 +32,30 @@ namespace Common.Interpreters
 
             valDouble = double.Parse(sb.ToString(), new NumberFormatInfo {NumberDecimalDigits = '.'});
             valInt = (int) valDouble;
+        }
+
+        public static string ToArray(IEnumerable<Expression> elements)
+        {
+            var sb = new StringBuilder();
+            var isFirst = true;
+
+            sb.Append('[');
+            foreach (var element in elements)
+            {
+                if (isFirst)
+                {
+                    isFirst = false;
+                    sb.Append(element.StringValue);
+                }
+                else
+                {
+                    sb.Append(';');
+                    sb.Append(element.StringValue);
+                }
+            }
+
+            sb.Append(']');
+            return sb.ToString();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Common.Keys;
+﻿using System;
+using Common;
+using Common.Keys;
 using Common.Storages.Configs;
 using UnityEngine;
 
@@ -11,7 +13,17 @@ namespace Realisations.Views.Guns.Bullets
 
         public void Setup(string unitName)
         {
-            spriteRenderer.color = new Color32(Config.Get<byte>(unitName, ConfigKey.BulletColor, 255), 10, 10, 255);
+            var color = ConvertHelper.ArrayToColor
+            (
+                Config.Get
+                (
+                    unitName,
+                    ConfigKey.BulletColor,
+                    Array.Empty<byte>()
+                )
+            );
+
+            spriteRenderer.color = color;
         }
     }
 }

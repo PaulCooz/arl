@@ -27,6 +27,9 @@ namespace Common.Interpreters
             BrakeCirLeft, // (
             BrakeCirRight, // )
 
+            BrakeSqrLeft, // [
+            BrakeSqrRight, // ]
+
             Assignment // :=
         }
 

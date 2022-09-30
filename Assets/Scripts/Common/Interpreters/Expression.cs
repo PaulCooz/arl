@@ -65,6 +65,11 @@ namespace Common.Interpreters
         public BooleanExpression(string value) : base(BooleanTruePattern.IsMatch(value).ToString()) { }
     }
 
+    public class ArrayExpression : Expression
+    {
+        public ArrayExpression(IEnumerable<Expression> elements) : base(Tools.ToArray(elements)) { }
+    }
+
     public class BinaryExpression : Expression
     {
         public BinaryExpression(in Core.Token token, in Expression left, in Expression right)

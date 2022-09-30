@@ -50,64 +50,9 @@ namespace Common.Interpreters
         {
             while (char.IsWhiteSpace(_currentChar)) _currentChar = NextChar();
 
-            if (char.IsLetter(_currentChar))
-            {
-                var sb = new StringBuilder();
-                do
-                {
-                    sb.Append(_currentChar);
-                    _currentChar = _index < _str.Length ? _str[_index] : '\0';
-                    _index++;
-                } while (char.IsLetterOrDigit(_currentChar));
-
-                _currentIdentifier = sb.ToString().ToLower();
-
-                var id = _currentIdentifier.ToLower();
-                switch (id)
-                {
-                    case "or":
-                        CurrentToken = Core.Token.Or;
-                        return;
-
-                    case "and":
-                        CurrentToken = Core.Token.And;
-                        return;
-                }
-
-                CurrentToken = Core.Token.Identifier;
-                return;
-            }
-
-            if (Tools.IsDigitOrDot(_currentChar) ||
-                (_currentChar == '-' && Tools.IsDigitOrDot(NextChar(false)) && _prevToken == Core.Token.Number))
-            {
-                var number = new StringBuilder();
-                do
-                {
-                    number.Append(_currentChar);
-                    _currentChar = NextChar();
-                } while (Tools.IsDigitOrDot(_currentChar) || _currentChar == 'f');
-
-                _currentNumber = number.ToString();
-                CurrentToken = Core.Token.Number;
-                return;
-            }
-
-            if (_currentChar == ':')
-            {
-                var operation = new StringBuilder();
-                do
-                {
-                    operation.Append(_currentChar);
-                    _currentChar = NextChar();
-                } while (_currentChar == '=');
-
-                if (operation.ToString() == ":=")
-                {
-                    CurrentToken = Core.Token.Assignment;
-                    return;
-                }
-            }
+            if (GetIdentifier()) return;
+            if (GetNumber()) return;
+            if (GetAssignment()) return;
 
             CurrentToken = _currentChar switch
             {
@@ -123,11 +68,88 @@ namespace Common.Interpreters
                 '(' => Core.Token.BrakeCirLeft,
                 ')' => Core.Token.BrakeCirRight,
 
+                '[' => Core.Token.BrakeSqrLeft,
+                ']' => Core.Token.BrakeSqrRight,
+
                 ';' => Core.Token.Split,
 
                 _ => Core.Token.Exit
             };
             _currentChar = NextChar();
+        }
+
+        private bool GetIdentifier()
+        {
+            if (char.IsLetter(_currentChar) || _currentChar == '_')
+            {
+                var sb = new StringBuilder();
+                do
+                {
+                    sb.Append(_currentChar);
+                    _currentChar = _index < _str.Length ? _str[_index] : '\0';
+                    _index++;
+                } while (char.IsLetterOrDigit(_currentChar) || _currentChar == '_');
+
+                _currentIdentifier = sb.ToString().ToLower();
+
+                var id = _currentIdentifier.ToLower();
+                switch (id)
+                {
+                    case "or":
+                        CurrentToken = Core.Token.Or;
+                        return true;
+
+                    case "and":
+                        CurrentToken = Core.Token.And;
+                        return true;
+                }
+
+                CurrentToken = Core.Token.Identifier;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool GetAssignment()
+        {
+            if (_currentChar == ':')
+            {
+                var operation = new StringBuilder();
+                do
+                {
+                    operation.Append(_currentChar);
+                    _currentChar = NextChar();
+                } while (_currentChar == '=');
+
+                if (operation.ToString() == ":=")
+                {
+                    CurrentToken = Core.Token.Assignment;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool GetNumber()
+        {
+            if (Tools.IsDigitOrDot(_currentChar) ||
+                (_currentChar == '-' && Tools.IsDigitOrDot(NextChar(false)) && _prevToken == Core.Token.Number))
+            {
+                var number = new StringBuilder();
+                do
+                {
+                    number.Append(_currentChar);
+                    _currentChar = NextChar();
+                } while (Tools.IsDigitOrDot(_currentChar) || _currentChar == 'f');
+
+                _currentNumber = number.ToString();
+                CurrentToken = Core.Token.Number;
+                return true;
+            }
+
+            return false;
         }
 
         private int GetTokPrecedence()
@@ -213,6 +235,38 @@ namespace Common.Interpreters
             return expression;
         }
 
+        private Expression ParseArrayExpression()
+        {
+            GetNextToken(); // eat [
+            var elements = new List<Expression>();
+            if (CurrentToken != Core.Token.BrakeSqrRight)
+            {
+                while (true)
+                {
+                    var arg = ParseExpression();
+                    if (arg != null)
+                    {
+                        elements.Add(arg);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                    if (CurrentToken == Core.Token.BrakeSqrRight)
+                        break;
+
+                    if (CurrentToken != Core.Token.Split)
+                        return null;
+
+                    GetNextToken();
+                }
+            }
+
+            GetNextToken(); // eat ]
+
+            return new ArrayExpression(elements);
+        }
 
         private Expression ParsePrimary()
         {
@@ -226,6 +280,9 @@ namespace Common.Interpreters
 
                 case Core.Token.BrakeCirLeft:
                     return ParseParenExpr();
+
+                case Core.Token.BrakeSqrLeft:
+                    return ParseArrayExpression();
 
                 default:
                     return null;
