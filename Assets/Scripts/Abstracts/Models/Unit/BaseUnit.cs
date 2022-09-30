@@ -17,13 +17,18 @@ namespace Abstracts.Models.Unit
         private float speed;
         [SerializeField]
         private int maxHealth;
+        [SerializeField]
+        private string unitName;
 
+        [SerializeField]
+        private UnityEvent<string> onAwakeUnit;
         [SerializeField]
         private UnityEvent<int, int> onHealthChange;
         [SerializeField]
         private UnityEvent onDie;
 
         public Vector2 Position => unitRigidbody.position;
+        public string Name => unitName;
 
         public int Health
         {
@@ -46,6 +51,7 @@ namespace Abstracts.Models.Unit
         protected virtual void Awake()
         {
             Health = maxHealth;
+            onAwakeUnit.Invoke(Name);
         }
 
         public void Translate(Vector2 delta)

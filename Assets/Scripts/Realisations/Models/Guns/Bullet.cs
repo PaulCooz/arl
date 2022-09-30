@@ -2,6 +2,7 @@
 using Common.Keys;
 using Realisations.Models.CollisionTriggers;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Realisations.Models.Guns
 {
@@ -13,6 +14,14 @@ namespace Realisations.Models.Guns
         private Rigidbody2D bulletRigidbody;
         [SerializeField]
         private float force;
+
+        [SerializeField]
+        private UnityEvent<string> onSetup;
+
+        public void Setup(string unitName)
+        {
+            onSetup.Invoke(unitName);
+        }
 
         private void OnTriggerEnter2D(Collider2D collider2d)
         {

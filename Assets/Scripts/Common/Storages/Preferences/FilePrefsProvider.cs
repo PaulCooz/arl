@@ -6,13 +6,13 @@ namespace Common.Storages.Preferences
 {
     public class FilePrefsProvider : IPrefsProvider
     {
-        private static readonly string PrefsFilePath = Path.Combine(Storage.Root, "preferences.json");
-
         private readonly JObject _prefs;
 
         public FilePrefsProvider()
         {
-            _prefs = File.Exists(PrefsFilePath) ? JObject.Parse(File.ReadAllText(PrefsFilePath)) : new JObject();
+            _prefs = File.Exists(Storage.PrefsFilePath)
+                ? JObject.Parse(File.ReadAllText(Storage.PrefsFilePath))
+                : new JObject();
         }
 
         public void Set<T>(string key, T value)
@@ -56,13 +56,13 @@ namespace Common.Storages.Preferences
 
         public void DeleteAll()
         {
-            File.Delete(Storage.Root);
+            File.Delete(Storage.PrefsFilePath);
             _prefs.RemoveAll();
         }
 
         public void Save()
         {
-            File.WriteAllText(Storage.Root, _prefs.ToString(Formatting.None));
+            File.WriteAllText(Storage.PrefsFilePath, _prefs.ToString(Formatting.None));
         }
     }
 }

@@ -119,6 +119,21 @@ MonoBehaviour:
   collisionTrigger: {fileID: 8548690665993552674}
   bulletRigidbody: {fileID: 2795096508447178059}
   force: 3
+  onSetup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 377632353775840971}
+        m_TargetAssemblyTypeName: Realisations.Views.Guns.Bullets.BulletView, Realisations.Views
+        m_MethodName: Setup
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4330200466516338192
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5256360199760594153}
   - component: {fileID: 1521104731420276580}
+  - component: {fileID: 377632353775840971}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -203,3 +219,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &377632353775840971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330200466516338192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22e4d483aad4d41a19a4012db6f12bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1521104731420276580}

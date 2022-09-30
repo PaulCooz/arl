@@ -1,24 +1,64 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Common.Storages.Configs
 {
     public class Config
     {
-        private JObject _config;
+        private const string Parent = "parent";
 
-        public void Set(string name, object value)
+        private static readonly Dictionary<string, JObject> GlobalConfig;
+
+        static Config()
         {
-            _config.Add(name, JToken.FromObject(value));
+            GlobalConfig = new Dictionary<string, JObject>();
+            foreach (var path in Directory.GetFiles(Storage.ConfigFilesRootPath))
+            {
+                GlobalConfig.Add
+                (
+                    Path.GetFileNameWithoutExtension(path),
+                    JObject.Parse(File.ReadAllText(path))
+                );
+            }
         }
 
-        public T Get<T>(string name, T defaultValue = default)
+        public static void Set(string config, string name, object value)
         {
-            return _config.ContainsKey(name) && _config[name] != null ? _config[name].ToObject<T>() : defaultValue;
+            GlobalConfig[config].Add(name, JToken.FromObject(value));
         }
 
-        public void Save()
+        public static T Get<T>(string config, string name, T defaultValue = default)
         {
-            Preferences.Preference.FileProvider.Save();
+            var jToken = GetToken(config, name);
+            return jToken == null ? defaultValue : jToken.ToObject<T>();
+        }
+
+        public static void Save()
+        {
+            foreach (var (key, value) in GlobalConfig)
+            {
+                File.WriteAllText
+                (
+                    Path.Combine(Storage.ConfigFilesRootPath, $"{key}.json"),
+                    value.ToString(Formatting.None)
+                );
+            }
+        }
+
+        private static JToken GetToken(string config, string name)
+        {
+            // ReSharper disable once AssignNullToNotNullAttribute
+            while (!GlobalConfig[config].ContainsKey(name))
+            {
+                if (!GlobalConfig[config].ContainsKey(Parent)) return null;
+
+                // ReSharper disable once PossibleNullReferenceException
+                config = GlobalConfig[config][Parent].ToObject<string>();
+            }
+
+            return GlobalConfig[config][name];
         }
     }
 }
