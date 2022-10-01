@@ -17,8 +17,6 @@ namespace Abstracts.Models.Unit
         private float speed;
         [SerializeField]
         private int maxHealth;
-        [SerializeField]
-        private string unitName;
 
         [SerializeField]
         private UnityEvent<BaseUnit> onAwakeUnit;
@@ -28,7 +26,7 @@ namespace Abstracts.Models.Unit
         private UnityEvent onDie;
 
         public Vector2 Position => unitRigidbody.position;
-        public string Name => unitName;
+        public string Name { get; set; }
 
         public int Health
         {

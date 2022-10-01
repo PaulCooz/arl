@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Abstracts.Models.Maps;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Realisations.Models.Maps
 {
@@ -15,8 +16,12 @@ namespace Realisations.Models.Maps
         [SerializeField]
         private MapData mapData;
 
+        [SerializeField]
+        private UnityEvent beforeFirstLevel;
+
         private void Start()
         {
+            beforeFirstLevel.Invoke();
             NextLevel();
         }
 
@@ -35,7 +40,7 @@ namespace Realisations.Models.Maps
             _mapGenerator = new MapGenerator();
             var roomFiller = new RoomFiller(array);
 
-            mapDrawer.Draw(_mapGenerator.GetNextMap(array, mapData, roomFiller));
+            mapDrawer.Draw(_mapGenerator.GetNextMap(array, mapData, roomFiller), mapData.seed);
 
             _isFirst = false;
         }

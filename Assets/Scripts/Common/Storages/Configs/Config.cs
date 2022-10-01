@@ -14,7 +14,9 @@ namespace Common.Storages.Configs
         static Config()
         {
             GlobalConfig = new Dictionary<string, JObject>();
-            foreach (var path in Directory.GetFiles(Storage.ConfigFilesRootPath))
+
+            var configs = Directory.GetFiles(Storage.ConfigFilesRootPath, "*.json", SearchOption.AllDirectories);
+            foreach (var path in configs)
             {
                 GlobalConfig.Add
                 (

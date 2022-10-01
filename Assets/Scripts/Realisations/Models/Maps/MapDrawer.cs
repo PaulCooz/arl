@@ -1,6 +1,9 @@
 ﻿using Abstracts.Models.Maps;
+using Abstracts.Models.Unit;
 using Common.Arrays;
+using Common.Keys;
 using Realisations.Models.CollisionTriggers;
+using Realisations.Models.Unit;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,12 +14,12 @@ namespace Realisations.Models.Maps
         private static readonly Vector3 PositionOffset = new(0.5f, 0.5f, 0);
 
         [SerializeField]
-        private Transform playerTransform;
+        private UnitRoot player;
         [SerializeField]
         private GameMaster gameMaster;
 
         [SerializeField]
-        private Transform enemyPrefab;
+        private UnitRoot enemyPrefab;
         [SerializeField]
         private ExitCollisionTrigger exitTriggerPrefab;
 
@@ -31,8 +34,12 @@ namespace Realisations.Models.Maps
         [SerializeField]
         private Tilemap wallsTilemap;
 
-        public void Draw(in Map map)
+        [SerializeField]
+        private UnitsConfigHelper unitsConfig;
+
+        public void Draw(in Map map, int seed)
         {
+            var random = new System.Random(seed);
             for (var i = 0; i < map.Height; i++)
             for (var j = 0; j < map.Width; j++)
             {
@@ -49,12 +56,15 @@ namespace Realisations.Models.Maps
                 if (map[i, j].Contains(Entities.Enemy))
                 {
                     var enemy = Instantiate(enemyPrefab, GetPosition(i, j), Quaternion.identity);
-                    enemy.SetParent(transform);
+                    enemy.transform.SetParent(transform);
+                    
+                    enemy.Unit.Name = unitsConfig.GetUnitName(random);
                 }
 
                 if (map[i, j].Contains(Entities.Player))
                 {
-                    playerTransform.position = GetPosition(i, j);
+                    player.transform.position = GetPosition(i, j);
+                    player.Unit.Name = ConfigKey.Player;
                 }
 
                 if (map[i, j].Contains(Entities.Exit))
