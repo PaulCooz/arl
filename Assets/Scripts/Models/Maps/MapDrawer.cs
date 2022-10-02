@@ -22,11 +22,11 @@ namespace Models.Maps
         private ExitCollisionTrigger exitTriggerPrefab;
 
         [SerializeField]
-        private Tile[] floorTiles;
+        private TileBase[] floorTiles;
         [SerializeField]
-        private Tile[] wallsTiles;
+        private TileBase[] wallsTiles;
         [SerializeField]
-        private Tile[] exitTiles;
+        private TileBase[] exitTiles;
         [SerializeField]
         private Tilemap floorTilemap;
         [SerializeField]

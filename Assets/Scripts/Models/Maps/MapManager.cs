@@ -8,8 +8,6 @@ namespace Models.Maps
     {
         private MapGenerator _mapGenerator;
 
-        private bool _isFirst = true;
-
         [SerializeField]
         private MapDrawer mapDrawer;
         [SerializeField]
@@ -26,7 +24,7 @@ namespace Models.Maps
 
         public void NextLevel()
         {
-            if (!_isFirst) mapDrawer.Clear();
+            mapDrawer.Clear();
             mapData.seed++;
 
             var array = new List<Entities>[mapData.height, mapData.width];
@@ -40,8 +38,6 @@ namespace Models.Maps
             var roomFiller = new RoomFiller(array);
 
             mapDrawer.Draw(_mapGenerator.GetNextMap(array, mapData, roomFiller), mapData.seed);
-
-            _isFirst = false;
         }
     }
 }
