@@ -19,7 +19,7 @@ namespace Common.Storages
                 {
                     Directory.CreateDirectory(directory);
                     Directory.CreateDirectory(Path.Combine(directory, "units"));
-                    DefaultConfigs.Create(directory);
+                    DefaultConfigs.Create(Root);
                 }
 
                 return directory;

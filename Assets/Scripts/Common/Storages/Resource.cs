@@ -1,5 +1,4 @@
-﻿using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Common.Storages
 {
@@ -7,7 +6,7 @@ namespace Common.Storages
     {
         public static string LoadConfig(string path)
         {
-            return Resources.Load<TextAsset>(Path.Combine("configs", path)).text;
+            return Resources.Load<TextAsset>(path).text;
         }
     }
 }

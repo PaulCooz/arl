@@ -2,11 +2,11 @@
 {
     public class ResourceKey
     {
-        private const string SpawnableObjects = "spawnable_objects";
-        private const string BaseUnit = "units/base_unit";
-        private const string CommonEnemy = "units/common_enemy";
-        private const string Player = "units/player";
-        private const string StaticEnemy = "units/static_enemy";
+        public const string SpawnableObjects = "configs/spawnable_objects";
+        public const string BaseUnit = "configs/units/base_unit";
+        public const string CommonEnemy = "configs/units/common_enemy";
+        public const string Player = "configs/units/player";
+        public const string StaticEnemy = "configs/units/static_enemy";
 
         public static readonly string[] Configs =
         {
