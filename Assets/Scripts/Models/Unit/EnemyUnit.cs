@@ -2,9 +2,9 @@
 {
     public class EnemyUnit : BaseUnit
     {
-        protected override void Awake()
+        override public void Initialization()
         {
-            base.Awake();
+            base.Initialization();
 
             GameMaster.OnLevelDone += Die;
         }

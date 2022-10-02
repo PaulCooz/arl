@@ -49,7 +49,7 @@ namespace Models.Unit
             }
         }
 
-        protected virtual void Awake()
+        public virtual void Initialization()
         {
             Health = maxHealth;
             onAwakeUnit.Invoke(this);

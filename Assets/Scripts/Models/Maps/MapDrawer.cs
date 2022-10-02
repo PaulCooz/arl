@@ -1,5 +1,4 @@
 ﻿using Common.Arrays;
-using Common.Keys;
 using Models.CollisionTriggers;
 using Models.Unit;
 using UnityEngine;
@@ -10,6 +9,8 @@ namespace Models.Maps
     public class MapDrawer : MonoBehaviour
     {
         private static readonly Vector3 PositionOffset = new(0.5f, 0.5f, 0);
+
+        private bool _isFirstTime = true;
 
         [SerializeField]
         private UnitRoot player;
@@ -55,14 +56,18 @@ namespace Models.Maps
                 {
                     var enemy = Instantiate(enemyPrefab, GetPosition(i, j), Quaternion.identity);
                     enemy.transform.SetParent(transform);
-                    
                     enemy.Unit.Name = unitsConfig.GetUnitName(random);
+                    enemy.Initialization();
                 }
 
                 if (map[i, j].Contains(Entities.Player))
                 {
                     player.transform.position = GetPosition(i, j);
-                    player.Unit.Name = ConfigKey.Player;
+                    if (_isFirstTime)
+                    {
+                        _isFirstTime = false;
+                        player.Initialization();
+                    }
                 }
 
                 if (map[i, j].Contains(Entities.Exit))

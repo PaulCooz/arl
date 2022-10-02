@@ -11,6 +11,8 @@ namespace Models.Guns
 {
     public class Gun : MonoBehaviour
     {
+        private BaseUnit _ownUnit;
+
         [SerializeField]
         private Bullet bulletPrefab;
         [SerializeField]
@@ -27,7 +29,16 @@ namespace Models.Guns
         [SerializeField]
         private UnityEvent<float> reloadStatus;
 
-        public BaseUnit OwnUnit { get; set; }
+        public BaseUnit OwnUnit
+        {
+            get => _ownUnit;
+            set
+            {
+                _ownUnit = value;
+                unitCollisionTrigger.Collider.radius = AttackRadius;
+            }
+        }
+
         public float AttackRadius => Config.Get(OwnUnit.Name, ConfigKey.AttackRadius, 4f);
 
         private void OnEnable()

@@ -8,5 +8,10 @@ namespace Models.Unit
         private BaseUnit unit;
 
         public BaseUnit Unit => unit;
+
+        public void Initialization()
+        {
+            Unit.Initialization();
+        }
     }
 }
