@@ -1,0 +1,12 @@
+{
+  "units": [
+    {
+      "name": "common_enemy",
+      "chance": 2
+    },
+    {
+      "name": "static_enemy",
+      "chance": 1
+    }
+  ]
+}

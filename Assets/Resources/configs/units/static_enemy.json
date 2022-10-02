@@ -1,0 +1,9 @@
+{
+  "parent": "base_unit",
+  "bullet_color": [
+    195,
+    31,
+    127
+  ],
+  "speed": 0.0
+}

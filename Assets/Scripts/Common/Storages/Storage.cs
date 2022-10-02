@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Common.Storages.Configs;
 using UnityEngine;
 
 namespace Common.Storages
@@ -14,7 +15,13 @@ namespace Common.Storages
             get
             {
                 var directory = Path.Combine(Root, "configs");
-                CheckDirectory(directory);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                    Directory.CreateDirectory(Path.Combine(directory, "units"));
+                    DefaultConfigs.Create(directory);
+                }
+
                 return directory;
             }
         }

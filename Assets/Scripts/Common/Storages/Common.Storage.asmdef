@@ -1,3 +1,16 @@
 {
-	"name": "Common.Storage"
+    "name": "Common.Storage",
+    "rootNamespace": "",
+    "references": [
+        "GUID:322f7a3b139682d4d96fe3b20638ca5f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
