@@ -7,5 +7,7 @@
         public const string Player = "player";
         public const string SpawnableObjects = "spawnable_objects";
         public const string Units = "units";
+        public const string Speed = "speed";
+        public const string OnDamage = "on_damage";
     }
 }

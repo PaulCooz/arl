@@ -45,7 +45,7 @@ namespace Realisations.Models.Guns
         {
             var script = new Script();
             FillDamageContext(unit, script);
-            script.Run("set_enemy_hp(get_enemy_hp() - own_damage)");
+            script.Run(Config.Get(_ownUnit.Name, ConfigKey.OnDamage, ""));
 
             Destroy(gameObject);
         }

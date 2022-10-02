@@ -1,4 +1,6 @@
 ﻿using Common.Editor;
+using Common.Keys;
+using Common.Storages.Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +29,7 @@ namespace Abstracts.Models.Unit
 
         public Vector2 Position => unitRigidbody.position;
         public string Name { get; set; }
+        public float SpeedRatio => speed * Config.Get(Name, ConfigKey.Speed, 1f);
 
         public int Health
         {
@@ -59,7 +62,7 @@ namespace Abstracts.Models.Unit
 
         private void FixedUpdate()
         {
-            unitRigidbody.velocity = _moveDelta * speed;
+            unitRigidbody.velocity = _moveDelta * SpeedRatio;
             _moveDelta.x = _moveDelta.y = 0;
         }
 
