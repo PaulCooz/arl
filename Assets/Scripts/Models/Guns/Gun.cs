@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common.Arrays;
+using Common.Keys;
+using Common.Storages.Configs;
 using Models.CollisionTriggers;
 using Models.Unit;
 using UnityEngine;
@@ -7,7 +9,7 @@ using UnityEngine.Events;
 
 namespace Models.Guns
 {
-    public class Gun : MonoBehaviour, ISerializationCallbackReceiver
+    public class Gun : MonoBehaviour
     {
         [SerializeField]
         private Bullet bulletPrefab;
@@ -18,8 +20,6 @@ namespace Models.Guns
         [SerializeField]
         private Transform gunBarrel;
         [SerializeField]
-        private float attackRadius;
-        [SerializeField]
         private float delay;
         [SerializeField]
         private bool isFromPlayer;
@@ -28,6 +28,7 @@ namespace Models.Guns
         private UnityEvent<float> reloadStatus;
 
         public BaseUnit OwnUnit { get; set; }
+        public float AttackRadius => Config.Get(OwnUnit.Name, ConfigKey.AttackRadius, 4f);
 
         private void OnEnable()
         {
@@ -44,7 +45,7 @@ namespace Models.Guns
                 while (time < delay)
                 {
                     time += Time.deltaTime;
-                    reloadStatus.Invoke(time / delay);
+                    reloadStatus.Invoke(1f - time / delay);
 
                     yield return null;
                 }
@@ -59,7 +60,7 @@ namespace Models.Guns
             if (enemies.IsEmpty()) return;
 
             var enemy = (BaseUnit) null;
-            var minDist = attackRadius;
+            var minDist = AttackRadius;
 
             foreach (var target in enemies)
             {
@@ -69,7 +70,7 @@ namespace Models.Guns
                 (
                     position,
                     target.transform.position - position,
-                    attackRadius
+                    AttackRadius
                 );
 
                 if (minDist > distance && hit.transform is not null && hit.collider.gameObject == target.gameObject)
@@ -100,13 +101,5 @@ namespace Models.Guns
         {
             return Vector2.Distance(target.Position, ownUnit.Position);
         }
-
-        public void OnBeforeSerialize()
-        {
-            if (unitCollisionTrigger == null || unitCollisionTrigger.Collider == null) return;
-            unitCollisionTrigger.Collider.radius = attackRadius;
-        }
-
-        public void OnAfterDeserialize() { }
     }
 }
