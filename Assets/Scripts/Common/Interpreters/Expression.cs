@@ -29,37 +29,22 @@ namespace Common.Interpreters
 
     public class NumberExpression : Expression
     {
-        public readonly int ValueInt;
-        public readonly double ValueDouble;
-
-        public readonly bool IsInt;
+        public readonly double Value;
 
         public NumberExpression(string value) : base(value)
         {
-            Tools.ParseNumber(value, out ValueDouble, out ValueInt, out IsInt);
-
-            if (!IsInt && value[^1] != 'f') StringValue += 'f';
-        }
-
-        public NumberExpression(int value) : base(value.ToString())
-        {
-            IsInt = true;
-            ValueInt = value;
-            ValueDouble = value;
+            Tools.ParseNumber(value, out Value);
         }
 
         public NumberExpression(double value) : base(value.ToString())
         {
-            IsInt = false;
-            ValueInt = (int) value;
-            ValueDouble = value;
-            StringValue += 'f';
+            Value = value;
         }
     }
 
     public class BooleanExpression : Expression
     {
-        private static readonly Regex BooleanTruePattern = new("^(1|true|t|yes|y|on)$", RegexOptions.IgnoreCase);
+        private static readonly Regex BooleanTruePattern = new("^(true|yes|on)$", RegexOptions.IgnoreCase);
 
         public bool Value => BooleanTruePattern.IsMatch(StringValue);
 

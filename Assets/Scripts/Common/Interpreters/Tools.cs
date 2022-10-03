@@ -11,32 +11,16 @@ namespace Common.Interpreters
             return char.IsDigit(c) || c is '.' or ',';
         }
 
-        public static void ParseNumber(in string value, out double valDouble, out int valInt, out bool isInt)
+        public static void ParseNumber(in string str, out double res)
         {
-            isInt = true;
             var sb = new StringBuilder();
-            foreach (var c in value)
+            foreach (var c in str)
             {
-                if (c != 'f')
-                {
-                    var decSep = c is '.' or ',';
-                    if (decSep) isInt = false;
-
-                    sb.Append(decSep ? '.' : c);
-                }
-                else
-                {
-                    isInt = false;
-                }
+                var decSep = c is '.' or ',';
+                sb.Append(decSep ? '.' : c);
             }
 
-            valDouble = double.Parse(sb.ToString(), new NumberFormatInfo {NumberDecimalDigits = '.'});
-            valInt = (int) valDouble;
-        }
-
-        public static void ParseNumber(in string value, out int valInt)
-        {
-            ParseNumber(value, out _, out valInt, out _);
+            res = double.Parse(sb.ToString(), new NumberFormatInfo {NumberDecimalDigits = '.'});
         }
 
         public static string ToArray(IEnumerable<Expression> elements)

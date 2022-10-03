@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace Common.Interpreters
@@ -17,6 +16,7 @@ namespace Common.Interpreters
             functions.Add("if", If);
             functions.Add("min", Min);
             functions.Add("max", Max);
+            functions.Add("not", Not);
             functions.Add("log", Log);
             functions.Add("error", Error);
 
@@ -48,28 +48,38 @@ namespace Common.Interpreters
 
         private static Expression Min(in IReadOnlyList<Expression> expressions)
         {
-            var left = new NumberExpression(expressions[0].StringValue);
-            var right = new NumberExpression(expressions[1].StringValue);
+            var count = expressions.Count;
+            if (count < 1) return new NumberExpression(double.MinValue);
 
-            if (left.IsInt && right.IsInt)
+            var num = new NumberExpression(expressions[0].StringValue).Value;
+            for (var i = 1; i < count; i++)
             {
-                return left.ValueInt > right.ValueInt ? right : left;
+                var val = new NumberExpression(expressions[i].StringValue).Value;
+                if (val < num)
+                {
+                    num = val;
+                }
             }
 
-            return left.ValueDouble > right.ValueDouble ? right : left;
+            return new NumberExpression(num);
         }
 
         private static Expression Max(in IReadOnlyList<Expression> expressions)
         {
-            var left = new NumberExpression(expressions[0].StringValue);
-            var right = new NumberExpression(expressions[1].StringValue);
+            var count = expressions.Count;
+            if (count < 1) return new NumberExpression(double.MaxValue);
 
-            if (left.IsInt && right.IsInt)
+            var num = new NumberExpression(expressions[0].StringValue).Value;
+            for (var i = 1; i < count; i++)
             {
-                return left.ValueInt < right.ValueInt ? right : left;
+                var val = new NumberExpression(expressions[i].StringValue).Value;
+                if (val > num)
+                {
+                    num = val;
+                }
             }
 
-            return left.ValueDouble < right.ValueDouble ? right : left;
+            return new NumberExpression(num);
         }
 
         private static Expression Log(in IReadOnlyList<Expression> expressions)
@@ -84,85 +94,77 @@ namespace Common.Interpreters
             throw new Exception("expression error!");
         }
 
-        private static Expression BinaryOpNumbers
-        (
-            Expression l, Expression r,
-            Func<int, int, int> opInt, Func<double, double, double> opDbl
-        )
+        private static Expression BinaryOpNumbers(Expression l, Expression r, Func<double, double, double> func)
         {
             var left = new NumberExpression(l.StringValue);
             var right = new NumberExpression(r.StringValue);
 
-            var result = left.IsInt && right.IsInt
-                ? new NumberExpression(opInt.Invoke(left.ValueInt, right.ValueInt))
-                : new NumberExpression(opDbl.Invoke(left.ValueDouble, right.ValueDouble));
-
-            return result;
+            return new NumberExpression(func.Invoke(left.Value, right.Value));
         }
 
         private static Expression Plus(in Expression l, in Expression r)
         {
-            return BinaryOpNumbers(l, r, (a, b) => a + b, (a, b) => a + b);
+            return BinaryOpNumbers(l, r, (a, b) => a + b);
         }
 
         private static Expression Minus(in Expression l, in Expression r)
         {
-            return BinaryOpNumbers(l, r, (a, b) => a - b, (a, b) => a - b);
+            return BinaryOpNumbers(l, r, (a, b) => a - b);
         }
 
         private static Expression Mult(in Expression l, in Expression r)
         {
-            return BinaryOpNumbers(l, r, (a, b) => a * b, (a, b) => a * b);
+            return BinaryOpNumbers(l, r, (a, b) => a * b);
         }
 
         private static Expression Div(in Expression l, in Expression r)
         {
-            return BinaryOpNumbers(l, r, (a, b) => a / b, (a, b) => a / b);
+            return BinaryOpNumbers(l, r, (a, b) => a / b);
         }
 
-        private static BooleanExpression BinaryOpBoolean
-        (
-            in Expression l, in Expression r,
-            in Func<int, int, bool> opInt, in Func<double, double, bool> opDbl
-        )
+        private static Expression Not(in IReadOnlyList<Expression> expressions)
+        {
+            var value = new BooleanExpression(expressions[0].StringValue).Value;
+            return new BooleanExpression(!value);
+        }
+
+        private static BooleanExpression BinaryOpBoolean(in Expression l, in Expression r, in Func<double, double, bool> func)
         {
             var left = new NumberExpression(l.StringValue);
             var right = new NumberExpression(r.StringValue);
 
-            var result = left.IsInt && right.IsInt
-                ? new BooleanExpression(opInt.Invoke(left.ValueInt, right.ValueInt))
-                : new BooleanExpression(opDbl.Invoke(left.ValueDouble, right.ValueDouble));
-
-            return result;
+            return new BooleanExpression(func.Invoke(left.Value, right.Value));
         }
 
         private static BooleanExpression And(in Expression l, in Expression r)
         {
-            return new BooleanExpression(l.StringValue == r.StringValue);
+            var left = new BooleanExpression(l.StringValue);
+            var right = new BooleanExpression(r.StringValue);
+
+            return new BooleanExpression(left.Value && right.Value);
         }
 
         private static BooleanExpression Or(in Expression l, in Expression r)
         {
-            return new BooleanExpression
-            (
-                string.Equals(l.StringValue, "true", StringComparison.OrdinalIgnoreCase) ||
-                string.Equals(r.StringValue, "true", StringComparison.OrdinalIgnoreCase)
-            );
+            var left = new BooleanExpression(l.StringValue);
+            var right = new BooleanExpression(r.StringValue);
+
+            return new BooleanExpression(left.Value || right.Value);
         }
 
         private static BooleanExpression Less(in Expression l, in Expression r)
         {
-            return BinaryOpBoolean(l, r, (a, b) => a < b, (a, b) => a < b);
+            return BinaryOpBoolean(l, r, (a, b) => a < b);
         }
 
         private static BooleanExpression Greater(in Expression l, in Expression r)
         {
-            return BinaryOpBoolean(l, r, (a, b) => a > b, (a, b) => a > b);
+            return BinaryOpBoolean(l, r, (a, b) => a > b);
         }
 
         private static BooleanExpression Equals(in Expression l, in Expression r)
         {
-            return BinaryOpBoolean(l, r, (a, b) => a == b, (a, b) => Math.Abs(a - b) <= double.Epsilon);
+            return BinaryOpBoolean(l, r, (a, b) => Math.Abs(a - b) <= double.Epsilon);
         }
     }
 }

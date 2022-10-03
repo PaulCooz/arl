@@ -3,7 +3,7 @@
 ## syntax
 
 <pre>
-if (2 + (5f / 2) > 4; "sample"; 'expression') -> "sample"
+if (2 + (5 / 2) > 4; "sample"; 'expression') -> "sample"
 a := 1 -> a (assign, return variable name)
 a := a + 1
 b := 3 / a
@@ -14,27 +14,26 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 
 ### types
 
-| types   | sample                       |
-|---------|------------------------------|
-| string  | 'sample string' or "another" |
-| int     | -12345 (4 byte)              |
-| float   | 1.23 or 1,23 or 1f (8 byte)  |
-| boolean | true or false                |
-| array   | \[-3f; 5 / 2; 2 * 2]         |
+| types   | sample                          |
+|---------|---------------------------------|
+| string  | 'sample string' or "another"    |
+| float   | 123 or 1.23 or 1,23 (8 byte)    |
+| boolean | (regex pattern) ^(true/yes/on)$ |
+| array   | \[-3; 5 / 2; 2 * 2]             |
 
 ### operations
 
-| name | sample                        |
-|------|-------------------------------|
-| and  | 1 = 1 and true -> true        |
-| or   | 1 = 1 or false -> true        |
-| =    | 5 / 2 = 2 -> true             |
-| <    | 1 < 2 -> true                 |
-| \>   | 3 > 5 -> false                |
-| +    | 2 + 5 -> 7                    |
-| -    | 3 - -5 -> -2                  |
-| *    | 16 * 16 -> 256                |
-| /    | 5 / 2 -> 2 or 5f / 2,0 -> 2.5 |
+| name | sample                 |
+|------|------------------------|
+| and  | 1 = 1 and true -> true |
+| or   | 1 = 1 or off -> true   |
+| =    | 5 / 2 = 2 -> true      |
+| <    | 1 < 2 -> true          |
+| \>   | 3 > 5 -> false         |
+| +    | 2 + 5 -> 7             |
+| -    | 3 - -5 -> -2           |
+| *    | 16 * 16 -> 256         |
+| /    | 5 / 2 -> 2.5           |
 
 ## global context
 
@@ -43,8 +42,9 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 | name  | sample                                                   |
 |-------|----------------------------------------------------------|
 | if    | if (1=1;5;7) -> 5 or if (false;"smth") -> (empty string) |
-| min   | min(2; 3) -> 2                                           |
-| max   | max(2; 3) -> 3                                           |
+| not   | not(1 = 2) -> true or not(on) -> false                   |
+| min   | min(4; 2 / 2; 3) -> 1 or min() -> -1.798E+308            |
+| max   | max(2 + 1) -> 3 or max() -> 1.798E+308                   |
 | log   | log("a="; 10) -> (out to stream a=10)                    |
 | error | error("2"; "+"; "3="; 5) -> (like log, but stop thread)  |
 
@@ -77,6 +77,7 @@ call on bullet collide
 
 <details>
 <summary> local context </summary>
+<br>
 
 <b> variables </b>
 

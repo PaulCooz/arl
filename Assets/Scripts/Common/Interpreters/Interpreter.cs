@@ -181,7 +181,7 @@ namespace Common.Interpreters
                 {
                     number.Append(_currentChar);
                     _currentChar = NextChar();
-                } while (Tools.IsDigitOrDot(_currentChar) || _currentChar == 'f');
+                } while (Tools.IsDigitOrDot(_currentChar));
 
                 _currentNumber = number.ToString();
                 CurrentToken = Core.Token.Number;

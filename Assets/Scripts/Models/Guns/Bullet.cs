@@ -1,4 +1,5 @@
-﻿using Common.Interpreters;
+﻿using System;
+using Common.Interpreters;
 using Common.Keys;
 using Common.Storages.Configs;
 using Models.CollisionTriggers;
@@ -65,7 +66,7 @@ namespace Models.Guns
                 s =>
                 {
                     Tools.ParseNumber(s, out var count);
-                    _ownUnit.Health = count;
+                    _ownUnit.Health = Convert.ToInt32(count);
                 }
             );
             script.AddProperty
@@ -75,7 +76,7 @@ namespace Models.Guns
                 s =>
                 {
                     Tools.ParseNumber(s, out var count);
-                    unit.Health = count;
+                    unit.Health = Convert.ToInt32(count);
                 }
             );
         }
