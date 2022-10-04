@@ -37,14 +37,11 @@ namespace Models.Unit
             set
             {
                 health = Mathf.Max(value, 0);
+                onHealthChange.Invoke(health, maxHealth);
 
-                if (health <= 0)
+                if (health == 0)
                 {
                     Die();
-                }
-                else
-                {
-                    onHealthChange.Invoke(health, maxHealth);
                 }
             }
         }

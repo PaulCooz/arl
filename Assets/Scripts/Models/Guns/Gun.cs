@@ -12,6 +12,7 @@ namespace Models.Guns
     public class Gun : MonoBehaviour
     {
         private BaseUnit _ownUnit;
+        private bool _hasInRange;
 
         [SerializeField]
         private Bullet bulletPrefab;
@@ -27,6 +28,8 @@ namespace Models.Guns
         private bool isFromPlayer;
 
         [SerializeField]
+        private UnityEvent<bool> rangeStatus;
+        [SerializeField]
         private UnityEvent<float> reloadStatus;
 
         public BaseUnit OwnUnit
@@ -40,6 +43,18 @@ namespace Models.Guns
         }
 
         public float AttackRadius => Config.Get(OwnUnit.Name, ConfigKey.AttackRadius, 4f);
+
+        public bool HasInRange
+        {
+            get => _hasInRange;
+            set
+            {
+                if (_hasInRange == value) return;
+
+                _hasInRange = value;
+                rangeStatus.Invoke(_hasInRange);
+            }
+        }
 
         private void OnEnable()
         {
@@ -111,6 +126,11 @@ namespace Models.Guns
         private float Distance(in BaseUnit target)
         {
             return Vector2.Distance(target.Position, ownUnit.Position);
+        }
+
+        public void UpdateRangeStatus()
+        {
+            HasInRange = !unitCollisionTrigger.CollidersInRange.IsEmpty();
         }
     }
 }
