@@ -6,9 +6,9 @@ namespace Common.Interpreters
 {
     public static class Tools
     {
-        public static bool IsDigitOrDot(in char c)
+        public static bool IsNumberPart(in char c)
         {
-            return char.IsDigit(c) || c is '.' or ',';
+            return char.IsDigit(c) || c is '.' or ',' or 'e' or 'E';
         }
 
         public static void ParseNumber(in string str, out double res)

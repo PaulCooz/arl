@@ -119,53 +119,50 @@ namespace Common.Interpreters
 
         private bool GetIdentifier()
         {
-            if (char.IsLetter(_currentChar) || _currentChar == '_')
+            if (!char.IsLetter(_currentChar) && _currentChar != '_') return false;
+
+            var sb = new StringBuilder();
+            do
             {
-                var sb = new StringBuilder();
-                do
-                {
-                    sb.Append(_currentChar);
-                    _currentChar = _index < _str.Length ? _str[_index] : '\0';
-                    _index++;
-                } while (char.IsLetterOrDigit(_currentChar) || _currentChar == '_');
+                sb.Append(_currentChar);
+                _currentChar = _index < _str.Length ? _str[_index] : '\0';
+                _index++;
+            } while (char.IsLetterOrDigit(_currentChar) || _currentChar == '_');
 
-                _currentIdentifier = sb.ToString().ToLower();
+            _currentIdentifier = sb.ToString().ToLower();
 
-                var id = _currentIdentifier.ToLower();
-                switch (id)
-                {
-                    case "or":
-                        CurrentToken = Core.Token.Or;
-                        return true;
+            var id = _currentIdentifier.ToLower();
+            switch (id)
+            {
+                case "or":
+                    CurrentToken = Core.Token.Or;
+                    return true;
 
-                    case "and":
-                        CurrentToken = Core.Token.And;
-                        return true;
-                }
-
-                CurrentToken = Core.Token.Identifier;
-                return true;
+                case "and":
+                    CurrentToken = Core.Token.And;
+                    return true;
             }
 
-            return false;
+            CurrentToken = Core.Token.Identifier;
+            return true;
+
         }
 
         private bool GetAssignment()
         {
-            if (_currentChar == ':')
-            {
-                var operation = new StringBuilder();
-                do
-                {
-                    operation.Append(_currentChar);
-                    _currentChar = NextChar();
-                } while (_currentChar == '=');
+            if (_currentChar != ':') return false;
 
-                if (operation.ToString() == ":=")
-                {
-                    CurrentToken = Core.Token.Assignment;
-                    return true;
-                }
+            var operation = new StringBuilder();
+            do
+            {
+                operation.Append(_currentChar);
+                _currentChar = NextChar();
+            } while (_currentChar == '=');
+
+            if (operation.ToString() == ":=")
+            {
+                CurrentToken = Core.Token.Assignment;
+                return true;
             }
 
             return false;
@@ -173,22 +170,24 @@ namespace Common.Interpreters
 
         private bool GetNumber()
         {
-            if (Tools.IsDigitOrDot(_currentChar) ||
-                (_currentChar == '-' && Tools.IsDigitOrDot(NextChar(false)) && _prevToken == Core.Token.Number))
+            var prefixCheck = _currentChar != '-' || !Tools.IsNumberPart(NextChar(false)) || _prevToken != Core.Token.Number;
+            if (!Tools.IsNumberPart(_currentChar) && prefixCheck)
             {
-                var number = new StringBuilder();
-                do
-                {
-                    number.Append(_currentChar);
-                    _currentChar = NextChar();
-                } while (Tools.IsDigitOrDot(_currentChar));
-
-                _currentNumber = number.ToString();
-                CurrentToken = Core.Token.Number;
-                return true;
+                return false;
             }
 
-            return false;
+            var number = new StringBuilder();
+            var prevE = false;
+            do
+            {
+                number.Append(_currentChar);
+                prevE = _currentChar is 'e' or 'E';
+                _currentChar = NextChar();
+            } while (Tools.IsNumberPart(_currentChar) || (prevE && _currentChar is '-' or '+'));
+
+            _currentNumber = number.ToString();
+            CurrentToken = Core.Token.Number;
+            return true;
         }
 
         private int GetTokPrecedence()
