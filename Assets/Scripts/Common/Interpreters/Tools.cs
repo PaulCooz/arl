@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Text;
 
 namespace Common.Interpreters
@@ -11,16 +10,20 @@ namespace Common.Interpreters
             return char.IsDigit(c) || c is '.' or ',' or 'e' or 'E';
         }
 
+        public static bool IsQuote(in char c)
+        {
+            return c is '\"' or '\'';
+        }
+
         public static void ParseNumber(in string str, out double res)
         {
             var sb = new StringBuilder();
             foreach (var c in str)
             {
-                var decSep = c is '.' or ',';
-                sb.Append(decSep ? '.' : c);
+                sb.Append(c == ',' ? '.' : c);
             }
 
-            res = double.Parse(sb.ToString(), new NumberFormatInfo {NumberDecimalDigits = '.'});
+            res = double.Parse(sb.ToString(), Core.NumberFormat);
         }
 
         public static string ToArray(IEnumerable<Expression> elements)

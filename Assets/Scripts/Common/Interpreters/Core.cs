@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 
 namespace Common.Interpreters
 {
@@ -55,5 +56,7 @@ namespace Common.Interpreters
             {Token.Mult, 40},
             {Token.Div, 40}
         };
+
+        public static readonly NumberFormatInfo NumberFormat = new() {NumberDecimalDigits = '.'};
     }
 }

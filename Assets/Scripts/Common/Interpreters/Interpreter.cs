@@ -95,26 +95,23 @@ namespace Common.Interpreters
 
         private bool GetString()
         {
-            if (_currentChar is '\"' or '\'')
-            {
-                var sb = new StringBuilder();
-                do
-                {
-                    sb.Append(_currentChar);
-                    _currentChar = _index < _str.Length ? _str[_index] : '\0';
-                    _index++;
-                } while (_currentChar is not ('\"' or '\''));
+            if (!Tools.IsQuote(_currentChar)) return false;
 
+            var sb = new StringBuilder();
+            do
+            {
                 sb.Append(_currentChar);
                 _currentChar = _index < _str.Length ? _str[_index] : '\0';
                 _index++;
+            } while (!Tools.IsQuote(_currentChar));
 
-                _currentString = sb.ToString();
-                CurrentToken = Core.Token.String;
-                return true;
-            }
+            sb.Append(_currentChar);
+            _currentChar = _index < _str.Length ? _str[_index] : '\0';
+            _index++;
 
-            return false;
+            _currentString = sb.ToString();
+            CurrentToken = Core.Token.String;
+            return true;
         }
 
         private bool GetIdentifier()
@@ -145,7 +142,6 @@ namespace Common.Interpreters
 
             CurrentToken = Core.Token.Identifier;
             return true;
-
         }
 
         private bool GetAssignment()
