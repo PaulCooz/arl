@@ -1,5 +1,4 @@
-﻿using System;
-using Common.Interpreters;
+﻿using Common.Interpreters;
 using Common.Keys;
 using Common.Storages.Configs;
 using Models.CollisionTriggers;
@@ -62,22 +61,14 @@ namespace Models.Guns
             script.AddProperty
             (
                 "own_hp",
-                () => _ownUnit.Health.ToString(),
-                s =>
-                {
-                    Tools.ParseNumber(s, out var count);
-                    _ownUnit.Health = Convert.ToInt32(count);
-                }
+                () => _ownUnit.Health.ToScriptValue(),
+                value => _ownUnit.Health = value.IntValue
             );
             script.AddProperty
             (
                 "enemy_hp",
-                () => unit.Health.ToString(),
-                s =>
-                {
-                    Tools.ParseNumber(s, out var count);
-                    unit.Health = Convert.ToInt32(count);
-                }
+                () => unit.Health.ToScriptValue(),
+                value => unit.Health = value.IntValue
             );
         }
     }

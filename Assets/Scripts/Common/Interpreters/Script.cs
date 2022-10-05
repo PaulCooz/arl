@@ -5,41 +5,36 @@ namespace Common.Interpreters
 {
     public class Script
     {
-        public readonly Context Context;
+        private readonly Context _context;
 
         public Script()
         {
-            Context = new Context();
+            _context = new Context();
         }
 
-        public Script(Context context)
+        public Value Run(in string str)
         {
-            Context = context;
+            return new Interpreter(str, _context).Value;
         }
 
-        public Value Run(string str)
+        public void AddVariable(in string name, in string value)
         {
-            return new Interpreter(str, Context).Value;
+            _context.SetVariable(name, new Expression(value));
         }
 
-        public void AddVariable(string name, string value)
+        public void AddProperty(in string name, Func<Value> get, Action<Value> set)
         {
-            Context.SetVariable(name, new Expression(value));
-        }
-
-        public void AddProperty(string name, Func<string> get, Action<string> set)
-        {
-            Context.SetFunction
+            _context.SetFunction
             (
                 $"get_{name}",
-                (in IReadOnlyList<Expression> _) => new Expression(get.Invoke())
+                (in IReadOnlyList<Expression> _) => new Expression(get.Invoke().StringValue)
             );
-            Context.SetFunction
+            _context.SetFunction
             (
                 $"set_{name}",
                 (in IReadOnlyList<Expression> expressions) =>
                 {
-                    set.Invoke(expressions[0].StringValue);
+                    set.Invoke(new Value(expressions));
                     return Expression.Empty;
                 }
             );
