@@ -41,6 +41,8 @@ namespace Models.Guns
 
                 AttackInRange();
             }
+
+            Destroy(gameObject);
         }
 
         private void AttackInRange()

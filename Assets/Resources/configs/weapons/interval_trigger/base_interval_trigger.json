@@ -12,5 +12,5 @@
   ],
   "collider_edge_radius": 0.1,
   "damage": 1,
-  "on_trigger": "set_enemy_hp(get_enemy_hp() - damage)"
+  "on_trigger": "log('trigger '; enemy_name; '!')"
 }

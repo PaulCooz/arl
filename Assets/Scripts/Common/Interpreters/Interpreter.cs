@@ -156,7 +156,9 @@ namespace Common.Interpreters
 
         private bool GetNumber()
         {
-            var isSingleOperator = _currentChar is '+' or '-' && _currentToken is Core.Token.Number;
+            var isSingleOperator = _currentChar is '+' or '-' &&
+                                   _currentToken is Core.Token.Number or Core.Token.BrakeCirRight;
+
             if (!Tools.IsNumberPrefix(_currentChar) || isSingleOperator)
             {
                 return false;
