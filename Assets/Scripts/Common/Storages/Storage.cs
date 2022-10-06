@@ -6,7 +6,12 @@ namespace Common.Storages
 {
     public static class Storage
     {
-        public static readonly string Root = Application.persistentDataPath;
+        public static readonly string Root =
+#if UNITY_EDITOR
+            Path.Combine("Assets", "Resources");
+#else
+            Application.persistentDataPath;
+#endif
 
         public static readonly string PrefsFilePath = Path.Combine(Root, "preferences.json");
 
