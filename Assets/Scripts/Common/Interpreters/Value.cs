@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Common.Interpreters
 {
@@ -7,31 +9,33 @@ namespace Common.Interpreters
     {
         public static readonly Value Null = new("0");
 
-        public readonly string StringValue;
+        internal readonly string ScriptValue;
 
-        public int IntValue => Convert.ToInt32(StringValue);
-        public double DoubleValue => Convert.ToDouble(StringValue);
+        public string StringValue => ScriptValue.Substring(1, ScriptValue.Length - 2);
+        public int IntValue => Convert.ToInt32(ScriptValue);
+        public double DoubleValue => Convert.ToDouble(ScriptValue, Core.NumberFormat);
 
-        public Value(string stringValue)
+        public IReadOnlyList<float> ArrFloatValue =>
+            ScriptValue.ToValues().Select(value => (float) value.DoubleValue).ToArray();
+
+        public Vector3 Vector3Value
         {
-            StringValue = stringValue;
+            get
+            {
+                var res = new Vector3();
+                var arr = ArrFloatValue;
+
+                if (arr.Count > 0) res.x = arr[0];
+                if (arr.Count > 1) res.y = arr[1];
+                if (arr.Count > 2) res.z = arr[2];
+
+                return res;
+            }
         }
 
-        public Value(in IReadOnlyList<Expression> expressions)
+        public Value(string scriptValue)
         {
-            switch (expressions.Count)
-            {
-                case <= 0:
-                    StringValue = "0";
-                    return;
-
-                case 1:
-                    StringValue = expressions[0].StringValue;
-                    return;
-
-                default:
-                    throw new ArgumentException("can't parse more than 1 expression");
-            }
+            ScriptValue = scriptValue;
         }
     }
 }

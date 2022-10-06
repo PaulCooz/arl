@@ -59,7 +59,7 @@ namespace Common.Interpreters
 
     public class ArrayExpression : Expression
     {
-        public ArrayExpression(IEnumerable<Expression> elements) : base(Tools.ToArray(elements)) { }
+        public ArrayExpression(IEnumerable<Expression> elements) : base(elements.ToStrArray()) { }
     }
 
     public class BinaryExpression : Expression

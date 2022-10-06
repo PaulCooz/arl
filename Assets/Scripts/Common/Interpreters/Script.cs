@@ -17,24 +17,24 @@ namespace Common.Interpreters
             return new Interpreter(str, _context).Value;
         }
 
-        public void AddVariable(in string name, in string value)
+        public void SetVariable(in string name, in string value)
         {
             _context.SetVariable(name, new Expression(value));
         }
 
-        public void AddProperty(in string name, Func<Value> get, Action<Value> set)
+        public void SetProperty(in string name, Func<Value> get, Action<Value> set)
         {
             _context.SetFunction
             (
                 $"get_{name}",
-                (in IReadOnlyList<Expression> _) => new Expression(get.Invoke().StringValue)
+                (in IReadOnlyList<Expression> _) => new Expression(get.Invoke().ScriptValue)
             );
             _context.SetFunction
             (
                 $"set_{name}",
                 (in IReadOnlyList<Expression> expressions) =>
                 {
-                    set.Invoke(new Value(expressions));
+                    set.Invoke(new Value(expressions[0].StringValue));
                     return Expression.Empty;
                 }
             );

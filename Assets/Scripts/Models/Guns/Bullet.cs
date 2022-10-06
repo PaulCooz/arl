@@ -52,19 +52,19 @@ namespace Models.Guns
 
         private void FillDamageContext(BaseUnit unit, Script script)
         {
-            script.AddVariable("own_name", _ownUnit.Name);
-            script.AddVariable("enemy_name", unit.Name);
+            script.SetVariable("own_name", _ownUnit.Name);
+            script.SetVariable("enemy_name", unit.Name);
 
-            script.AddVariable("own_damage", Config.Get(_ownUnit.Name, ConfigKey.Damage, "1"));
-            script.AddVariable("enemy_damage", Config.Get(unit.Name, ConfigKey.Damage, "1"));
+            script.SetVariable("own_damage", Config.Get(_ownUnit.Name, ConfigKey.Damage, "1"));
+            script.SetVariable("enemy_damage", Config.Get(unit.Name, ConfigKey.Damage, "1"));
 
-            script.AddProperty
+            script.SetProperty
             (
                 "own_hp",
                 () => _ownUnit.Health.ToScriptValue(),
                 value => _ownUnit.Health = value.IntValue
             );
-            script.AddProperty
+            script.SetProperty
             (
                 "enemy_hp",
                 () => unit.Health.ToScriptValue(),

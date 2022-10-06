@@ -39,14 +39,22 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 
 ### functions
 
-| name  | sample                                                   |
-|-------|----------------------------------------------------------|
-| if    | if (1=1;5;7) -> 5 or if (false;"smth") -> (empty string) |
-| not   | not(1 = 2) -> true or not(on) -> false                   |
-| min   | min(4; 2 / 2; 3) -> 1 or min() -> -1.798E+308            |
-| max   | max(2 + 1) -> 3 or max() -> 1.798E+308                   |
-| log   | log("a="; 10) -> (out to stream a=10)                    |
-| error | error("2"; "+"; "3="; 5) -> (like log, but stop thread)  |
+#### internal
+
+| name  | sample                                                     |
+|-------|------------------------------------------------------------|
+| if    | if (1=1;5;7) -> 5 or if (false;"smth") -> (empty string)   |
+| not   | not(1 = 2) -> true or not(on) -> false                     |
+| min   | min(4; 2 / 2; 3) -> 1 or min() -> -1.798E+308              |
+| max   | max(2 + 1) -> 3 or max() -> 1.798E+308                     |
+| log   | log("a="; 10) -> (out to stream a=10)                      |
+| error | error("2"; "+"; "3="; 5) -> (like log, but stop thread)    |
+
+#### external
+
+| name                | input                                         | output |
+|---------------------|-----------------------------------------------|--------|
+| spawn_interval_fire | (string) config_name; (array2) spawn_position | void   |
 
 ### variables
 
