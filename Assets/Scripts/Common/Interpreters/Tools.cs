@@ -6,6 +6,11 @@ namespace Common.Interpreters
 {
     public static class Tools
     {
+        internal static bool IsNumberPrefix(in char c)
+        {
+            return char.IsDigit(c) || c is '-' or '+';
+        }
+
         internal static bool IsNumberPart(in char c)
         {
             return char.IsDigit(c) || c is '.' or ',' or 'e' or 'E';

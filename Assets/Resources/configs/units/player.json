@@ -1,8 +1,4 @@
 {
   "parent": "base_unit",
-  "bullet_color": [
-    31,
-    255,
-    31
-  ]
+  "bullet_config": "player_bullet"
 }

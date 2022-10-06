@@ -12,14 +12,19 @@ namespace Common.Interpreters
             _context = new Context();
         }
 
+        public Script(Context context)
+        {
+            _context = context;
+        }
+
         public Value Run(in string str)
         {
             return new Interpreter(str, _context).Value;
         }
 
-        public void SetVariable(in string name, in string value)
+        public void SetVariable(in string name, in Value value)
         {
-            _context.SetVariable(name, new Expression(value));
+            _context.SetVariable(name, new Expression(value.ScriptValue));
         }
 
         public void SetProperty(in string name, Func<Value> get, Action<Value> set)

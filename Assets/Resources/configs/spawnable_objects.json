@@ -1,7 +1,7 @@
 {
   "units": [
     {
-      "name": "common_enemy",
+      "name": "enemy",
       "chance": 2
     },
     {

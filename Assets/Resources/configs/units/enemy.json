@@ -1,6 +1,4 @@
 {
   "parent": "base_unit",
-  "speed": 0.0,
-  "attack_radius": 7.0,
   "bullet_config": "enemy_bullet"
 }

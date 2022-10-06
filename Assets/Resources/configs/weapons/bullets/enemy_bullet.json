@@ -1,0 +1,9 @@
+﻿{
+  "parent": "base_bullet",
+  "color": [
+    255,
+    31,
+    31
+  ],
+  "on_collide": "spawn_interval_trigger('base_interval_trigger'; [-1; 1 + 1])"
+}

@@ -11,7 +11,21 @@ namespace Common.Interpreters
 
         internal readonly string ScriptValue;
 
-        public string StringValue => ScriptValue.Substring(1, ScriptValue.Length - 2);
+        public string StringValue
+        {
+            get
+            {
+                if (ScriptValue.Length > 0 && Tools.IsQuote(ScriptValue[0]))
+                {
+                    return ScriptValue.Substring(1, ScriptValue.Length - 2);
+                }
+                else
+                {
+                    return ScriptValue;
+                }
+            }
+        }
+
         public int IntValue => Convert.ToInt32(ScriptValue);
         public double DoubleValue => Convert.ToDouble(ScriptValue, Core.NumberFormat);
 

@@ -14,7 +14,8 @@ namespace Views.Guns.Bullets
 
         public void Setup(BaseUnit ownUnit)
         {
-            var color = Config.Get(ownUnit.Name, ConfigKey.BulletColor, Array.Empty<byte>()).ToColor();
+            var bulletConfig = Config.Get(ownUnit.Name, ConfigKey.BulletConfig, ConfigKey.BaseBullet);
+            var color = Config.Get(bulletConfig, ConfigKey.Color, Array.Empty<byte>()).ToColor();
 
             spriteRenderer.color = color;
         }

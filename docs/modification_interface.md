@@ -52,9 +52,9 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 
 #### external
 
-| name                | input                                         | output |
-|---------------------|-----------------------------------------------|--------|
-| spawn_interval_fire | (string) config_name; (array2) spawn_position | void   |
+| name                   | input                                         | output |
+|------------------------|-----------------------------------------------|--------|
+| spawn_interval_trigger | (string) config_name; (array2) spawn_position | void   |
 
 ### variables
 

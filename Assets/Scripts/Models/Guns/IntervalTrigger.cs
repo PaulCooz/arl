@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Models.Guns
 {
-    public class IntervalFire : MonoBehaviour
+    public class IntervalTrigger : MonoBehaviour
     {
         private WaitForSeconds _waitForSeconds;
         private int _count;
@@ -46,19 +46,19 @@ namespace Models.Guns
         private void AttackInRange()
         {
             var script = new Script();
-            script.SetVariable("damage", Config.Get(_config, ConfigKey.Damage, "1"));
+            script.SetVariable(ContextKey.Damage, Config.Get(_config, ConfigKey.Damage, 1).ToScriptValue());
 
             foreach (var unit in unitTrigger.CollidersInRange)
             {
-                script.SetVariable("enemy_name", unit.Name);
+                script.SetVariable(ContextKey.EnemyName, unit.Name.ToScriptValue());
                 script.SetProperty
                 (
-                    "enemy_hp",
+                    ContextKey.EnemyHp,
                     () => unit.Health.ToScriptValue(),
                     value => unit.Health = value.IntValue
                 );
 
-                script.Run(Config.Get(_config, ConfigKey.OnDamage, ""));
+                script.Run(Config.Get(_config, ConfigKey.OnTrigger, ""));
             }
         }
     }

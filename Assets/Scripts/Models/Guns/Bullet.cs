@@ -45,18 +45,20 @@ namespace Models.Guns
         {
             var script = new Script();
             FillDamageContext(unit, script);
-            script.Run(Config.Get(_ownUnit.Name, ConfigKey.OnDamage, ""));
+
+            var bulletConfig = Config.Get(_ownUnit.Name, ConfigKey.BulletConfig, "base_bullet");
+            script.Run(Config.Get(bulletConfig, ConfigKey.OnCollide, ""));
 
             Destroy(gameObject);
         }
 
         private void FillDamageContext(BaseUnit unit, Script script)
         {
-            script.SetVariable("own_name", _ownUnit.Name);
-            script.SetVariable("enemy_name", unit.Name);
+            script.SetVariable("own_name", _ownUnit.Name.ToScriptValue());
+            script.SetVariable("enemy_name", unit.Name.ToScriptValue());
 
-            script.SetVariable("own_damage", Config.Get(_ownUnit.Name, ConfigKey.Damage, "1"));
-            script.SetVariable("enemy_damage", Config.Get(unit.Name, ConfigKey.Damage, "1"));
+            script.SetVariable("own_damage", Config.Get(_ownUnit.Name, ConfigKey.Damage, 1).ToScriptValue());
+            script.SetVariable("enemy_damage", Config.Get(unit.Name, ConfigKey.Damage, 1).ToScriptValue());
 
             script.SetProperty
             (

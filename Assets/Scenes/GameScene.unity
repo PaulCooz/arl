@@ -2396,4 +2396,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6facae9ed881438a945169fc46dbcb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalFirePrefab: {fileID: 555541794602749872, guid: 3a455fb66420d5640a02b1e4576d9e2b, type: 3}
+  intervalTriggerPrefab: {fileID: 555541794602749872, guid: 3a455fb66420d5640a02b1e4576d9e2b, type: 3}

@@ -1,6 +1,5 @@
 {
-  "on_damage": "set_enemy_hp(get_enemy_hp() - own_damage)",
   "speed": 1.0,
   "attack_radius": 4.0,
-  "damage": 1
+  "bullet_config": "base_bullet"
 }

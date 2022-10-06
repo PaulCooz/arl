@@ -31,7 +31,8 @@ namespace Editor.Scripts
         {
             if (_context == null) _context = new Context();
 
-            _outputTextField.value = new Interpreter(_inputTextField.value, _context).Value.StringValue;
+            var script = new Script(_context);
+            _outputTextField.value = script.Run(_inputTextField.value).StringValue;
         }
     }
 }
