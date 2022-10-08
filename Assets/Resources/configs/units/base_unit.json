@@ -2,6 +2,6 @@
   "speed": 1.0,
   "bullet_config": "base_bullet",
   "gun_config": "base_gun",
-  "on_hp_change": "log(own_name; ' hp change: by '; delta_hp; ', to '; current_hp)",
-  "on_die": "log(own_name; ' is die!')\nspawn_interval_trigger('base_interval_trigger'; own_position)"
+  "on_hp_change": "",
+  "on_die": "spawn_interval_trigger('base_interval_trigger'; own_position)"
 }

@@ -37,9 +37,11 @@ namespace Models.Unit
             get => health;
             set
             {
-                var delta = value - health;
+                var next = Mathf.Max(value, 0);
+                var delta = next - health;
+                if (delta == 0) return;
 
-                health = Mathf.Max(value, 0);
+                health = next;
                 onHealthChange.Invoke(health, maxHealth);
 
                 RunOnHpChange(delta);
@@ -71,7 +73,7 @@ namespace Models.Unit
         protected virtual void Die()
         {
             onDie.Invoke();
-            RunOnDie();
+            if (Health == 0) RunOnDie();
 
             Destroy(transform.parent.gameObject);
         }
