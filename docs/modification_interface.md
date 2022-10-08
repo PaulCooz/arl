@@ -70,9 +70,7 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 
 units configs and chance to spawn
 
-## hooks
-
-### unit
+## unit
 
 | type     | name          |
 |----------|---------------|
@@ -80,9 +78,67 @@ units configs and chance to spawn
 | string   | bullet_config |
 | float    | speed         |
 
+### hooks
+
+#### on_hp_change
+
+call on health change (include unit spawn)
+
+<details>
+<summary> local context </summary>
+<br>
+
+<b> variables </b>
+
+| type   | name         |
+|--------|--------------|
+| string | own_name     |
+| int    | current_hp   |
+| int    | delta_hp     |
+| float2 | own_position |
+
+</details>
+
+#### on_die
+
+call when health equals zero
+
+<details>
+<summary> local context </summary>
+<br>
+
+<b> variables </b>
+
+| type   | name         |
+|--------|--------------|
+| string | own_name     |
+| float2 | own_position |
+
+</details>
+
+## gun
+
+| type  | name          |
+|-------|---------------|
+| float | scatter       |
+| int   | bullets_count |
+| float | attack_radius |
+| float | attack_speed  |
+
+## bullet
+
+| type   | name       |
+|--------|------------|
+| float  | damage     |
+| script | on_collide |
+| float  | force      |
+| float4 | color      |
+
+### hooks
+
 #### on_damage
 
-call on bullet collide
+call on bullet collide with unit
 
 <details>
 <summary> local context </summary>
@@ -107,25 +163,7 @@ call on bullet collide
 
 </details>
 
-### gun
-
-| type  | name          |
-|-------|---------------|
-| float | scatter       |
-| int   | bullets_count |
-| float | attack_radius |
-| float | attack_speed  |
-
-### bullet
-
-| type   | name       |
-|--------|------------|
-| float  | damage     |
-| script | on_collide |
-| float  | force      |
-| float4 | color      |
-
-### interval trigger
+## interval trigger
 
 | type   | name                 |
 |--------|----------------------|

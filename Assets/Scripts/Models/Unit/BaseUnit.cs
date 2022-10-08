@@ -1,4 +1,5 @@
 ﻿using Common.Editor;
+using Common.Interpreters;
 using Common.Keys;
 using Common.Storages.Configs;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Models.Unit
         private Vector2 _moveDelta;
 
         [SerializeField, ReadOnly]
-        private int health;
+        private int health = 0;
 
         [SerializeField]
         private Rigidbody2D unitRigidbody;
@@ -36,8 +37,12 @@ namespace Models.Unit
             get => health;
             set
             {
+                var delta = value - health;
+
                 health = Mathf.Max(value, 0);
                 onHealthChange.Invoke(health, maxHealth);
+
+                RunOnHpChange(delta);
 
                 if (health == 0)
                 {
@@ -66,7 +71,27 @@ namespace Models.Unit
         protected virtual void Die()
         {
             onDie.Invoke();
+            RunOnDie();
+
             Destroy(transform.parent.gameObject);
+        }
+
+        private void RunOnHpChange(int delta)
+        {
+            var script = new Script();
+            script.SetVariable(ConfigKey.OwnName, Name.ToScriptValue());
+            script.SetVariable(ConfigKey.CurrentHp, health.ToScriptValue());
+            script.SetVariable(ConfigKey.DeltaHp, delta.ToScriptValue());
+            script.SetVariable(ConfigKey.OwnPosition, Position.ToScriptValue());
+            script.Run(Config.Get(Name, ConfigKey.OnHpChange, ""));
+        }
+
+        private void RunOnDie()
+        {
+            var script = new Script();
+            script.SetVariable(ConfigKey.OwnName, Name.ToScriptValue());
+            script.SetVariable(ConfigKey.OwnPosition, Position.ToScriptValue());
+            script.Run(Config.Get(Name, ConfigKey.OnDie, ""));
         }
 
         public void OnBeforeSerialize()

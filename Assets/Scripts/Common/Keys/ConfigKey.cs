@@ -24,5 +24,11 @@
         public const string GunConfig = "gun_config";
         public const string Force = "force";
         public const string AttackSpeed = "attack_speed";
+        public const string OwnName = "own_name";
+        public const string OnDie = "on_die";
+        public const string CurrentHp = "current_hp";
+        public const string OnHpChange = "on_hp_change";
+        public const string DeltaHp = "delta_hp";
+        public const string OwnPosition = "own_position";
     }
 }

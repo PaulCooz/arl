@@ -22,6 +22,12 @@ namespace Common.Interpreters
 
         public Interpreter(string s, Context context)
         {
+            if (string.IsNullOrEmpty(s))
+            {
+                Value = Value.Null;
+                return;
+            }
+
             _context = context;
 
             var lines = s.Split('\n');
