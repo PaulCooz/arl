@@ -19,5 +19,10 @@
         public const string IsEnemyTrigger = "is_enemy_trigger";
         public const string BaseBullet = "base_bullet";
         public const string OnTrigger = "on_trigger";
+        public const string Scatter = "scatter";
+        public const string BulletsCount = "bullets_count";
+        public const string GunConfig = "gun_config";
+        public const string Force = "force";
+        public const string AttackSpeed = "attack_speed";
     }
 }

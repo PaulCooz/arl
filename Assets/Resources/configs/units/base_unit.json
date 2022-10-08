@@ -1,5 +1,5 @@
 {
   "speed": 1.0,
-  "attack_radius": 4.0,
-  "bullet_config": "base_bullet"
+  "bullet_config": "base_bullet",
+  "gun_config": "base_gun"
 }

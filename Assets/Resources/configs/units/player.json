@@ -1,4 +1,5 @@
 {
   "parent": "base_unit",
-  "bullet_config": "player_bullet"
+  "bullet_config": "player_bullet",
+  "gun_config": "player_gun"
 }

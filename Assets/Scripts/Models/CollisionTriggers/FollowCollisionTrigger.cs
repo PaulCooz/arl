@@ -30,7 +30,6 @@ namespace Models.CollisionTriggers
             var distance = Vector2.Distance(baseUnit.Position, attractor.Position);
             if (distance <= minDistance) return;
 
-            // ReSharper disable once Unity.PreferNonAllocApi
             var hits = Physics2D.RaycastAll(baseUnit.Position, attractor.Position - baseUnit.Position);
             var hit = (RaycastHit2D?) null;
             foreach (var h in hits)

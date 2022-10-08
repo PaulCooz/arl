@@ -50,7 +50,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.37, y: 0.12}
+  m_Size: {x: 0.32127315, y: 0.09709546}
   m_Direction: 1
 --- !u!50 &2795096508447178059
 Rigidbody2D:
@@ -118,7 +118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionTrigger: {fileID: 8548690665993552674}
   bulletRigidbody: {fileID: 2795096508447178059}
-  force: 3
   onSetup:
     m_PersistentCalls:
       m_Calls:

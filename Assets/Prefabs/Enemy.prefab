@@ -183,7 +183,6 @@ MonoBehaviour:
   ownUnit: {fileID: 7946169030449215716}
   unitCollisionTrigger: {fileID: 7946169029218067336}
   gunBarrel: {fileID: 7946169029218067342}
-  delay: 1.2
   isFromPlayer: 0
   rangeStatus:
     m_PersistentCalls:

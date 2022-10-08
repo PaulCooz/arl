@@ -1,6 +1,6 @@
 {
-  "parent": "base_unit",
+  "parent": "enemy",
   "speed": 0.0,
-  "attack_radius": 7.0,
-  "bullet_config": "enemy_bullet"
+  "bullet_config": "enemy_bullet",
+  "gun_config": "long_range_gun"
 }

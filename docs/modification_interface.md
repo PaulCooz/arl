@@ -65,19 +65,20 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 # config
 
 * parent -> name of inherited config
-* string = script
+
+## spawnable objects
+
+units configs and chance to spawn
 
 ## hooks
 
 ### unit
 
-| type      | name          | default                                   |
-|-----------|---------------|-------------------------------------------|
-| script    | on_damage     | set_enemy_hp(get_enemy_hp() - own_damage) |
-| float     | speed         | 1.0                                       |
-| int       | damage        | 1                                         |
-| float     | attack_radius | 5.0                                       |
-| float\[4] | bullet_color  | \[255, 255, 255] (default alpha 255)      |
+| type     | name          |
+|----------|---------------|
+| string   | gun_config    |
+| string   | bullet_config |
+| float    | speed         |
 
 #### on_damage
 
@@ -89,12 +90,11 @@ call on bullet collide
 
 <b> variables </b>
 
-| type   | name         |
-|--------|--------------|
-| string | own_name     |
-| string | enemy_name   |
-| int    | own_damage   |
-| int    | enemy_damage |
+| type   | name       |
+|--------|------------|
+| string | own_name   |
+| string | enemy_name |
+| float  | damage     |
 
 <b> function </b>
 
@@ -106,3 +106,34 @@ call on bullet collide
 | void | set_enemy_hp |
 
 </details>
+
+### gun
+
+| type  | name          |
+|-------|---------------|
+| float | scatter       |
+| int   | bullets_count |
+| float | attack_radius |
+| float | attack_speed  |
+
+### bullet
+
+| type   | name       |
+|--------|------------|
+| float  | damage     |
+| script | on_collide |
+| float  | force      |
+| float4 | color      |
+
+### interval trigger
+
+| type   | name                 |
+|--------|----------------------|
+| float  | interval             |
+| int    | count                |
+| bool   | is_enemy_trigger     |
+| float2 | collider_size        |
+| float2 | collider_offset      |
+| float  | collider_edge_radius |
+| float  | damage               |
+| script | on_trigger           |

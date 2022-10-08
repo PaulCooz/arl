@@ -1,0 +1,6 @@
+﻿{
+  "parent": "base_gun",
+  "attack_radius": 8.0,
+  "scatter": 0.0,
+  "bullets_count": 1
+}

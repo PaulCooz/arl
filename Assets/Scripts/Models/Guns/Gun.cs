@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Common;
 using Common.Arrays;
 using Common.Keys;
 using Common.Storages.Configs;
@@ -23,8 +24,6 @@ namespace Models.Guns
         [SerializeField]
         private Transform gunBarrel;
         [SerializeField]
-        private float delay;
-        [SerializeField]
         private bool isFromPlayer;
 
         [SerializeField]
@@ -38,11 +37,19 @@ namespace Models.Guns
             set
             {
                 _ownUnit = value;
-                unitCollisionTrigger.Collider.radius = AttackRadius;
+
+                Setup();
             }
         }
 
-        public float AttackRadius => Config.Get(OwnUnit.Name, ConfigKey.AttackRadius, 4f);
+        public float AttackRadius
+        {
+            get
+            {
+                var gunConfig = Config.Get(OwnUnit.Name, ConfigKey.GunConfig, "base_gun");
+                return Config.Get(gunConfig, ConfigKey.AttackRadius, 4f);
+            }
+        }
 
         public bool HasInRange
         {
@@ -56,13 +63,17 @@ namespace Models.Guns
             }
         }
 
-        private void OnEnable()
+        private void Setup()
         {
+            unitCollisionTrigger.Collider.radius = AttackRadius;
             StartCoroutine(ShootInvoking());
         }
 
         private IEnumerator<WaitForSeconds> ShootInvoking()
         {
+            var gunConfig = Config.Get(OwnUnit.Name, ConfigKey.GunConfig, "base_gun");
+            var delay = Config.Get(gunConfig, ConfigKey.AttackSpeed, 1f);
+
             yield return new WaitForSeconds(Random.Range(0f, delay));
 
             while (isActiveAndEnabled)
@@ -111,16 +122,25 @@ namespace Models.Guns
 
         private void ShootTo(in BaseUnit enemy)
         {
-            var direction = (enemy.Position - ownUnit.Position).normalized;
-            var bullet = Instantiate
-            (
-                bulletPrefab,
-                gunBarrel.position,
-                Quaternion.Euler(0, 0, Mathf.Sign(direction.y) * Vector2.Angle(direction, Vector2.right))
-            );
+            var gunConfig = Config.Get(OwnUnit.Name, ConfigKey.GunConfig, "base_gun");
+            var scatter = Config.Get(gunConfig, ConfigKey.Scatter, 0f);
+            var count = Config.Get(gunConfig, ConfigKey.BulletsCount, 0f);
 
-            bullet.Setup(OwnUnit);
-            bullet.Push(direction, isFromPlayer);
+            for (var i = 0; i < count; i++)
+            {
+                var range = Random.Range(-scatter, scatter);
+                var direction = (enemy.Position - ownUnit.Position).Rotate(range).normalized;
+
+                var bullet = Instantiate
+                (
+                    bulletPrefab,
+                    gunBarrel.position,
+                    Quaternion.Euler(0, 0, Mathf.Sign(direction.y) * Vector2.Angle(direction, Vector2.right))
+                );
+
+                bullet.Setup(OwnUnit);
+                bullet.Push(direction, isFromPlayer);
+            }
         }
 
         private float Distance(in BaseUnit target)

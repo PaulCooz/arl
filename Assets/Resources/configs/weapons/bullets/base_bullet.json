@@ -1,4 +1,5 @@
 ﻿{
   "damage": 1,
-  "on_collide": "set_enemy_hp(get_enemy_hp() - own_damage)"
+  "on_collide": "set_enemy_hp(get_enemy_hp() - damage)",
+  "force": 4
 }
