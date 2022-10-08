@@ -13,6 +13,11 @@ namespace Common.Interpreters
             return new Value(v.ToString(Core.NumberFormat));
         }
 
+        public static Value ToScriptValue(this float v)
+        {
+            return new Value(v.ToString(Core.NumberFormat));
+        }
+
         public static Value ToScriptValue(this int v)
         {
             return new Value(v.ToString());

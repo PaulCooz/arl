@@ -175,3 +175,29 @@ call on bullet collide with unit
 | float  | collider_edge_radius |
 | float  | damage               |
 | script | on_trigger           |
+
+### hooks
+
+#### on_trigger
+
+call for each units in range after wait interval
+
+<details>
+<summary> local context </summary>
+<br>
+
+<b> variables </b>
+
+| type   | name       |
+|--------|------------|
+| float  | damage     |
+| string | enemy_name |
+
+<b> function </b>
+
+| type | name         |
+|------|--------------|
+| int  | get_enemy_hp |
+| void | set_enemy_hp |
+
+</details>

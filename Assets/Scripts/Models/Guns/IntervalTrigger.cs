@@ -48,7 +48,7 @@ namespace Models.Guns
         private void AttackInRange()
         {
             var script = new Script();
-            script.SetVariable(ContextKey.Damage, Config.Get(_config, ConfigKey.Damage, 1).ToScriptValue());
+            script.SetVariable(ContextKey.Damage, Config.Get(_config, ConfigKey.Damage, 1f).ToScriptValue());
 
             foreach (var unit in unitTrigger.CollidersInRange)
             {
