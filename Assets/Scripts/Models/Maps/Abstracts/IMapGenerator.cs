@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Models.Maps
+namespace Models.Maps.Abstracts
 {
     public interface IMapGenerator
     {

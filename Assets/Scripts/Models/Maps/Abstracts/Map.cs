@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Models.Maps
+namespace Models.Maps.Abstracts
 {
     public class Map
     {

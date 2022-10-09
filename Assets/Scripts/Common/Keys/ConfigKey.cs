@@ -30,5 +30,6 @@
         public const string OnHpChange = "on_hp_change";
         public const string DeltaHp = "delta_hp";
         public const string OwnPosition = "own_position";
+        public const string MapGeneration = "map_generation";
     }
 }

@@ -184,12 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapDrawer: {fileID: 12949187}
-  mapData:
-    height: 20
-    width: 20
-    seed: 0
-    minRoomHeight: 5
-    minRoomWidth: 5
   beforeFirstLevel:
     m_PersistentCalls:
       m_Calls:

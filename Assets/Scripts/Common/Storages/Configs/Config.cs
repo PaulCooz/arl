@@ -31,6 +31,11 @@ namespace Common.Storages.Configs
             GlobalConfig[config].Add(name, JToken.FromObject(value));
         }
 
+        public static T Get<T>(string config)
+        {
+            return GlobalConfig[config].ToObject<T>();
+        }
+
         public static T Get<T>(string config, string name, T defaultValue = default)
         {
             var jToken = GetToken(config, name);

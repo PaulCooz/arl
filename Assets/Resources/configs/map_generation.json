@@ -1,0 +1,10 @@
+﻿{
+  "height": 50,
+  "width": 50,
+  "room": {
+    "min_height": 4,
+    "min_width": 4,
+    "max_height": 12,
+    "max_width": 12
+  }
+}

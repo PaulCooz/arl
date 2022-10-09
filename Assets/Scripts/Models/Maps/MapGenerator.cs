@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common;
 using Common.Arrays;
+using Models.Maps.Abstracts;
 using UnityEngine;
 using Random = System.Random;
 
@@ -47,7 +48,7 @@ namespace Models.Maps
         {
             var room = _roomTree.CurrentValue;
             var isDivide = DivideRoom(minX, maxX, minY, maxY, room, out var leftRoom, out var rightRoom);
-            var stopDividing = _roomTree.Count > 3 && _random.Chance(25);
+            var stopDividing = _roomTree.Count > 3 && SizeInRange(room) && _random.Chance(25);
             if (!isDivide || stopDividing) return;
 
             _roomTree.AddNode(leftRoom, true);
@@ -61,13 +62,18 @@ namespace Models.Maps
             _roomTree.Up();
         }
 
+        private bool SizeInRange(Room room)
+        {
+            return room.Width < _data.room.maxWidth && room.Height < _data.room.maxHeight;
+        }
+
         private bool DivideRoom(int minX, int maxX, int minY, int maxY, Room room, out Room leftRoom, out Room rightRoom)
         {
             var isDivByHeight = room.Height > room.Width;
             if (isDivByHeight)
             {
                 var midH = room.Height / 2;
-                if (midH < _data.minRoomHeight)
+                if (midH < _data.room.minHeight)
                 {
                     leftRoom = null;
                     rightRoom = null;
@@ -80,7 +86,7 @@ namespace Models.Maps
             else
             {
                 var midW = room.Width / 2;
-                if (midW < _data.minRoomWidth)
+                if (midW < _data.room.minWidth)
                 {
                     leftRoom = null;
                     rightRoom = null;

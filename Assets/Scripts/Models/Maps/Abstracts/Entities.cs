@@ -1,4 +1,4 @@
-﻿namespace Models.Maps
+﻿namespace Models.Maps.Abstracts
 {
     public enum Entities
     {

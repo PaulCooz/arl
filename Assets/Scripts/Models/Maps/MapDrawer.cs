@@ -1,5 +1,6 @@
 ﻿using Common.Arrays;
 using Models.CollisionTriggers;
+using Models.Maps.Abstracts;
 using Models.Unit;
 using UnityEngine;
 using UnityEngine.Tilemaps;

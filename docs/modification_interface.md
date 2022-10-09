@@ -70,6 +70,10 @@ Func_OR_var_NamE = func_or_var_name, but func_or_var_name - origin
 
 units configs and chance to spawn
 
+## map generation
+
+map generation data
+
 ## unit
 
 | type     | name          |
