@@ -5,6 +5,16 @@ namespace Common.Storages.Preferences
 {
     public class RegistryPrefsProvider : IPrefsProvider
     {
+        public void Set<T>(string key, T value)
+        {
+            PlayerPrefs.SetString(key, JsonUtility.ToJson(value));
+        }
+
+        public T Get<T>(string key, T defaultValue)
+        {
+            return JsonUtility.FromJson<T>(PlayerPrefs.GetString(key, JsonUtility.ToJson(defaultValue)));
+        }
+
         public void SetInt(string key, int value)
         {
             PlayerPrefs.SetInt(key, value);

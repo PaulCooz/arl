@@ -13,7 +13,7 @@ namespace Common.Storages
             Application.persistentDataPath;
 #endif
 
-        public static readonly string PrefsFilePath = Path.Combine(Root, "preferences.json");
+        public static readonly string PrefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
 
         public static string ConfigFilesRootPath
         {

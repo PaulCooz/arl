@@ -62,6 +62,11 @@ namespace Common.Interpreters
             SetGlobalVariable(variable.Name, variable.Value);
         }
 
+        public static void SetGlobalVariable(in string name, in Value value)
+        {
+            SetGlobalVariable(name, new Expression(value.ScriptValue));
+        }
+
         public static void SetGlobalOperation(in Core.Token token, in Core.BinOperation binOperation)
         {
             if (Operations.ContainsKey(token))

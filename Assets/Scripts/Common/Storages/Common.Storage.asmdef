@@ -2,7 +2,8 @@
     "name": "Common.Storage",
     "rootNamespace": "",
     "references": [
-        "GUID:322f7a3b139682d4d96fe3b20638ca5f"
+        "GUID:322f7a3b139682d4d96fe3b20638ca5f",
+        "GUID:9ce8352b0d30c3e499bfadfca5b0ce50"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

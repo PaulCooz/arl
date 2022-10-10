@@ -2,6 +2,9 @@
 {
     public interface IPrefsProvider
     {
+        public void Set<T>(string key, T value);
+        public T Get<T>(string key, T defaultValue);
+
         public void SetInt(string key, int value);
         public int GetInt(string key, int defaultValue = default);
 

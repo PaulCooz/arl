@@ -4,7 +4,7 @@ using Common.Keys;
 using Models.Guns;
 using UnityEngine;
 
-namespace Models
+namespace Models.Contexts
 {
     public class ContextFiller : MonoBehaviour
     {

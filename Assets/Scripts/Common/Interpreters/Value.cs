@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Common.Interpreters
@@ -9,8 +10,10 @@ namespace Common.Interpreters
     {
         public static readonly Value Null = new("0");
 
+        [JsonProperty("value")]
         internal readonly string ScriptValue;
 
+        [JsonIgnore]
         public string StringValue
         {
             get
@@ -26,12 +29,17 @@ namespace Common.Interpreters
             }
         }
 
-        public int IntValue => Convert.ToInt32(ScriptValue);
+        [JsonIgnore]
+        public int IntValue => (int) DoubleValue;
+
+        [JsonIgnore]
         public double DoubleValue => Convert.ToDouble(ScriptValue, Core.NumberFormat);
 
+        [JsonIgnore]
         public IReadOnlyList<float> ArrFloatValue =>
             ScriptValue.ToValues().Select(value => (float) value.DoubleValue).ToArray();
 
+        [JsonIgnore]
         public Vector3 Vector3Value
         {
             get
