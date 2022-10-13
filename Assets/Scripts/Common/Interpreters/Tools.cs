@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common.Interpreters.Expressions;
 
 namespace Common.Interpreters
 {
@@ -58,7 +59,7 @@ namespace Common.Interpreters
 
         internal static IReadOnlyList<Value> ToValues(this string array)
         {
-            var expressions = array.Substring(1, array.Length - 2).Split(';');
+            var expressions = array.WithoutQuotes().Split(';');
 
             return expressions.Select(expression => new Value(expression)).ToArray();
         }
@@ -68,15 +69,13 @@ namespace Common.Interpreters
             var sb = new StringBuilder();
             foreach (var expression in expressions)
             {
-                sb.Append
-                (
-                    expression is StringExpression
-                        ? expression.StringValue.Substring(1, expression.StringValue.Length - 2)
-                        : expression.StringValue
-                );
+                sb.Append(expression is StringExpression ? expression.StringValue.WithoutQuotes() : expression.StringValue);
             }
 
             return sb.ToString();
         }
+
+        internal static string WithoutQuotes(this string s) => s.Substring(1, s.Length - 2);
+        internal static string WithQuotes(this string s) => $"'{s}'";
     }
 }

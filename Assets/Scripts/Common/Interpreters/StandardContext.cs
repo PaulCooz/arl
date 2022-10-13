@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common.Interpreters.Expressions;
 using UnityEngine;
 
 namespace Common.Interpreters
@@ -102,26 +103,6 @@ namespace Common.Interpreters
             return new NumberExpression(func.Invoke(left.Value, right.Value));
         }
 
-        private static Expression Plus(in Expression l, in Expression r)
-        {
-            return BinaryOpNumbers(l, r, (a, b) => a + b);
-        }
-
-        private static Expression Minus(in Expression l, in Expression r)
-        {
-            return BinaryOpNumbers(l, r, (a, b) => a - b);
-        }
-
-        private static Expression Mult(in Expression l, in Expression r)
-        {
-            return BinaryOpNumbers(l, r, (a, b) => a * b);
-        }
-
-        private static Expression Div(in Expression l, in Expression r)
-        {
-            return BinaryOpNumbers(l, r, (a, b) => a / b);
-        }
-
         private static Expression Not(in IReadOnlyList<Expression> expressions)
         {
             var value = new BooleanExpression(expressions[0].StringValue).Value;
@@ -150,6 +131,26 @@ namespace Common.Interpreters
             var right = new BooleanExpression(r.StringValue);
 
             return new BooleanExpression(left.Value || right.Value);
+        }
+
+        private static Expression Plus(in Expression l, in Expression r)
+        {
+            return BinaryOpNumbers(l, r, (a, b) => a + b);
+        }
+
+        private static Expression Minus(in Expression l, in Expression r)
+        {
+            return BinaryOpNumbers(l, r, (a, b) => a - b);
+        }
+
+        private static Expression Mult(in Expression l, in Expression r)
+        {
+            return BinaryOpNumbers(l, r, (a, b) => a * b);
+        }
+
+        private static Expression Div(in Expression l, in Expression r)
+        {
+            return BinaryOpNumbers(l, r, (a, b) => a / b);
         }
 
         private static BooleanExpression Less(in Expression l, in Expression r)

@@ -20,7 +20,7 @@ namespace Common.Interpreters
             {
                 if (ScriptValue.Length > 0 && Tools.IsQuote(ScriptValue[0]))
                 {
-                    return ScriptValue.Substring(1, ScriptValue.Length - 2);
+                    return ScriptValue.WithoutQuotes();
                 }
                 else
                 {
