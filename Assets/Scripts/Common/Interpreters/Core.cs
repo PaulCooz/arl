@@ -22,8 +22,13 @@ namespace Common.Interpreters
             Equals, // =
             Less, // <
             Greater, // >
+
             And, // and
             Or, // or
+            Not, // not
+
+            If, // if (...) ...
+            Else, // if (...) ... else ...
 
             Split, // ;
 

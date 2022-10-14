@@ -17,7 +17,6 @@ namespace Common.Interpreters
             functions.Add("if", If);
             functions.Add("min", Min);
             functions.Add("max", Max);
-            functions.Add("not", Not);
             functions.Add("log", Log);
             functions.Add("error", Error);
 
@@ -103,12 +102,6 @@ namespace Common.Interpreters
             return new NumberExpression(func.Invoke(left.Value, right.Value));
         }
 
-        private static Expression Not(in IReadOnlyList<Expression> expressions)
-        {
-            var value = new BooleanExpression(expressions[0].StringValue).Value;
-            return new BooleanExpression(!value);
-        }
-
         private static BooleanExpression BinaryOpBoolean(in Expression l, in Expression r, in Func<double, double, bool> func)
         {
             var left = new NumberExpression(l.StringValue);
@@ -135,6 +128,11 @@ namespace Common.Interpreters
 
         private static Expression Plus(in Expression l, in Expression r)
         {
+            if (l.IsString() || r.IsString())
+            {
+                return new StringExpression($"'{l.StringValue.ClearString()}{r.StringValue.ClearString()}'");
+            }
+
             return BinaryOpNumbers(l, r, (a, b) => a + b);
         }
 
@@ -155,16 +153,33 @@ namespace Common.Interpreters
 
         private static BooleanExpression Less(in Expression l, in Expression r)
         {
+            if (l.IsString() && r.IsString())
+            {
+                return new BooleanExpression(string.CompareOrdinal(l.StringValue, r.StringValue) < 0);
+            }
+
             return BinaryOpBoolean(l, r, (a, b) => a < b);
         }
 
         private static BooleanExpression Greater(in Expression l, in Expression r)
         {
+            if (l.IsString() && r.IsString())
+            {
+                return new BooleanExpression(string.CompareOrdinal(l.StringValue, r.StringValue) > 0);
+            }
+
             return BinaryOpBoolean(l, r, (a, b) => a > b);
         }
 
         private static BooleanExpression Equals(in Expression l, in Expression r)
         {
+            if (l.IsString() && r.IsString())
+            {
+                var strA = l.StringValue.WithoutQuotes();
+                var strB = r.StringValue.WithoutQuotes();
+                return new BooleanExpression(string.CompareOrdinal(strA, strB) == 0);
+            }
+
             return BinaryOpBoolean(l, r, (a, b) => Math.Abs(a - b) <= double.Epsilon);
         }
     }

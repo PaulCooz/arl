@@ -9,6 +9,12 @@ namespace Common.Interpreters.Expressions
         public bool Value => BooleanTruePattern.IsMatch(StringValue);
 
         public BooleanExpression(bool value) : base(value.ToString()) { }
-        public BooleanExpression(string value) : base(BooleanTruePattern.IsMatch(value).ToString()) { }
+        public BooleanExpression(string value, bool not = false) : base(IsMatch(value, not).ToString()) { }
+
+        private static bool IsMatch(string value, bool not)
+        {
+            var isMatch = BooleanTruePattern.IsMatch(value);
+            return not ? !isMatch : isMatch;
+        }
     }
 }

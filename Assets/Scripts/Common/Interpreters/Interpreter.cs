@@ -135,6 +135,18 @@ namespace Common.Interpreters
                 case "and":
                     _currentToken = Core.Token.And;
                     return true;
+
+                case "not":
+                    _currentToken = Core.Token.Not;
+                    return true;
+
+                case "if":
+                    _currentToken = Core.Token.If;
+                    return true;
+
+                case "else":
+                    _currentToken = Core.Token.Else;
+                    return true;
             }
 
             _currentToken = Core.Token.Identifier;
@@ -164,7 +176,7 @@ namespace Common.Interpreters
         private bool GetNumber()
         {
             var isSingleOperator = _currentChar is '+' or '-' &&
-                                   _currentToken is Core.Token.Number or Core.Token.BrakeCirRight;
+                                   _currentToken is Core.Token.Number or Core.Token.BrakeCirRight or Core.Token.String;
 
             if (!Tools.IsNumberPrefix(_currentChar) || isSingleOperator)
             {
@@ -230,6 +242,15 @@ namespace Common.Interpreters
             GetNextToken(); // eat )
 
             return new CallExpression(idName, args, _context);
+        }
+
+        private Expression ParseNotExpression()
+        {
+            GetNextToken();
+
+            var expression = ParseExpression();
+
+            return new BooleanExpression(expression.StringValue, true);
         }
 
         private Expression ParseVariableExpression(string idName)
@@ -328,9 +349,44 @@ namespace Common.Interpreters
                 case Core.Token.BrakeSqrLeft:
                     return ParseArrayExpression();
 
+                case Core.Token.If:
+                    return ParseIfExpression();
+
+                case Core.Token.Not:
+                    return ParseNotExpression();
+
                 default:
                     return null;
             }
+        }
+
+        private Expression ParseIfExpression()
+        {
+            GetNextToken();
+            GetNextToken(); // eat (
+
+            var result = Expression.Empty;
+            if (_currentToken != Core.Token.BrakeCirRight)
+            {
+                var value = new BooleanExpression(ParseExpression().StringValue).Value;
+                GetNextToken(); // eat )
+
+                if (value) result = ParseExpression();
+                else
+                {
+                    while (_currentToken != Core.Token.Else)
+                    {
+                        GetNextToken();
+
+                        if (_currentToken == Core.Token.Exit) return Expression.Empty;
+                    }
+
+                    GetNextToken();
+                    result = ParseExpression();
+                }
+            }
+
+            return result;
         }
 
         private Expression ParseBinOpRhs(int expressionPrecedence, Expression lhs)

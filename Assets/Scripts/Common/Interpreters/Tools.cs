@@ -77,5 +77,10 @@ namespace Common.Interpreters
 
         internal static string WithoutQuotes(this string s) => s.Substring(1, s.Length - 2);
         internal static string WithQuotes(this string s) => $"'{s}'";
+
+        internal static string ClearString(this string s)
+        {
+            return IsQuote(s[0]) && IsQuote(s[^1]) ? s.WithoutQuotes() : s;
+        }
     }
 }
