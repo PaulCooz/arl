@@ -1,5 +1,6 @@
 ﻿.*
 /*.csproj
+/*.sln
 /Builds/
 /Library/
 /Logs/

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UISpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 4b4e3807f81615c4ab1abcfb62162503, type: 3}
+    - {fileID: 102900000, guid: 21958f3eb251e494996637eca3c5d597, type: 3}
+    - {fileID: 102900000, guid: 9befecd722fe20144828cbc945a1a284, type: 3}
+    - {fileID: 2800000, guid: f69f97f865df7ad46a95758140c8fdcf, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b61a135319743dd4382abceeac99f84a, type: 3}
+  - {fileID: 21300000, guid: affcbc2580e2cdc4ab93b12b839a8d6a, type: 3}
+  - {fileID: 21300000, guid: f69f97f865df7ad46a95758140c8fdcf, type: 3}
+  - {fileID: 21300000, guid: 642f444914bb83146955ec8c5425d2df, type: 3}
+  - {fileID: 21300000, guid: e495293a2395efd49824eef901eb41bf, type: 3}
+  - {fileID: 21300000, guid: fa06c47aa8be48c4aa7b7a2a7d3e7296, type: 3}
+  - {fileID: 21300000, guid: 75a7eadc6f8003e49b7b9cb79753e865, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Panel4
+  - Panel1
+  - square
+  - ArrowsRight3
+  - Panel2
+  - healthBar
+  - Panel3
+  m_RenderDataMap: {}
+  m_Tag: UISpriteAtlas
+  m_IsVariant: 0
