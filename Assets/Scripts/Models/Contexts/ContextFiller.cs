@@ -4,6 +4,7 @@ using Common.Interpreters.Expressions;
 using Common.Keys;
 using Models.Guns;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Models.Contexts
 {
@@ -12,9 +13,20 @@ namespace Models.Contexts
         [SerializeField]
         private IntervalTrigger intervalTriggerPrefab;
 
+        [SerializeField]
+        private UnityEvent<int> addExperience;
+
         private void Awake()
         {
             Context.SetGlobalFunction(ContextKey.SpawnIntervalTrigger, SpawnIntervalFire);
+            Context.SetGlobalFunction(ContextKey.AddExperience, AddExperience);
+        }
+
+        private Expression AddExperience(in IReadOnlyList<Expression> expressions)
+        {
+            addExperience.Invoke(expressions[0].ToValue().IntValue);
+
+            return Expression.Empty;
         }
 
         private Expression SpawnIntervalFire(in IReadOnlyList<Expression> expressions)

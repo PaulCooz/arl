@@ -93,6 +93,7 @@ namespace Models.Unit
             var script = new Script();
             script.SetVariable(ConfigKey.OwnName, Name.ToScriptValue());
             script.SetVariable(ConfigKey.OwnPosition, Position.ToScriptValue());
+            script.SetVariable(ConfigKey.LevelExp, Config.Get(Name, ConfigKey.LevelExp, 0).ToScriptValue());
             script.Run(Config.Get(Name, ConfigKey.OnDie, ""));
         }
 

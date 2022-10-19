@@ -1,4 +1,7 @@
-﻿using Common.Interpreters;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Common.Interpreters;
 using Common.Storages;
 using UnityEngine;
 
@@ -8,9 +11,12 @@ namespace Models.Contexts
     {
         private ScriptPreferences _preferences;
 
+        [SerializeField]
+        private ContextValuesObject contextValues;
+
         private void OnEnable()
         {
-            _preferences = new ScriptPreferences();
+            _preferences = new ScriptPreferences(contextValues.Values);
 
             foreach (var pair in _preferences)
             {

@@ -147,6 +147,10 @@ namespace Common.Interpreters
                 case "else":
                     _currentToken = Core.Token.Else;
                     return true;
+
+                case "global":
+                    _currentToken = Core.Token.Global;
+                    return true;
             }
 
             _currentToken = Core.Token.Identifier;
@@ -176,7 +180,11 @@ namespace Common.Interpreters
         private bool GetNumber()
         {
             var isSingleOperator = _currentChar is '+' or '-' &&
-                                   _currentToken is Core.Token.Number or Core.Token.BrakeCirRight or Core.Token.String;
+                                   _currentToken is
+                                       Core.Token.Number or
+                                       Core.Token.BrakeCirRight or
+                                       Core.Token.Identifier or
+                                       Core.Token.String;
 
             if (!Tools.IsNumberPrefix(_currentChar) || isSingleOperator)
             {
@@ -202,7 +210,7 @@ namespace Common.Interpreters
             return Core.OperationPrecedence.ContainsKey(_currentToken) ? Core.OperationPrecedence[_currentToken] : -1;
         }
 
-        private Expression ParseIdentifierExpression()
+        private Expression ParseIdentifierExpression(bool isGlobal)
         {
             var idName = _currentIdentifier;
 
@@ -210,7 +218,7 @@ namespace Common.Interpreters
 
             if (_currentToken != Core.Token.BrakeCirLeft)
             {
-                return ParseVariableExpression(idName);
+                return ParseVariableExpression(idName, isGlobal);
             }
 
             GetNextToken(); // eat (
@@ -253,17 +261,24 @@ namespace Common.Interpreters
             return new BooleanExpression(expression.StringValue, true);
         }
 
-        private Expression ParseVariableExpression(string idName)
+        private Expression ParseVariableExpression(string idName, bool isGlobal)
         {
             if (_currentToken != Core.Token.Assignment)
             {
-                return _context.GetVariable(idName);
+                return isGlobal ? Context.GetGlobalVariable(idName) : _context.GetVariable(idName);
             }
 
             GetNextToken(); // eat :=
 
             var variableExpression = new VariableExpression(idName, ParseExpression());
-            _context.SetVariable(variableExpression);
+            if (isGlobal)
+            {
+                Context.SetGlobalVariable(variableExpression);
+            }
+            else
+            {
+                _context.SetVariable(variableExpression);
+            }
 
             return variableExpression;
         }
@@ -335,7 +350,7 @@ namespace Common.Interpreters
             switch (_currentToken)
             {
                 case Core.Token.Identifier:
-                    return ParseIdentifierExpression();
+                    return ParseIdentifierExpression(false);
 
                 case Core.Token.Number:
                     return ParseNumberExpression();
@@ -355,9 +370,18 @@ namespace Common.Interpreters
                 case Core.Token.Not:
                     return ParseNotExpression();
 
+                case Core.Token.Global:
+                    return ParseGlobalAssigment();
+
                 default:
                     return null;
             }
+        }
+
+        private Expression ParseGlobalAssigment()
+        {
+            GetNextToken();
+            return ParseIdentifierExpression(true);
         }
 
         private Expression ParseIfExpression()

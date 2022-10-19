@@ -1,4 +1,6 @@
 {
   "parent": "base_unit",
-  "bullet_config": "enemy_bullet"
+  "bullet_config": "enemy_bullet",
+  "level_exp": 1,
+  "on_die": "add_experience(level_exp)"
 }

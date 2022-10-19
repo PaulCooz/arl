@@ -39,6 +39,11 @@ namespace Common.Interpreters
             return arr.ToScriptValue(arg => arg.ToString(Core.NumberFormat));
         }
 
+        public static Value ToValue(this Expression expression)
+        {
+            return new Value(expression.StringValue);
+        }
+
         public static IReadOnlyList<Value> ToValues(this IEnumerable<Expression> expressions)
         {
             return expressions.Select(expression => new Value(expression.StringValue)).ToArray();

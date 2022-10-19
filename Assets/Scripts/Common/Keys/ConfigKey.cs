@@ -31,5 +31,6 @@
         public const string DeltaHp = "delta_hp";
         public const string OwnPosition = "own_position";
         public const string MapGeneration = "map_generation";
+        public const string LevelExp = "level_exp";
     }
 }

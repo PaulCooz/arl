@@ -6,5 +6,6 @@
         public const string EnemyHp = "enemy_hp";
         public const string Damage = "damage";
         public const string SpawnIntervalTrigger = "spawn_interval_trigger";
+        public const string AddExperience = "add_experience";
     }
 }

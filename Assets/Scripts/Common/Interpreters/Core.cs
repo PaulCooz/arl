@@ -40,7 +40,8 @@ namespace Common.Interpreters
 
             Quotes, // " or '
 
-            Assignment // :=
+            Assignment, // :=
+            Global // global
         }
 
         public delegate Expression Function(in IReadOnlyList<Expression> expressions);

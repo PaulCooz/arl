@@ -11,9 +11,9 @@ namespace Common.Storages
     {
         private readonly Dictionary<string, Value> _variables;
 
-        public ScriptPreferences()
+        public ScriptPreferences(Dictionary<string, Value> defaultValues)
         {
-            _variables = Preference.Files.Get(StorageKey.ScriptPreferences, new Dictionary<string, Value>());
+            _variables = Preference.Files.Get(StorageKey.ScriptPreferences, defaultValues);
         }
 
         public IEnumerator<KeyValuePair<string, Value>> GetEnumerator()
