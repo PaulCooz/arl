@@ -50,8 +50,11 @@ namespace Models.Guns
             var script = new Script();
             script.SetVariable(ContextKey.Damage, Config.Get(_config, ConfigKey.Damage, 1f).ToScriptValue());
 
-            foreach (var unit in unitTrigger.CollidersInRange)
+            var units = unitTrigger.CollidersInRange.ToArray();
+            for (var i = 0; i < units.Length; i++)
             {
+                var unit = units[i];
+
                 script.SetVariable(ContextKey.EnemyName, unit.Name.ToScriptValue());
                 script.SetProperty
                 (

@@ -3,6 +3,7 @@ using Common.Interpreters;
 using Common.Interpreters.Expressions;
 using Common.Keys;
 using Models.Guns;
+using Models.Unit;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,8 @@ namespace Models.Contexts
     {
         [SerializeField]
         private IntervalTrigger intervalTriggerPrefab;
+        [SerializeField]
+        private PlayerUnit playerUnit;
 
         [SerializeField]
         private UnityEvent<int> addExperience;
@@ -20,6 +23,20 @@ namespace Models.Contexts
         {
             Context.SetGlobalFunction(ContextKey.SpawnIntervalTrigger, SpawnIntervalFire);
             Context.SetGlobalFunction(ContextKey.AddExperience, AddExperience);
+            Context.SetGlobalFunction(ContextKey.GetPlayerHp, GetPlayerHp);
+            Context.SetGlobalFunction(ContextKey.SetPlayerHp, SetPlayerHp);
+        }
+
+        private Expression GetPlayerHp(in IReadOnlyList<Expression> expressions)
+        {
+            return playerUnit.Health.ToScriptExpression();
+        }
+
+        private Expression SetPlayerHp(in IReadOnlyList<Expression> expressions)
+        {
+            playerUnit.Health = expressions[0].ToValue().IntValue;
+
+            return Expression.Empty;
         }
 
         private Expression AddExperience(in IReadOnlyList<Expression> expressions)

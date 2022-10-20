@@ -13,12 +13,18 @@ namespace Models.Progressions
         private CardsObject cardsObject;
 
         [SerializeField]
+        private UnityEvent onHide;
+        [SerializeField]
+        private UnityEvent onShow;
+        [SerializeField]
         private UnityEvent<string> setLeftCard;
         [SerializeField]
         private UnityEvent<string> setRightCard;
 
         public void OnLevelUp()
         {
+            onShow.Invoke();
+
             cardsObject.GetCards(out _left, out _right);
 
             setLeftCard.Invoke(_left.description);
@@ -29,6 +35,8 @@ namespace Models.Progressions
         {
             var script = new Script();
             script.Run(isLeft ? _left.command : _right.command);
+
+            onHide.Invoke();
         }
     }
 }

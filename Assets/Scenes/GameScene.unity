@@ -1150,6 +1150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985417512}
+  - component: {fileID: 985417513}
   m_Layer: 5
   m_Name: Cards
   m_TagString: Untagged
@@ -1179,6 +1180,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 127.5}
   m_SizeDelta: {x: 0, y: 255}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &985417513
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985417511}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1090437202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,6 +1238,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardsObject: {fileID: 11400000, guid: bae4909a09ac8504c9d0cb68c5af2a1b, type: 2}
+  onHide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 985417513}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onShow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 985417513}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   setLeftCard:
     m_PersistentCalls:
       m_Calls:
@@ -3164,6 +3207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intervalTriggerPrefab: {fileID: 555541794602749872, guid: 3a455fb66420d5640a02b1e4576d9e2b, type: 3}
+  playerUnit: {fileID: 974174028}
   addExperience:
     m_PersistentCalls:
       m_Calls:

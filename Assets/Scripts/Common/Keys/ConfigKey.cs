@@ -32,5 +32,9 @@
         public const string OwnPosition = "own_position";
         public const string MapGeneration = "map_generation";
         public const string LevelExp = "level_exp";
+        public const string EnemyName = "enemy_name";
+        public const string OwnHp = "own_hp";
+        public const string EnemyHp = "enemy_hp";
+        public const string CollidePosition = "collide_position";
     }
 }

@@ -57,20 +57,21 @@ namespace Models.Guns
         {
             var bulletConfig = Config.Get(_ownUnit.Name, ConfigKey.BulletConfig, "base_bullet");
 
-            script.SetVariable("own_name", _ownUnit.Name.ToScriptValue());
-            script.SetVariable("enemy_name", unit.Name.ToScriptValue());
+            script.SetVariable(ConfigKey.OwnName, _ownUnit.Name.ToScriptValue());
+            script.SetVariable(ConfigKey.EnemyName, unit.Name.ToScriptValue());
 
-            script.SetVariable("damage", Config.Get(bulletConfig, ConfigKey.Damage, 1).ToScriptValue());
+            script.SetVariable(ConfigKey.Damage, Config.Get(bulletConfig, ConfigKey.Damage, 1).ToScriptValue());
+            script.SetVariable(ConfigKey.CollidePosition, transform.position.ToScriptValue());
 
             script.SetProperty
             (
-                "own_hp",
+                ConfigKey.OwnHp,
                 () => _ownUnit.Health.ToScriptValue(),
                 value => _ownUnit.Health = value.IntValue
             );
             script.SetProperty
             (
-                "enemy_hp",
+                ConfigKey.EnemyHp,
                 () => unit.Health.ToScriptValue(),
                 value => unit.Health = value.IntValue
             );

@@ -24,9 +24,22 @@ namespace Common.Interpreters
             return new Value(v.ToString());
         }
 
+        public static Expression ToScriptExpression(this int v)
+        {
+            return new Expression(v.ToString());
+        }
+
         public static Value ToScriptValue(this string v)
         {
             return new Value($"'{v}'");
+        }
+
+        public static Value ToScriptValue(this Vector3 v)
+        {
+            var x = v.x.ToString(Core.NumberFormat);
+            var y = v.y.ToString(Core.NumberFormat);
+            var z = v.z.ToString(Core.NumberFormat);
+            return new Value($"[{x};{y};{z}]");
         }
 
         public static Value ToScriptValue(this Vector2 v)
