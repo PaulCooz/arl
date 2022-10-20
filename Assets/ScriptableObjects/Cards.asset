@@ -19,3 +19,7 @@ MonoBehaviour:
     command: log('card test!')
   - description: health + 1
     command: set_player_hp(get_player_hp() + 1)
+  - description: health + 50%
+    command: 'hp := get_player_hp()
+
+      set_player_hp(hp + max(1; hp * 0.5))'

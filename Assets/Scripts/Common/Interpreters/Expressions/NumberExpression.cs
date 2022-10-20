@@ -9,7 +9,7 @@
             Tools.ParseNumber(value, out Value);
         }
 
-        public NumberExpression(double value) : base(value.ToString())
+        public NumberExpression(double value) : base(value.ToString(Core.NumberFormat))
         {
             Value = value;
         }
