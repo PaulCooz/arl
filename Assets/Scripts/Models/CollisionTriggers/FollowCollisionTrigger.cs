@@ -14,8 +14,6 @@ namespace Models.CollisionTriggers
         private string[] tags;
         [SerializeField]
         private float minDistance;
-        [SerializeField]
-        private float speed;
 
         protected override bool IsTrigger(in Collider2D other)
         {
@@ -42,8 +40,7 @@ namespace Models.CollisionTriggers
 
             if (hit?.transform is null || hit.Value.collider.gameObject != attractor.transform.parent.gameObject) return;
 
-            var len = speed * Time.deltaTime;
-            baseUnit.Translate(len * (attractor.Position - baseUnit.Position).normalized);
+            baseUnit.Translate((attractor.Position - baseUnit.Position).normalized);
         }
     }
 }

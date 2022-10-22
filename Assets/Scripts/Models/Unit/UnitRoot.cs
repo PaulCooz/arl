@@ -13,5 +13,10 @@ namespace Models.Unit
         {
             Unit.Initialization();
         }
+
+        public void UnitDestroy() // call in animator
+        {
+            unit.UnitDestroy();
+        }
     }
 }

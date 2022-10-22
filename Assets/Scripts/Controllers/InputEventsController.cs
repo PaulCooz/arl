@@ -10,6 +10,8 @@ namespace Controllers
 
         public void Move(Vector2 n)
         {
+            if (!enabled) return;
+
             onMove?.Invoke(n);
         }
     }

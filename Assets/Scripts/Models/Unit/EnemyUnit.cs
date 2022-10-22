@@ -2,18 +2,14 @@
 {
     public class EnemyUnit : BaseUnit
     {
-        override public void Initialization()
+        private void Awake()
         {
-            base.Initialization();
-
-            GameMaster.OnLevelDone += Die;
+            GameMaster.OnLevelDone += UnitDestroy;
         }
 
-        protected override void Die()
+        private void OnDestroy()
         {
-            base.Die();
-
-            GameMaster.OnLevelDone -= Die;
+            GameMaster.OnLevelDone -= UnitDestroy;
         }
     }
 }

@@ -30,6 +30,8 @@ namespace Models.Guns
         private UnityEvent<bool> rangeStatus;
         [SerializeField]
         private UnityEvent<float> reloadStatus;
+        [SerializeField]
+        private UnityEvent<int> onShoot;
 
         public BaseUnit OwnUnit
         {
@@ -117,7 +119,11 @@ namespace Models.Guns
                 }
             }
 
-            if (enemy is not null) ShootTo(enemy);
+            if (enemy is not null)
+            {
+                ShootTo(enemy);
+                onShoot.Invoke(AnimationKey.ShootTrigger);
+            }
         }
 
         private void ShootTo(in BaseUnit enemy)

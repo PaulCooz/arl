@@ -4,7 +4,7 @@ namespace Models.Unit
 {
     public class PlayerUnit : BaseUnit
     {
-        override public void Initialization()
+        public override void Initialization()
         {
             Name = ConfigKey.Player;
             base.Initialization();

@@ -1,4 +1,5 @@
-﻿using Common.Editor;
+﻿using Common;
+using Common.Editor;
 using Common.Interpreters;
 using Common.Keys;
 using Common.Storages.Configs;
@@ -10,6 +11,8 @@ namespace Models.Unit
     public abstract class BaseUnit : MonoBehaviour, ISerializationCallbackReceiver
     {
         private Vector2 _moveDelta;
+        private bool _isRun = false;
+        private bool _isLockLeft = false;
 
         [SerializeField, ReadOnly]
         private int health = 0;
@@ -25,13 +28,39 @@ namespace Models.Unit
         private UnityEvent<BaseUnit> onAwakeUnit;
         [SerializeField]
         private UnityEvent<int, int> onHealthChange;
+
         [SerializeField]
-        private UnityEvent onDie;
+        private UnityEvent<bool> turnLeft;
+        [SerializeField]
+        private UnityEvent<int, bool> onRun;
+        [SerializeField]
+        private UnityEvent<int> onDie;
 
         public Vector2 Position => unitRigidbody.position;
         public string Name { get; set; }
         public float SpeedRatio => speed * Config.Get(Name, ConfigKey.Speed, 1f);
+        public bool IsRun
+        {
+            get => _isRun;
+            set
+            {
+                if (_isRun == value) return;
 
+                _isRun = value;
+                onRun.Invoke(AnimationKey.RunProp, _isRun);
+            }
+        }
+        public bool IsLockLeft
+        {
+            get => _isLockLeft;
+            set
+            {
+                if (_isLockLeft == value) return;
+
+                _isLockLeft = value;
+                turnLeft.Invoke(_isLockLeft);
+            }
+        }
         public int Health
         {
             get => health;
@@ -61,20 +90,36 @@ namespace Models.Unit
 
         public void Translate(Vector2 delta)
         {
-            _moveDelta += delta;
+            _moveDelta += delta * Time.deltaTime;
         }
 
         private void FixedUpdate()
         {
             unitRigidbody.velocity = _moveDelta * SpeedRatio;
+
+            CheckState(unitRigidbody.velocity);
             _moveDelta.x = _moveDelta.y = 0;
         }
 
-        protected virtual void Die()
+        private void CheckState(Vector2 velocity)
         {
-            onDie.Invoke();
-            if (Health == 0) RunOnDie();
+            IsRun = velocity.NotZero();
+            IsLockLeft = velocity.x switch
+            {
+                < 0f => true,
+                > 0f => false,
+                _ => IsLockLeft
+            };
+        }
 
+        private void Die()
+        {
+            onDie.Invoke(AnimationKey.DieTrigger);
+            if (Health == 0) RunOnDie();
+        }
+
+        public void UnitDestroy()
+        {
             Destroy(transform.parent.gameObject);
         }
 

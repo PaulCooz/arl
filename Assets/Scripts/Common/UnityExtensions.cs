@@ -13,5 +13,10 @@ namespace Common
                 Mathf.Cos(angle) * v.y - Mathf.Sin(angle) * v.x
             );
         }
+
+        public static bool NotZero(this Vector2 v)
+        {
+            return Mathf.Abs(v.x) + Mathf.Abs(v.y) > float.Epsilon;
+        }
     }
 }
