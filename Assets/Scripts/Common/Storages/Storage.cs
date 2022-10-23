@@ -15,6 +15,7 @@ namespace Common.Storages
 
         public static readonly string PrefsFilePath = Path.Combine(Application.persistentDataPath, "preferences.json");
 
+        public static bool HasPrefsFile => File.Exists(PrefsFilePath);
         public static string ConfigFilesRootPath
         {
             get

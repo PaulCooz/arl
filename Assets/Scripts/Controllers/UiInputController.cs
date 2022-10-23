@@ -18,8 +18,6 @@ namespace Controllers
         [SerializeField]
         private UnityEvent<Vector2> onPointDown;
         [SerializeField]
-        private UnityEvent<Vector2, float> onPointChange;
-        [SerializeField]
         private UnityEvent<bool> changeEnable;
 
         private void Start()
@@ -38,7 +36,6 @@ namespace Controllers
 
         private void SetDownPosition()
         {
-            var rect = _rectTransform.rect;
             RectTransformUtility.ScreenPointToLocalPointInRectangle
             (
                 _rectTransform,
@@ -47,7 +44,7 @@ namespace Controllers
                 out var localPoint
             );
 
-            onPointDown.Invoke(new Vector2(-localPoint.x / rect.height, -localPoint.y / rect.width));
+            onPointDown.Invoke(localPoint);
         }
 
         public void Update()
@@ -58,7 +55,6 @@ namespace Controllers
             var strength = Mathf.Clamp(distance, 0f, maxDistance) / maxDistance;
             var direction = (_pointer.position - _startPosition.Value).normalized;
 
-            onPointChange.Invoke(direction, strength);
             inputEvents.Move(strength * direction);
         }
 

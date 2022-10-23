@@ -44,9 +44,7 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: 2129e602432b72b43bf4817932885870, type: 3}
-    - {fileID: 102900000, guid: ddc111f18942ee6488289ade399e0681, type: 3}
-    - {fileID: 102900000, guid: 28017d1c21610814c802c377228db745, type: 3}
+    - {fileID: 102900000, guid: 94acb0943ec1d4b458c390037631e979, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -287,11 +285,10 @@ SpriteAtlas:
   - {fileID: 340936929, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 315369130, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1510088547, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -764767337, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 721053760, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 70343469, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -731104371, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: -764767337, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1887767256, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 70343469, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -1904592805, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1494709533, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 3704766, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
@@ -583,11 +580,10 @@ SpriteAtlas:
   - bot_shoot_2
   - bot_shoot_1
   - bot_shoot_0
+  - drone_die_1
+  - drone_die_0
   - drone_die_3
   - drone_die_2
-  - drone_die_5
-  - drone_die_4
-  - drone_die_6
   - bot_run_shoot_1
   - bot_run_shoot_0
   - bot_run_shoot_3

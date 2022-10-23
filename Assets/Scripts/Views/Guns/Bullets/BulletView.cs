@@ -2,7 +2,6 @@
 using Common;
 using Common.Keys;
 using Common.Storages.Configs;
-using Models.Unit;
 using UnityEngine;
 
 namespace Views.Guns.Bullets
@@ -12,9 +11,9 @@ namespace Views.Guns.Bullets
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        public void Setup(BaseUnit ownUnit)
+        public void Setup(string ownUnitName)
         {
-            var bulletConfig = Config.Get(ownUnit.Name, ConfigKey.BulletConfig, ConfigKey.BaseBullet);
+            var bulletConfig = Config.Get(ownUnitName, ConfigKey.BulletConfig, ConfigKey.BaseBullet);
             var color = Config.Get(bulletConfig, ConfigKey.Color, Array.Empty<byte>()).ToColor();
 
             spriteRenderer.color = color;

@@ -15,19 +15,19 @@ namespace Models.Unit
         private bool _isLockLeft = false;
 
         [SerializeField, ReadOnly]
-        private int health = 0;
+        protected int health = 0;
 
         [SerializeField]
         private Rigidbody2D unitRigidbody;
         [SerializeField]
         private float speed;
         [SerializeField]
-        private int maxHealth;
+        protected int maxHealth;
 
         [SerializeField]
         private UnityEvent<BaseUnit> onAwakeUnit;
         [SerializeField]
-        private UnityEvent<int, int> onHealthChange;
+        protected UnityEvent<int, int> onHealthChange;
 
         [SerializeField]
         private UnityEvent<bool> turnLeft;
@@ -84,7 +84,7 @@ namespace Models.Unit
 
         public virtual void Initialization()
         {
-            Health = maxHealth;
+            Health = health <= 0 ? maxHealth : health;
             onAwakeUnit.Invoke(this);
         }
 

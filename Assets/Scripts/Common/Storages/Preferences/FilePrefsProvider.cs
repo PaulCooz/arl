@@ -10,7 +10,7 @@ namespace Common.Storages.Preferences
 
         public FilePrefsProvider()
         {
-            _prefs = File.Exists(Storage.PrefsFilePath)
+            _prefs = Storage.HasPrefsFile
                 ? JObject.Parse(File.ReadAllText(Storage.PrefsFilePath))
                 : new JObject();
         }

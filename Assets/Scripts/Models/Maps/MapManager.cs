@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common.Keys;
 using Common.Storages.Configs;
+using Common.Storages.Preferences;
 using Models.Maps.Abstracts;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,6 +25,8 @@ namespace Models.Maps
 
             ReadMapData();
             NextLevel();
+
+            GameMaster.OnLevelDone += OnLevelDone;
         }
 
         private void ReadMapData()
@@ -31,10 +34,10 @@ namespace Models.Maps
             _mapData = Config.Get<MapData>(ConfigKey.MapGeneration);
         }
 
-        public void NextLevel()
+        private void NextLevel()
         {
             mapDrawer.Clear();
-            _mapData.seed++;
+            _mapData.seed = Preference.CurrentLevel;
 
             var array = new List<Entities>[_mapData.height, _mapData.width];
             for (var i = 0; i < _mapData.height; i++)
@@ -47,6 +50,12 @@ namespace Models.Maps
             var roomFiller = new RoomFiller(array);
 
             mapDrawer.Draw(_mapGenerator.GetNextMap(array, _mapData, roomFiller), _mapData.seed);
+        }
+
+        private void OnLevelDone()
+        {
+            Preference.CurrentLevel++;
+            NextLevel();
         }
     }
 }

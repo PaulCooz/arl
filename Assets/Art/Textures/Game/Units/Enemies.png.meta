@@ -369,31 +369,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_2
+      name: drone_die_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1ad10a8283dbff4d938c82596073dc0
-      internalID: 721053760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: drone_die_3
-      rect:
-        serializedVersion: 2
-        x: 96
+        x: 0
         y: 384
         width: 32
         height: 32
@@ -411,10 +390,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_4
+      name: drone_die_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 384
         width: 32
         height: 32
@@ -432,10 +411,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_5
+      name: drone_die_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 64
         y: 384
         width: 32
         height: 32
@@ -453,10 +432,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_6
+      name: drone_die_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 96
         y: 384
         width: 32
         height: 32
@@ -1434,7 +1413,6 @@ TextureImporter:
       bot_die_5: 1705719636
       bot_run_3: 73212690
       drone_run_1: 637420075
-      drone_die_6: 1887767256
       drone_shoot_2: -32510911
       drone_idle_0: 1098009251
       bot_shoot_2: 340936929
@@ -1446,7 +1424,7 @@ TextureImporter:
       bot_spawn_0: -1211425
       enemies_41: 2013094604
       enemies_4: -2017602904
-      drone_die_1: 2089493190
+      drone_die_1: -731104371
       bot_run_1: 46715086
       bot_die_4: -1273373022
       bot_die_3: 121622525
@@ -1457,7 +1435,7 @@ TextureImporter:
       enemies_56: 1863512478
       enemies_53: -857388604
       drone_idle_1: 2019044394
-      drone_die_2: 721053760
+      drone_die_2: 70343469
       drone_shoot_0: 1041145779
       bot_run_shoot_0: 1494709533
       enemies_60: 1625612557
@@ -1471,12 +1449,11 @@ TextureImporter:
       enemies_58: -2094080593
       enemies_31: 1567204812
       enemies_57: 2009816583
-      drone_die_5: 70343469
+      bot_run_2: 111473496
       bot_shoot_0: 1510088547
       enemies_61: -1286201963
       drone_run_0: 1992889236
       bot_idle_1: 1193197265
-      bot_run_2: 111473496
       bot_idle_3: 184899796
       enemies_66: 1031442448
       enemies_59: -1901435449
@@ -1493,11 +1470,10 @@ TextureImporter:
       drone_run_2: 1168758416
       bot_die_1: 477039280
       enemies_54: 686896371
-      drone_die_3: -764767337
       bot_idle_0: -2011376975
-      drone_die_0: -1382385655
+      drone_die_3: 1887767256
+      drone_die_0: -764767337
       drone_idle_3: 1409100582
-      drone_die_4: -731104371
       enemies_64: 1828873436
       bot_spawn_3: -133198937
       enemies_67: -511305271

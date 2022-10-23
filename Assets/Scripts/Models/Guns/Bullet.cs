@@ -18,12 +18,12 @@ namespace Models.Guns
         private Rigidbody2D bulletRigidbody;
 
         [SerializeField]
-        private UnityEvent<BaseUnit> onSetup;
+        private UnityEvent<string> onSetup;
 
         public void Setup(BaseUnit ownUnit)
         {
             _ownUnit = ownUnit;
-            onSetup.Invoke(_ownUnit);
+            onSetup.Invoke(_ownUnit.Name);
         }
 
         private void OnTriggerEnter2D(Collider2D collider2d)

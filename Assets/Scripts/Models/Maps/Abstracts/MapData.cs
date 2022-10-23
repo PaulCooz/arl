@@ -14,6 +14,7 @@ namespace Models.Maps.Abstracts
         [JsonProperty("room")]
         public RoomData room;
 
+        [JsonIgnore]
         public int seed;
     }
 }
