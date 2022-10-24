@@ -3319,6 +3319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intervalTriggerPrefab: {fileID: 555541794602749872, guid: 3a455fb66420d5640a02b1e4576d9e2b, type: 3}
+  boomEffect: {fileID: 6473663147176781743, guid: 71328262a48a3064490b2b69cbad7e54, type: 3}
   playerUnit: {fileID: 974174028}
   addExperience:
     m_PersistentCalls:

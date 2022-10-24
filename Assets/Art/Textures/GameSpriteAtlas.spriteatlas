@@ -50,6 +50,13 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -872050985, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: 823251896, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: 605228064, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: 1157043915, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: 1193529594, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: -1293949847, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: 871072635, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
   - {fileID: -667456687, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
   - {fileID: -562643822, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
   - {fileID: 36947578, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
@@ -345,6 +352,13 @@ SpriteAtlas:
   - {fileID: -348219360, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: 202155736, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   m_PackedSpriteNamesToIndex:
+  - boom_6
+  - boom_5
+  - boom_4
+  - boom_3
+  - boom_2
+  - boom_1
+  - boom_0
   - Talk1
   - Talk0
   - Idle3
@@ -353,7 +367,7 @@ SpriteAtlas:
   - Idle0
   - Idle5
   - Idle4
-  - Players
+  - players
   - PropsAndItems_96
   - PropsAndItems_97
   - PropsAndItems_94

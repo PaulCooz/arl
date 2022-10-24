@@ -15,8 +15,6 @@ MonoBehaviour:
   cards:
   - description: damage + 1
     command: global bonus_damage := bonus_damage + 1
-  - description: test log
-    command: log('card test!')
   - description: health + 1
     command: set_player_hp(get_player_hp() + 1)
   - description: health + 50%

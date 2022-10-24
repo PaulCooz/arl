@@ -5,5 +5,5 @@
     0,
     127
   ],
-  "on_collide": "spawn_interval_trigger('rocket_bullet_interval_trigger';collide_position)"
+  "on_collide": "boom_effect(collide_position)\nspawn_interval_trigger('rocket_bullet_interval_trigger';collide_position)"
 }

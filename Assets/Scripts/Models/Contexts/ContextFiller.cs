@@ -6,6 +6,7 @@ using Models.Guns;
 using Models.Unit;
 using UnityEngine;
 using UnityEngine.Events;
+using Views;
 
 namespace Models.Contexts
 {
@@ -13,6 +14,8 @@ namespace Models.Contexts
     {
         [SerializeField]
         private IntervalTrigger intervalTriggerPrefab;
+        [SerializeField]
+        private SpriteEffect boomEffect;
         [SerializeField]
         private PlayerUnit playerUnit;
 
@@ -25,6 +28,14 @@ namespace Models.Contexts
             Context.SetGlobalFunction(ContextKey.AddExperience, AddExperience);
             Context.SetGlobalFunction(ContextKey.GetPlayerHp, GetPlayerHp);
             Context.SetGlobalFunction(ContextKey.SetPlayerHp, SetPlayerHp);
+            Context.SetGlobalFunction(ContextKey.BoomEffect, BoomEffect);
+        }
+
+        private Expression BoomEffect(in IReadOnlyList<Expression> expressions)
+        {
+            var position = expressions[0].ToValue().Vector3Value;
+            Instantiate(boomEffect, position, Quaternion.identity);
+            return Expression.Empty;
         }
 
         private Expression GetPlayerHp(in IReadOnlyList<Expression> expressions)

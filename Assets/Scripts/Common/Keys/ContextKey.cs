@@ -9,5 +9,6 @@
         public const string AddExperience = "add_experience";
         public const string GetPlayerHp = "get_player_hp";
         public const string SetPlayerHp = "set_player_hp";
+        public const string BoomEffect = "boom_effect";
     }
 }
