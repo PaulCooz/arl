@@ -10,7 +10,7 @@ namespace Models.Progressions
         private Card _right;
 
         [SerializeField]
-        private CardsObject cardsObject;
+        private Card[] cards;
 
         [SerializeField]
         private UnityEvent onHide;
@@ -21,11 +21,22 @@ namespace Models.Progressions
         [SerializeField]
         private UnityEvent<string> setRightCard;
 
+        private void GetCards(out Card left, out Card right)
+        {
+            var i = Random.Range(0, cards.Length);
+            var j = Random.Range(0, cards.Length);
+
+            if (i == j) j = (j + 1) % cards.Length;
+
+            left = cards[i];
+            right = cards[j];
+        }
+
         public void OnLevelUp()
         {
             onShow.Invoke();
 
-            cardsObject.GetCards(out _left, out _right);
+            GetCards(out _left, out _right);
 
             setLeftCard.Invoke(_left.description);
             setRightCard.Invoke(_right.description);

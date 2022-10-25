@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2795096508447178059}
   - component: {fileID: 8548690665993552674}
   - component: {fileID: 555541794602749872}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: IntervalTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

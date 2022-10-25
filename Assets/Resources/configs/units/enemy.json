@@ -2,5 +2,5 @@
   "parent": "base_unit",
   "bullet_config": "enemy_bullet",
   "level_exp": 1,
-  "on_die": "add_experience(level_exp)"
+  "on_die": "add_experience(level_exp)\nif (chance(20)) spawn_item(0;own_position) else if (chance(10)) spawn_item(1;own_position)"
 }

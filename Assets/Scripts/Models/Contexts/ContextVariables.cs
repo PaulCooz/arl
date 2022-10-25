@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Common;
 using Common.Interpreters;
 using Common.Storages;
 using UnityEngine;
@@ -12,11 +12,13 @@ namespace Models.Contexts
         private ScriptPreferences _preferences;
 
         [SerializeField]
-        private ContextValuesObject contextValues;
+        private Pair<string, string>[] values;
+
+        private Dictionary<string, Value> Values => values.ToDictionary(p => p.key, p => new Value(p.value));
 
         private void OnEnable()
         {
-            _preferences = new ScriptPreferences(contextValues.Values);
+            _preferences = new ScriptPreferences(Values);
 
             foreach (var pair in _preferences)
             {

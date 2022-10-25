@@ -10,5 +10,7 @@
         public const string GetPlayerHp = "get_player_hp";
         public const string SetPlayerHp = "set_player_hp";
         public const string BoomEffect = "boom_effect";
+        public const string SpawnItem = "spawn_item";
+        public const string Chance = "chance";
     }
 }

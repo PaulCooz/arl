@@ -21,6 +21,8 @@ namespace Models.Contexts
 
         [SerializeField]
         private UnityEvent<int> addExperience;
+        [SerializeField]
+        private UnityEvent<int, Vector3> spawnItem;
 
         private void Awake()
         {
@@ -29,6 +31,21 @@ namespace Models.Contexts
             Context.SetGlobalFunction(ContextKey.GetPlayerHp, GetPlayerHp);
             Context.SetGlobalFunction(ContextKey.SetPlayerHp, SetPlayerHp);
             Context.SetGlobalFunction(ContextKey.BoomEffect, BoomEffect);
+            Context.SetGlobalFunction(ContextKey.SpawnItem, SpawnItem);
+            Context.SetGlobalFunction(ContextKey.Chance, Chance);
+        }
+
+        private Expression Chance(in IReadOnlyList<Expression> expressions)
+        {
+            var value = expressions[0].ToValue().IntValue;
+            var rand = Random.Range(0, 100);
+            return new BooleanExpression(rand < value);
+        }
+
+        private Expression SpawnItem(in IReadOnlyList<Expression> expressions)
+        {
+            spawnItem.Invoke(expressions[0].ToValue().IntValue, expressions[1].ToValue().Vector3Value);
+            return Expression.Empty;
         }
 
         private Expression BoomEffect(in IReadOnlyList<Expression> expressions)

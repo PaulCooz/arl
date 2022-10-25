@@ -1318,7 +1318,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fcde091c8fc4e84a94f22d7ce6e8cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardsObject: {fileID: 11400000, guid: bae4909a09ac8504c9d0cb68c5af2a1b, type: 2}
+  cards:
+  - description: damage + 1
+    command: global bonus_damage := bonus_damage + 1
+  - description: health + 2
+    command: set_player_hp(get_player_hp() + 2)
+  - description: health + 50%
+    command: 'hp := get_player_hp()
+
+      set_player_hp(hp + max(1; hp * 0.5))'
   onHide:
     m_PersistentCalls:
       m_Calls:
@@ -2037,6 +2045,7 @@ Transform:
   - {fileID: 1785757611}
   - {fileID: 2144564986}
   - {fileID: 1090437203}
+  - {fileID: 2100996196}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3273,6 +3282,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2100996195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100996196}
+  - component: {fileID: 2100996197}
+  m_Layer: 0
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2100996196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100996195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1360071537}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2100996197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100996195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8289900a11440a285c7b7d8c6e579cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 5992916272319677190, guid: 4869e3c868c2f4245ab37af0d8073e77, type: 3}
+  items:
+  - id: 0
+    description: health potion
+    command: set_player_hp(get_player_hp() + 1)
+  - id: 1
+    description: experience potion
+    command: add_experience(5)
 --- !u!1 &2144564985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,6 +3397,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  spawnItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2100996197}
+        m_TargetAssemblyTypeName: Models.Items.ItemsManager, Models
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2144564988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3348,4 +3424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a83260fba624850a1826187660da6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contextValues: {fileID: 11400000, guid: bc6b55ed7f1bed64aa8fa0ae77ac47ea, type: 2}
+  values:
+  - key: bonus_damage
+    value: 0
