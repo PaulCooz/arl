@@ -267,6 +267,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &618408853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1072,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
   m_sharedMaterial: {fileID: -5354099097527508873, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -5354099097527508873, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1510,7 +1512,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
   m_sharedMaterial: {fileID: -5354099097527508873, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -5354099097527508873, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1794,7 +1797,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
   m_sharedMaterial: {fileID: -5354099097527508873, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -5354099097527508873, guid: 66c4fd8d5e17fcd44b604218c810995b, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
