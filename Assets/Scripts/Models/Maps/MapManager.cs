@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Common;
 using Common.Keys;
 using Common.Storages.Configs;
 using Common.Storages.Preferences;
@@ -15,6 +16,8 @@ namespace Models.Maps
 
         [SerializeField]
         private MapDrawer mapDrawer;
+        [SerializeField]
+        private GameMaster gameMaster;
 
         [SerializeField]
         private UnityEvent beforeFirstLevel;
@@ -36,9 +39,12 @@ namespace Models.Maps
 
         private void NextLevel()
         {
-            mapDrawer.Clear();
             _mapData.seed = Preference.CurrentLevel;
+            mapDrawer.Clear(CreateNewMap);
+        }
 
+        private void CreateNewMap()
+        {
             var array = new List<Entities>[_mapData.height, _mapData.width];
             for (var i = 0; i < _mapData.height; i++)
             for (var j = 0; j < _mapData.width; j++)
@@ -50,6 +56,8 @@ namespace Models.Maps
             var roomFiller = new RoomFiller(array);
 
             mapDrawer.Draw(_mapGenerator.GetNextMap(array, _mapData, roomFiller), _mapData.seed);
+
+            this.WaitFrames(1, gameMaster.LevelCreated);
         }
 
         private void OnLevelDone()

@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapDrawer: {fileID: 12949187}
+  gameMaster: {fileID: 213550832}
   beforeFirstLevel:
     m_PersistentCalls:
       m_Calls:
@@ -419,9 +420,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec98c73dd494ae7873031cd469ea3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLevelCreated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1841617317}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onNextLevel:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1841617317}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &214387219
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +887,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensityEnabled: 1
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
@@ -1080,7 +1108,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974174026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2f594d7ac64413589494f88a38e7290, type: 3}
   m_Name: 
@@ -1088,7 +1116,6 @@ MonoBehaviour:
   health: 2
   unitRigidbody: {fileID: 2079784874}
   speed: 255
-  maxHealth: 10
   onAwakeUnit:
     m_PersistentCalls:
       m_Calls:
@@ -2620,6 +2647,7 @@ GameObject:
   - component: {fileID: 1841617312}
   - component: {fileID: 1841617316}
   - component: {fileID: 1841617315}
+  - component: {fileID: 1841617317}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Wall
@@ -2862,39 +2890,9 @@ CompositeCollider2D:
   m_EdgeRadius: 0.05
   m_ColliderPaths:
   - m_Collider: {fileID: 1841617312}
-    m_ColliderPaths:
-    - - X: 22499915
-        Y: -83124943
-      - X: 23124943
-        Y: -82499915
-      - X: 23124980
-        Y: -82499900
-      - X: 22499959
-        Y: -82499900
-      - X: 22499900
-        Y: -82499959
-      - X: 22499900
-        Y: -83124980
-    - - X: 23124943
-        Y: -87500085
-      - X: 22499915
-        Y: -86875057
-      - X: 22499900
-        Y: -86875020
-      - X: 22499900
-        Y: -87500041
-      - X: 22499959
-        Y: -87500100
-      - X: 23124980
-        Y: -87500100
+    m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 2.24999, y: -8.31241}
-      - {x: 2.3124108, y: -8.24999}
-      - {x: 2.24999, y: -8.250026}
-    - - {x: 2.3124108, y: -8.75001}
-      - {x: 2.24999, y: -8.68759}
-      - {x: 2.2500253, y: -8.75001}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1841617316
@@ -2918,6 +2916,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1841617317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841617310}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f48a8d66b2adc46887f23a3a88ac01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
 --- !u!1 &1880466541
 GameObject:
   m_ObjectHideFlags: 0

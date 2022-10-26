@@ -85,6 +85,7 @@ namespace Models.Unit
         public void Initialization()
         {
             PreInitAndSetHealth();
+            enabled = true;
             onAwakeUnit.Invoke(this);
         }
 

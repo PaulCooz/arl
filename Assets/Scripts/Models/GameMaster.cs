@@ -5,6 +5,7 @@ namespace Models
 {
     public class GameMaster : MonoBehaviour
     {
+        public UnityEvent onLevelCreated;
         public UnityEvent onNextLevel;
 
         public static event UnityAction OnLevelDone;
@@ -13,6 +14,11 @@ namespace Models
         {
             OnLevelDone?.Invoke();
             onNextLevel.Invoke();
+        }
+
+        public void LevelCreated()
+        {
+            onLevelCreated.Invoke();
         }
     }
 }

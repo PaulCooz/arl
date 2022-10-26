@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Common;
 using Common.Arrays;
 using Common.Storages.Configs;
@@ -6,6 +7,7 @@ using Models.CollisionTriggers;
 using Models.Maps.Abstracts;
 using Models.Unit;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 namespace Models.Maps
@@ -98,10 +100,21 @@ namespace Models.Maps
             throw new NullReferenceException();
         }
 
-        public void Clear()
+        public void Clear(UnityAction onComplete)
         {
+            StartCoroutine(ClearCoroutine(onComplete));
+        }
+
+        private IEnumerator<WaitForSeconds> ClearCoroutine(UnityAction onComplete)
+        {
+            yield return null;
+
             floorTilemap.ClearAllTiles();
             wallsTilemap.ClearAllTiles();
+
+            yield return null;
+
+            onComplete.Invoke();
         }
 
         private Vector3 GetPosition(in int i, in int j)

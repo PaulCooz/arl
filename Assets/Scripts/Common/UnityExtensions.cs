@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace Common
 {
@@ -17,6 +19,21 @@ namespace Common
         public static bool NotZero(this Vector2 v)
         {
             return Mathf.Abs(v.x) + Mathf.Abs(v.y) > float.Epsilon;
+        }
+
+        public static void WaitFrames(this MonoBehaviour monoBehaviour, in int frames, in UnityAction action)
+        {
+            monoBehaviour.StartCoroutine(WaitFramesAndInvoke(frames, action));
+        }
+
+        private static IEnumerator<WaitForSeconds> WaitFramesAndInvoke(int frames, UnityAction action)
+        {
+            for (var i = 0; i < frames; i++)
+            {
+                yield return null;
+            }
+
+            action.Invoke();
         }
     }
 }
