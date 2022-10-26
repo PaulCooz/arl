@@ -8,9 +8,9 @@ namespace Views
         [SerializeField]
         private TMP_Text healthText;
 
-        public void UpdateHealth(int current, int max)
+        public void UpdateHealth(int current)
         {
-            healthText.text = $"{current.ToString()}/{max.ToString()}";
+            healthText.text = current.ToString();
         }
     }
 }

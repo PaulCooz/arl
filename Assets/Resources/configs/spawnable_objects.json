@@ -1,11 +1,11 @@
 {
   "units": [
     {
-      "name": "enemy",
+      "name": "enemy_octop",
       "chance": 2
     },
     {
-      "name": "static_enemy",
+      "name": "enemy_drone",
       "chance": 1
     }
   ]

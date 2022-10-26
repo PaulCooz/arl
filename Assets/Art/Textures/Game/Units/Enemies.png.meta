@@ -453,11 +453,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_spawn_0
+      name: octop_spawn_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 321
         width: 32
         height: 32
       alignment: 0
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_spawn_1
+      name: octop_spawn_1
       rect:
         serializedVersion: 2
         x: 32
@@ -495,7 +495,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_spawn_2
+      name: octop_spawn_2
       rect:
         serializedVersion: 2
         x: 64
@@ -516,7 +516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_spawn_3
+      name: octop_spawn_3
       rect:
         serializedVersion: 2
         x: 96
@@ -537,11 +537,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_spawn_4
+      name: octop_spawn_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 320
+        y: 321
         width: 32
         height: 32
       alignment: 0
@@ -558,7 +558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_idle_0
+      name: octop_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -579,7 +579,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_idle_1
+      name: octop_idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_idle_2
+      name: octop_idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_idle_3
+      name: octop_idle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_0
+      name: octop_run_0
       rect:
         serializedVersion: 2
         x: 0
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_1
+      name: octop_run_1
       rect:
         serializedVersion: 2
         x: 32
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_2
+      name: octop_run_2
       rect:
         serializedVersion: 2
         x: 64
@@ -705,7 +705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_3
+      name: octop_run_3
       rect:
         serializedVersion: 2
         x: 96
@@ -726,7 +726,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_shoot_0
+      name: octop_shoot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -747,7 +747,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_shoot_1
+      name: octop_shoot_1
       rect:
         serializedVersion: 2
         x: 32
@@ -768,7 +768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_shoot_2
+      name: octop_shoot_2
       rect:
         serializedVersion: 2
         x: 64
@@ -789,7 +789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_shoot_3
+      name: octop_shoot_3
       rect:
         serializedVersion: 2
         x: 96
@@ -810,7 +810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_shoot_0
+      name: octop_run_shoot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -831,7 +831,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_shoot_1
+      name: octop_run_shoot_1
       rect:
         serializedVersion: 2
         x: 32
@@ -852,7 +852,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_shoot_2
+      name: octop_run_shoot_2
       rect:
         serializedVersion: 2
         x: 64
@@ -873,7 +873,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_run_shoot_3
+      name: octop_run_shoot_3
       rect:
         serializedVersion: 2
         x: 96
@@ -894,7 +894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_die_0
+      name: octop_die_0
       rect:
         serializedVersion: 2
         x: 0
@@ -915,10 +915,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_die_1
+      name: octop_die_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 160
         width: 32
         height: 32
@@ -936,7 +936,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_die_2
+      name: octop_die_2
       rect:
         serializedVersion: 2
         x: 64
@@ -957,7 +957,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bot_die_3
+      name: octop_die_3
       rect:
         serializedVersion: 2
         x: 96
@@ -973,69 +973,6 @@ TextureImporter:
       bones: []
       spriteID: 35664721e2309484eb63f8d82ca47830
       internalID: 121622525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bot_die_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e3bb674d37580744b22aa1d67588a19
-      internalID: -1273373022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bot_die_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47300e9c046e6db40a3eba3f0387fd24
-      internalID: 1705719636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bot_die_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8af25bde0ee3cd45899272de7f450d9
-      internalID: 1628355655
       vertices: []
       indices: 
       edges: []
@@ -1408,74 +1345,74 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bot_spawn_4: 789303818
-      bot_idle_2: 616660413
-      bot_die_5: 1705719636
-      bot_run_3: 73212690
+      octop_idle_2: 616660413
+      octop_die_5: 1705719636
+      octop_run_3: 73212690
       drone_run_1: 637420075
       drone_shoot_2: -32510911
       drone_idle_0: 1098009251
-      bot_shoot_2: 340936929
-      bot_shoot_1: 315369130
+      octop_shoot_2: 340936929
+      octop_shoot_1: 315369130
       enemies_9: 1008565619
       enemies_69: -1594855968
       enemies_70: -1487166018
       drone_run_3: 1605787574
-      bot_spawn_0: -1211425
+      octop_spawn_1: 205639395
+      octop_spawn_0: -1211425
       enemies_41: 2013094604
       enemies_4: -2017602904
       drone_die_1: -731104371
-      bot_run_1: 46715086
-      bot_die_4: -1273373022
-      bot_die_3: 121622525
+      octop_run_1: 46715086
+      octop_die_4: -1273373022
+      octop_die_3: 121622525
       enemies_55: 967578632
-      bot_run_shoot_1: -1904592805
-      bot_die_6: 1628355655
+      octop_run_shoot_1: -1904592805
+      octop_die_6: 1628355655
       enemies_72: 385197964
       enemies_56: 1863512478
       enemies_53: -857388604
       drone_idle_1: 2019044394
       drone_die_2: 70343469
       drone_shoot_0: 1041145779
-      bot_run_shoot_0: 1494709533
+      octop_run_shoot_0: 1494709533
       enemies_60: 1625612557
       enemies_65: 1447711811
-      bot_run_0: 38038379
+      octop_run_0: 38038379
       enemies_68: 964891093
       enemies_71: 1196123037
-      bot_run_shoot_3: 3704766
+      octop_run_shoot_3: 3704766
       enemies_63: 429649567
-      bot_run_shoot_2: -987084161
       enemies_58: -2094080593
+      octop_run_shoot_2: -987084161
       enemies_31: 1567204812
       enemies_57: 2009816583
-      bot_run_2: 111473496
-      bot_shoot_0: 1510088547
+      octop_run_2: 111473496
+      octop_shoot_0: 1510088547
       enemies_61: -1286201963
       drone_run_0: 1992889236
-      bot_idle_1: 1193197265
-      bot_idle_3: 184899796
+      octop_idle_1: 1193197265
+      octop_idle_3: 184899796
       enemies_66: 1031442448
       enemies_59: -1901435449
-      bot_shoot_3: 50953517
+      octop_shoot_3: 50953517
       enemies_36: -1530891113
       drone_idle_2: -542633488
-      bot_spawn_1: 205639395
-      bot_spawn_2: 1867752308
+      octop_spawn_2: 1867752308
       enemies_62: 1651044443
       drone_shoot_3: -216212959
-      bot_die_2: 464205178
-      bot_die_0: -236982811
+      octop_spawn_4: 789303818
+      octop_die_2: 464205178
+      octop_die_0: -236982811
       drone_shoot_1: -1852254187
       drone_run_2: 1168758416
-      bot_die_1: 477039280
+      octop_die_1: 477039280
       enemies_54: 686896371
-      bot_idle_0: -2011376975
+      octop_idle_0: -2011376975
       drone_die_3: 1887767256
       drone_die_0: -764767337
       drone_idle_3: 1409100582
       enemies_64: 1828873436
-      bot_spawn_3: -133198937
+      octop_spawn_3: -133198937
       enemies_67: -511305271
       enemies_14: -1144816836
   spritePackingTag: 

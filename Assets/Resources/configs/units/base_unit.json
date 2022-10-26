@@ -3,5 +3,6 @@
   "bullet_config": "base_bullet",
   "gun_config": "base_gun",
   "on_hp_change": "",
-  "on_die": "spawn_interval_trigger('base_interval_trigger'; own_position)"
+  "on_die": "spawn_interval_trigger('base_interval_trigger'; own_position)",
+  "health": 2
 }

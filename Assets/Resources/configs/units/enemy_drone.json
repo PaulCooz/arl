@@ -1,0 +1,7 @@
+{
+  "parent": "enemy",
+  "speed": 1.0,
+  "bullet_config": "enemy_rocket_bullet",
+  "gun_config": "long_range_gun",
+  "prefab_name": "drone"
+}

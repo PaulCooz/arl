@@ -105,6 +105,7 @@ namespace Models.Guns
             {
                 var distance = Distance(target);
                 var position = gunBarrel.position;
+                var targetObject = target.transform.parent.gameObject;
                 var hit = Physics2D.Raycast
                 (
                     position,
@@ -112,7 +113,7 @@ namespace Models.Guns
                     AttackRadius
                 );
 
-                if (minDist > distance && hit.transform is not null && hit.collider.gameObject == target.gameObject)
+                if (minDist > distance && hit.transform is not null && hit.collider.gameObject == targetObject)
                 {
                     minDist = distance;
                     enemy = target;

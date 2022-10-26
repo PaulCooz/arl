@@ -1,5 +1,6 @@
 {
   "parent": "base_unit",
   "bullet_config": "player_bullet",
-  "gun_config": "player_gun"
+  "gun_config": "player_gun",
+  "health": 10
 }

@@ -262,17 +262,14 @@ SpriteAtlas:
   - {fileID: -404544338, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
   - {fileID: -631406753, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
   - {fileID: -78217961, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
+  - {fileID: -1904592805, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 1494709533, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 3704766, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 2019044394, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: -987084161, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1098009251, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1409100582, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -542633488, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 616660413, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 184899796, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -2011376975, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 1193197265, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -1273373022, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 1705719636, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 1628355655, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -236982811, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 477039280, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 464205178, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
@@ -284,45 +281,45 @@ SpriteAtlas:
   - {fileID: 637420075, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1168758416, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1605787574, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 616660413, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 184899796, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: -2011376975, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 1193197265, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 46715086, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 38038379, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 73212690, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 111473496, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 50953517, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 340936929, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 315369130, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 1510088547, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: -133198937, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 1867752308, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 205639395, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: -1211425, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 789303818, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -731104371, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -764767337, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1887767256, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 70343469, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -1904592805, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 1494709533, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 3704766, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -987084161, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -32510911, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -216212959, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1041145779, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 50953517, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -1852254187, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 340936929, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 315369130, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -1901435449, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 1510088547, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -2094080593, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -857388604, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 964891093, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -1594855968, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1031442448, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -133198937, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 2009816583, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -511305271, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 1867752308, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1863512478, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1828873436, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 205639395, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: -1211425, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 686896371, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1651044443, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 429649567, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -1286201963, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
-  - {fileID: 789303818, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 557987976, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -1985455563, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -746788901, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
@@ -564,21 +561,18 @@ SpriteAtlas:
   - run_shoot_2
   - run_shoot_1
   - run_shoot_0
+  - octop_run_shoot_1
+  - octop_run_shoot_0
+  - octop_run_shoot_3
   - drone_idle_1
+  - octop_run_shoot_2
   - drone_idle_0
   - drone_idle_3
   - drone_idle_2
-  - bot_idle_2
-  - bot_idle_3
-  - bot_idle_0
-  - bot_idle_1
-  - bot_die_4
-  - bot_die_5
-  - bot_die_6
-  - bot_die_0
-  - bot_die_1
-  - bot_die_2
-  - bot_die_3
+  - octop_die_0
+  - octop_die_1
+  - octop_die_2
+  - octop_die_3
   - enemies_71
   - enemies_70
   - drone_run_0
@@ -586,45 +580,45 @@ SpriteAtlas:
   - drone_run_1
   - drone_run_2
   - drone_run_3
-  - bot_run_1
-  - bot_run_0
-  - bot_run_3
-  - bot_run_2
-  - bot_shoot_3
-  - bot_shoot_2
-  - bot_shoot_1
-  - bot_shoot_0
+  - octop_idle_2
+  - octop_idle_3
+  - octop_idle_0
+  - octop_idle_1
+  - octop_run_1
+  - octop_run_0
+  - octop_run_3
+  - octop_run_2
+  - octop_spawn_3
+  - octop_spawn_2
+  - octop_spawn_1
+  - octop_spawn_0
+  - octop_spawn_4
   - drone_die_1
   - drone_die_0
   - drone_die_3
   - drone_die_2
-  - bot_run_shoot_1
-  - bot_run_shoot_0
-  - bot_run_shoot_3
-  - bot_run_shoot_2
   - drone_shoot_2
   - drone_shoot_3
   - drone_shoot_0
+  - octop_shoot_3
   - drone_shoot_1
+  - octop_shoot_2
+  - octop_shoot_1
   - enemies_59
+  - octop_shoot_0
   - enemies_58
   - enemies_53
   - enemies_68
   - enemies_69
   - enemies_66
-  - bot_spawn_3
   - enemies_57
   - enemies_67
-  - bot_spawn_2
   - enemies_56
   - enemies_64
-  - bot_spawn_1
-  - bot_spawn_0
   - enemies_54
   - enemies_62
   - enemies_63
   - enemies_61
-  - bot_spawn_4
   - Floor_17
   - Floor_11
   - Floor_13

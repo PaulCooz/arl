@@ -16,7 +16,8 @@ namespace Models.CollisionTriggers
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!IsTrigger(other) || !other.TryGetComponent<BaseUnit>(out var unit)) return;
+            var unit = IsTrigger(other) ? other.GetComponentInChildren<BaseUnit>() : null;
+            if (unit == null) return;
 
             CollidersInRange.Add(unit);
             onTriggerEnter.Invoke(unit);
@@ -24,7 +25,8 @@ namespace Models.CollisionTriggers
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!IsTrigger(other) || !other.TryGetComponent<BaseUnit>(out var unit)) return;
+            var unit = IsTrigger(other) ? other.GetComponentInChildren<BaseUnit>() : null;
+            if (unit == null) return;
 
             CollidersInRange.Remove(unit);
             onTriggerExit.Invoke(unit);

@@ -1,4 +1,7 @@
-﻿using Common.Arrays;
+﻿using System;
+using Common;
+using Common.Arrays;
+using Common.Storages.Configs;
 using Models.CollisionTriggers;
 using Models.Maps.Abstracts;
 using Models.Unit;
@@ -19,7 +22,7 @@ namespace Models.Maps
         private GameMaster gameMaster;
 
         [SerializeField]
-        private UnitRoot enemyPrefab;
+        private Pair<string, UnitRoot>[] enemies;
         [SerializeField]
         private ExitCollisionTrigger exitTriggerPrefab;
 
@@ -55,9 +58,11 @@ namespace Models.Maps
 
                 if (map[i, j].Contains(Entities.Enemy))
                 {
-                    var enemy = Instantiate(enemyPrefab, GetPosition(i, j), Quaternion.identity);
+                    var unitName = unitsConfig.GetUnitName(random);
+                    var enemy = Instantiate(EnemyPrefab(unitName), GetPosition(i, j), Quaternion.identity);
+
                     enemy.transform.SetParent(transform);
-                    enemy.Unit.Name = unitsConfig.GetUnitName(random);
+                    enemy.Unit.Name = unitName;
                     enemy.Initialization();
                 }
 
@@ -80,6 +85,17 @@ namespace Models.Maps
                     floorTilemap.SetTile(new Vector3Int(i, j), exitTiles.Random());
                 }
             }
+        }
+
+        private UnitRoot EnemyPrefab(string unitName)
+        {
+            var key = Config.Get(unitName, "prefab_name", "octop");
+            foreach (var p in enemies)
+            {
+                if (p.key == key) return p.value;
+            }
+
+            throw new NullReferenceException();
         }
 
         public void Clear()

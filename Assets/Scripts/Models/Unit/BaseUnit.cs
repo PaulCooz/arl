@@ -8,26 +8,24 @@ using UnityEngine.Events;
 
 namespace Models.Unit
 {
-    public abstract class BaseUnit : MonoBehaviour, ISerializationCallbackReceiver
+    public abstract class BaseUnit : MonoBehaviour
     {
         private Vector2 _moveDelta;
         private bool _isRun = false;
         private bool _isLockLeft = false;
 
         [SerializeField, ReadOnly]
-        protected int health = 0;
+        private int health = 0;
 
         [SerializeField]
         private Rigidbody2D unitRigidbody;
         [SerializeField]
         private float speed;
-        [SerializeField]
-        protected int maxHealth;
 
         [SerializeField]
         private UnityEvent<BaseUnit> onAwakeUnit;
         [SerializeField]
-        protected UnityEvent<int, int> onHealthChange;
+        protected UnityEvent<int> onHealthChange;
 
         [SerializeField]
         private UnityEvent<bool> turnLeft;
@@ -71,20 +69,22 @@ namespace Models.Unit
                 if (delta == 0) return;
 
                 health = next;
-                onHealthChange.Invoke(health, maxHealth);
+                onHealthChange.Invoke(health);
 
                 RunOnHpChange(delta);
 
-                if (health == 0)
-                {
-                    Die();
-                }
+                if (health == 0) Die();
             }
         }
 
-        public virtual void Initialization()
+        protected virtual void PreInitAndSetHealth()
         {
-            Health = health <= 0 ? maxHealth : health;
+            Health = Config.Get(Name, "health", 2);
+        }
+
+        public void Initialization()
+        {
+            PreInitAndSetHealth();
             onAwakeUnit.Invoke(this);
         }
 
@@ -141,12 +141,5 @@ namespace Models.Unit
             script.SetVariable(ConfigKey.LevelExp, Config.Get(Name, ConfigKey.LevelExp, 0).ToScriptValue());
             script.Run(Config.Get(Name, ConfigKey.OnDie, ""));
         }
-
-        public void OnBeforeSerialize()
-        {
-            onHealthChange.Invoke(0, maxHealth);
-        }
-
-        public void OnAfterDeserialize() { }
     }
 }
