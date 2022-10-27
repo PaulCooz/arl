@@ -10,7 +10,7 @@ namespace Models.Unit
         {
             Name = ConfigKey.Player;
 
-            var hp = Preference.PlayerHealth;
+            var hp = Preference.Game.PlayerHealth;
             Health = hp <= 0 ? Config.Get(Name, "health", 2) : hp;
 
             onHealthChange.AddListener(UpdatePrefs);
@@ -18,7 +18,7 @@ namespace Models.Unit
 
         private void UpdatePrefs(int newHealth)
         {
-            Preference.PlayerHealth = newHealth;
+            Preference.Game.PlayerHealth = newHealth;
         }
     }
 }

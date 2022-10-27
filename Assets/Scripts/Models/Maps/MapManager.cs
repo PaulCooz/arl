@@ -39,7 +39,7 @@ namespace Models.Maps
 
         private void NextLevel()
         {
-            _mapData.seed = Preference.CurrentLevel;
+            _mapData.seed = Preference.Game.CurrentLevel;
             mapDrawer.Clear(CreateNewMap);
         }
 
@@ -62,7 +62,7 @@ namespace Models.Maps
 
         private void OnLevelDone()
         {
-            Preference.CurrentLevel++;
+            Preference.Game.CurrentLevel++;
             NextLevel();
         }
     }

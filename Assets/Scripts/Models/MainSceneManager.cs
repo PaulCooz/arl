@@ -25,7 +25,7 @@ namespace Models
 
         public void Sound()
         {
-            Preference.Sound = !Preference.Sound;
+            Preference.Setting.Sound = !Preference.Setting.Sound;
             mainScene.UpdateButtons();
         }
 

@@ -31,10 +31,10 @@ namespace Views
 
         public void UpdateButtons()
         {
-            var isSoundOn = Preference.Sound;
+            var isSoundOn = Preference.Setting.Sound;
             sound.sprite = soundStatus[isSoundOn ? 1 : 0];
 
-            var isSingIn = Preference.ServiceSingIn;
+            var isSingIn = Preference.Setting.ServiceSingIn;
             singIn.SetActive(!isSingIn);
             achievements.SetActive(isSingIn);
             leaderboard.SetActive(isSingIn);

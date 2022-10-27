@@ -18,11 +18,11 @@ namespace Models.Progressions
 
         public void AddPoints(int count)
         {
-            Preference.Points += count;
-            if (Preference.Points >= Preference.AimPoints)
+            Preference.Game.Points += count;
+            if (Preference.Game.Points >= Preference.Game.AimPoints)
             {
-                Preference.Points -= Preference.AimPoints;
-                Preference.AimPoints++;
+                Preference.Game.Points -= Preference.Game.AimPoints;
+                Preference.Game.AimPoints++;
 
                 onLevelUp.Invoke();
             }
@@ -32,7 +32,7 @@ namespace Models.Progressions
 
         private void UpdateProgress()
         {
-            onPointChange.Invoke(1f - (float) Preference.Points / Preference.AimPoints);
+            onPointChange.Invoke(1f - (float) Preference.Game.Points / Preference.Game.AimPoints);
         }
     }
 }
