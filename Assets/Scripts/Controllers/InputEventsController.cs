@@ -7,6 +7,10 @@ namespace Controllers
     {
         [SerializeField]
         public UnityEvent<Vector2> onMove;
+        [SerializeField]
+        public UnityEvent useLeft;
+        [SerializeField]
+        public UnityEvent useRight;
 
         public void Move(Vector2 n)
         {

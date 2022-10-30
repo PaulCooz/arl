@@ -364,7 +364,7 @@ SpriteAtlas:
   - Idle0
   - Idle5
   - Idle4
-  - players
+  - Players
   - PropsAndItems_96
   - PropsAndItems_97
   - PropsAndItems_94

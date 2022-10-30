@@ -39,18 +39,18 @@ namespace Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Back"",
+                    ""name"": ""UseLeft"",
                     ""type"": ""Button"",
-                    ""id"": ""55496112-2f14-428c-b4af-c4d7f5463469"",
+                    ""id"": ""ad61afdc-5188-463c-8541-8bc8453c1efc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""OpenInventory"",
+                    ""name"": ""UseRight"",
                     ""type"": ""Button"",
-                    ""id"": ""3ce132bc-464c-4087-869b-e0a8137df22c"",
+                    ""id"": ""6970f7e8-2286-4f52-bddb-8c5925dc63e0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -115,23 +115,23 @@ namespace Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9b47454e-dc0b-44aa-8926-b1b2978f31b1"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""b959bf0c-6825-4189-bc34-72578bd6e408"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Back"",
+                    ""action"": ""UseLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9568731a-eea2-4c30-88de-53dcf412f8a2"",
+                    ""id"": ""68fddb68-e15b-439e-9bd7-9aeb5e8fe777"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OpenInventory"",
+                    ""action"": ""UseRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -143,8 +143,8 @@ namespace Input
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-            m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
-            m_Player_OpenInventory = m_Player.FindAction("OpenInventory", throwIfNotFound: true);
+            m_Player_UseLeft = m_Player.FindAction("UseLeft", throwIfNotFound: true);
+            m_Player_UseRight = m_Player.FindAction("UseRight", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -205,15 +205,15 @@ namespace Input
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Move;
-        private readonly InputAction m_Player_Back;
-        private readonly InputAction m_Player_OpenInventory;
+        private readonly InputAction m_Player_UseLeft;
+        private readonly InputAction m_Player_UseRight;
         public struct PlayerActions
         {
             private @MainControls m_Wrapper;
             public PlayerActions(@MainControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
-            public InputAction @Back => m_Wrapper.m_Player_Back;
-            public InputAction @OpenInventory => m_Wrapper.m_Player_OpenInventory;
+            public InputAction @UseLeft => m_Wrapper.m_Player_UseLeft;
+            public InputAction @UseRight => m_Wrapper.m_Player_UseRight;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -226,12 +226,12 @@ namespace Input
                     @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                     @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                     @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Back.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
-                    @Back.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
-                    @Back.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
-                    @OpenInventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
-                    @OpenInventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
-                    @OpenInventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
+                    @UseLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseLeft;
+                    @UseLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseLeft;
+                    @UseLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseLeft;
+                    @UseRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseRight;
+                    @UseRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseRight;
+                    @UseRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseRight;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -239,12 +239,12 @@ namespace Input
                     @Move.started += instance.OnMove;
                     @Move.performed += instance.OnMove;
                     @Move.canceled += instance.OnMove;
-                    @Back.started += instance.OnBack;
-                    @Back.performed += instance.OnBack;
-                    @Back.canceled += instance.OnBack;
-                    @OpenInventory.started += instance.OnOpenInventory;
-                    @OpenInventory.performed += instance.OnOpenInventory;
-                    @OpenInventory.canceled += instance.OnOpenInventory;
+                    @UseLeft.started += instance.OnUseLeft;
+                    @UseLeft.performed += instance.OnUseLeft;
+                    @UseLeft.canceled += instance.OnUseLeft;
+                    @UseRight.started += instance.OnUseRight;
+                    @UseRight.performed += instance.OnUseRight;
+                    @UseRight.canceled += instance.OnUseRight;
                 }
             }
         }
@@ -252,8 +252,8 @@ namespace Input
         public interface IPlayerActions
         {
             void OnMove(InputAction.CallbackContext context);
-            void OnBack(InputAction.CallbackContext context);
-            void OnOpenInventory(InputAction.CallbackContext context);
+            void OnUseLeft(InputAction.CallbackContext context);
+            void OnUseRight(InputAction.CallbackContext context);
         }
     }
 }
