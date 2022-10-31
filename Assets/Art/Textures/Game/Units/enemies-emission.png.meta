@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 442d72b9a092bf442be89de046f6359e
+guid: ad498108a36b7e045b91764c925c49a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -53,7 +53,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: drone_idle_0
+      name: enemies-emission_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +125,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06ed6a745abc6af4382b772f931b416f
-      internalID: 1098009251
+      spriteID: 28c166c08404ed34493808c91c26cbbb
+      internalID: 982053863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_idle_1
+      name: enemies-emission_1
       rect:
         serializedVersion: 2
         x: 32
@@ -146,20 +146,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16159465e8069004283408a9b6e3f312
-      internalID: 2019044394
+      spriteID: c06a22412e76bd84aa81fa16e786ea16
+      internalID: 353665570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_idle_2
+      name: enemies-emission_2
       rect:
         serializedVersion: 2
         x: 64
@@ -167,20 +167,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0244771bdb1f0d45a50ae87653e6949
-      internalID: -542633488
+      spriteID: 15014381d1abc4242b63c63e74383d33
+      internalID: 1017449421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_idle_3
+      name: enemies-emission_3
       rect:
         serializedVersion: 2
         x: 96
@@ -188,20 +188,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24e7db0ba117c7946ac1ccd088f66fe0
-      internalID: 1409100582
+      spriteID: ac29cb111807b7843aae50c1ce202975
+      internalID: 1887563800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_run_0
+      name: enemies-emission_4
       rect:
         serializedVersion: 2
         x: 0
@@ -209,20 +209,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9957057f2c2a15743a023eecc0a8a096
-      internalID: 1992889236
+      spriteID: 2d6488c9728b48f41b67f1b9dd4c68ba
+      internalID: 1389534437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_run_1
+      name: enemies-emission_5
       rect:
         serializedVersion: 2
         x: 32
@@ -230,20 +230,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91a4df5bcb5163145a49dbb5b22c7e36
-      internalID: 637420075
+      spriteID: 1e2b2d0f7e9a5b6468c8adc632cbd67c
+      internalID: -455626729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_run_2
+      name: enemies-emission_6
       rect:
         serializedVersion: 2
         x: 64
@@ -251,20 +251,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e61b7ee46b78ff4f84bc0b9785105cf
-      internalID: 1168758416
+      spriteID: 9a2b0015f75d8a44eaf7ce1c688089d1
+      internalID: 891274970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_run_3
+      name: enemies-emission_7
       rect:
         serializedVersion: 2
         x: 96
@@ -272,20 +272,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d729c9f07005c9468bb52bbfc594026
-      internalID: 1605787574
+      spriteID: 20b7d3d9a168dc341a21a5faa82064b8
+      internalID: 256517415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_shoot_0
+      name: enemies-emission_8
       rect:
         serializedVersion: 2
         x: 0
@@ -293,20 +293,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85e1eb8350898ce408838efe6badc246
-      internalID: 1041145779
+      spriteID: 7f048b90a06dc7240994b90abbf90256
+      internalID: 809181250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_shoot_1
+      name: enemies-emission_9
       rect:
         serializedVersion: 2
         x: 32
@@ -314,20 +314,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33535efff458cb64d9597fda4375ab50
-      internalID: -1852254187
+      spriteID: 522ca5b2d5324bd45bf13efc97e61912
+      internalID: -1071012196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_shoot_2
+      name: enemies-emission_10
       rect:
         serializedVersion: 2
         x: 64
@@ -335,20 +335,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc32dbdd385be5b43a53a5642bce1730
-      internalID: -32510911
+      spriteID: d989f86e95233844aa33494f06a254a1
+      internalID: 1891711714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_shoot_3
+      name: enemies-emission_11
       rect:
         serializedVersion: 2
         x: 96
@@ -356,20 +356,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc46fd7703b3a5a43ad6a27efc7da314
-      internalID: -216212959
+      spriteID: 248f6373722a2664fbac5ee2fe1d46a5
+      internalID: -1976743743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_0
+      name: enemies-emission_12
       rect:
         serializedVersion: 2
         x: 0
@@ -377,20 +377,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672ca1dbe9f79b044bcc3acb3d255525
-      internalID: -764767337
+      spriteID: e0e6fe116d1c01248b0b87e3f239b361
+      internalID: -495614633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_1
+      name: enemies-emission_13
       rect:
         serializedVersion: 2
         x: 32
@@ -398,20 +398,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 974d41ff6b59c3543a2cb77894ad7ee9
-      internalID: -731104371
+      spriteID: 19515348d8be10648878f0daa36dd65d
+      internalID: 1444968066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_2
+      name: enemies-emission_14
       rect:
         serializedVersion: 2
         x: 64
@@ -419,20 +419,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f8cd5395d9b65842b4e491c94731e2c
-      internalID: 70343469
+      spriteID: f4919363ad90e5f4f9b12f092d82de02
+      internalID: 99650816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drone_die_3
+      name: enemies-emission_15
       rect:
         serializedVersion: 2
         x: 96
@@ -440,41 +440,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d88b394a5c2cd4f8e7314486174b91
-      internalID: 1887767256
+      spriteID: 5b480e1f55690e844a75fb60e6485d87
+      internalID: -1953162722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_spawn_0
+      name: enemies-emission_16
       rect:
         serializedVersion: 2
         x: 0
-        y: 321
+        y: 320
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 519ba9a732587364fb372e04e60df53d
-      internalID: -1211425
+      spriteID: f95e5d4d3fc02fd44aa5026dcd212de6
+      internalID: 1278405800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_spawn_1
+      name: enemies-emission_17
       rect:
         serializedVersion: 2
         x: 32
@@ -482,20 +482,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2ba1e63110c4b047b9e4af9ab970010
-      internalID: 205639395
+      spriteID: 24bdc1b94f7baf04a8c6dd47cb5b2722
+      internalID: 983824400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_spawn_2
+      name: enemies-emission_18
       rect:
         serializedVersion: 2
         x: 64
@@ -503,20 +503,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6e3e610bc6479b4d917fe5314dea3c8
-      internalID: 1867752308
+      spriteID: 173ebe96706f49d438ced98641c1e32b
+      internalID: 989281321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_spawn_3
+      name: enemies-emission_19
       rect:
         serializedVersion: 2
         x: 96
@@ -524,41 +524,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3429e68e61b267246afc3f4387a708f2
-      internalID: -133198937
+      spriteID: 2ba50ecc28e896d4993ca90ce6ebf201
+      internalID: -1285043629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_spawn_4
+      name: enemies-emission_20
       rect:
         serializedVersion: 2
         x: 128
-        y: 321
+        y: 320
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d31a883b36a9da408ce8c14077243f2
-      internalID: 789303818
+      spriteID: 2a9f586aa8bd57341af183802971a509
+      internalID: -1247700465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_idle_0
+      name: enemies-emission_21
       rect:
         serializedVersion: 2
         x: 0
@@ -566,20 +566,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8339abebb3ad04248945fcbd22b147fe
-      internalID: -2011376975
+      spriteID: c9b97a2ac006554458403335f9d2f08d
+      internalID: -387560514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_idle_1
+      name: enemies-emission_22
       rect:
         serializedVersion: 2
         x: 32
@@ -587,20 +587,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7285d9354723764185273b96c8b8f01
-      internalID: 1193197265
+      spriteID: 82118124891d0d644837c5a5eaa82ed1
+      internalID: -234784662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_idle_2
+      name: enemies-emission_23
       rect:
         serializedVersion: 2
         x: 64
@@ -608,20 +608,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa2eaca8f51ab1745be57659850e60b2
-      internalID: 616660413
+      spriteID: b28bd173aa844194788280b8b2e73ca2
+      internalID: -803483739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_idle_3
+      name: enemies-emission_24
       rect:
         serializedVersion: 2
         x: 96
@@ -629,20 +629,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ade88fddba6734599d0b0a10febba4
-      internalID: 184899796
+      spriteID: 78f7f0c3678823349af7744eef15d2a9
+      internalID: -1671951586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_0
+      name: enemies-emission_25
       rect:
         serializedVersion: 2
         x: 0
@@ -650,20 +650,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a41eb722de46c58499083e51953b2c05
-      internalID: 38038379
+      spriteID: 792067acf937c8d49965ca13b895a9e1
+      internalID: 2029572242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_1
+      name: enemies-emission_26
       rect:
         serializedVersion: 2
         x: 32
@@ -671,20 +671,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e05f5559d7faa048806dd8b967e005c
-      internalID: 46715086
+      spriteID: c680bf64075f1d946b0241f671296fea
+      internalID: 283068213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_2
+      name: enemies-emission_27
       rect:
         serializedVersion: 2
         x: 64
@@ -692,20 +692,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f9b32e79d41c745a2d5268530c0f36
-      internalID: 111473496
+      spriteID: d7ef53b0c19182249aa0eb68e6383bb3
+      internalID: -1681558426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_3
+      name: enemies-emission_28
       rect:
         serializedVersion: 2
         x: 96
@@ -713,20 +713,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 691576d85b2923e4baf4fafd623692f0
-      internalID: 73212690
+      spriteID: 37b8f6a146b503346bab72faca7ab882
+      internalID: 640777985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_shoot_0
+      name: enemies-emission_29
       rect:
         serializedVersion: 2
         x: 0
@@ -734,20 +734,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ed228350bafb4f4796ad75b23195392
-      internalID: 1510088547
+      spriteID: 4569e3dfe13a251469f49fad1996fff5
+      internalID: 1411266213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_shoot_1
+      name: enemies-emission_30
       rect:
         serializedVersion: 2
         x: 32
@@ -755,20 +755,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9c2d9bdcd463ab46a7b0860a7281ae8
-      internalID: 315369130
+      spriteID: a25bb0b4706d7804797df3fee9919c4e
+      internalID: 130520800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_shoot_2
+      name: enemies-emission_31
       rect:
         serializedVersion: 2
         x: 64
@@ -776,20 +776,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 321f56dbd9afc1348b1e700e34d32f4f
-      internalID: 340936929
+      spriteID: d4d7a6475e837af4fab4b6544b1f616d
+      internalID: 835290659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_shoot_3
+      name: enemies-emission_32
       rect:
         serializedVersion: 2
         x: 96
@@ -797,20 +797,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaa09546c37a88d41ae9a6cface11162
-      internalID: 50953517
+      spriteID: a9774ee756abc024c809e18c9697fd63
+      internalID: -146202254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_shoot_0
+      name: enemies-emission_33
       rect:
         serializedVersion: 2
         x: 0
@@ -818,20 +818,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2632663e3918fc4da97a8ea91a9e246
-      internalID: 1494709533
+      spriteID: 57a14bf62322ee54f8b1226cb51ece91
+      internalID: -303220461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_shoot_1
+      name: enemies-emission_34
       rect:
         serializedVersion: 2
         x: 32
@@ -839,20 +839,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db631fff010f5f34491a342d63fc9fa1
-      internalID: -1904592805
+      spriteID: c72445c53e0c41d4091b42a2cceffb5a
+      internalID: 1805989403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_shoot_2
+      name: enemies-emission_35
       rect:
         serializedVersion: 2
         x: 64
@@ -860,20 +860,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e99ba124250e934a91bfa7a96af44ab
-      internalID: -987084161
+      spriteID: 058dc3b4a5316d841a4929fea314e40f
+      internalID: 1005600701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_run_shoot_3
+      name: enemies-emission_36
       rect:
         serializedVersion: 2
         x: 96
@@ -881,20 +881,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d4c668c257afe442b7782f45dd01b0c
-      internalID: 3704766
+      spriteID: 2ae5d4bdd08086f4985de1fc3bc1dff1
+      internalID: -1314200727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_die_0
+      name: enemies-emission_37
       rect:
         serializedVersion: 2
         x: 0
@@ -902,41 +902,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 586f727dd66fa4f449f79e24d645128f
-      internalID: -236982811
+      spriteID: 86b5185105abfc54f87434697cf26da1
+      internalID: 1993655308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_die_1
+      name: enemies-emission_38
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 160
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 001134f7a5db43c4eb64f061c878c588
-      internalID: 477039280
+      spriteID: 9efe2c454bb2112418b4af2930240421
+      internalID: -1877683841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_die_2
+      name: enemies-emission_39
       rect:
         serializedVersion: 2
         x: 64
@@ -944,20 +944,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b68f720e9ed0239459928d0a5e65e17f
-      internalID: 464205178
+      spriteID: d2e49043b97324c42aa60076ae59ab89
+      internalID: 2089392642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: octop_die_3
+      name: enemies-emission_40
       rect:
         serializedVersion: 2
         x: 96
@@ -965,20 +965,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35664721e2309484eb63f8d82ca47830
-      internalID: 121622525
+      spriteID: 43ce9984ae19e3b4fab6ade1a49bfb1e
+      internalID: 2205007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_53
+      name: enemies-emission_41
       rect:
         serializedVersion: 2
         x: 0
@@ -986,20 +986,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 165a681cbdf8a09458b95c6bb3ff5d4b
-      internalID: -857388604
+      spriteID: 10df639220e56844a89008df9f979154
+      internalID: -849751860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_54
+      name: enemies-emission_42
       rect:
         serializedVersion: 2
         x: 32
@@ -1007,20 +1007,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ffbf116482fc71459250eb86d01c8ba
-      internalID: 686896371
+      spriteID: fd99a4061414eac4b9218bec31a415d1
+      internalID: -1204995410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_56
+      name: enemies-emission_43
       rect:
         serializedVersion: 2
         x: 0
@@ -1028,20 +1028,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eb0342721db6b0409630f76992462a6
-      internalID: 1863512478
+      spriteID: 829336cebd99eeb4eb645c725c71af48
+      internalID: 566546608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_57
+      name: enemies-emission_44
       rect:
         serializedVersion: 2
         x: 32
@@ -1049,20 +1049,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a86a6d263487fe345af8c0b2f4a43849
-      internalID: 2009816583
+      spriteID: 43830fb2d3faa3143adf0fbe64bd9bb5
+      internalID: -717173016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_58
+      name: enemies-emission_45
       rect:
         serializedVersion: 2
         x: 64
@@ -1070,20 +1070,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 802a4366efa30734c8e706ed54008803
-      internalID: -2094080593
+      spriteID: cbebedb829015a04aaaf88f7d80703e3
+      internalID: 177277361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_59
+      name: enemies-emission_46
       rect:
         serializedVersion: 2
         x: 96
@@ -1091,20 +1091,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afb6baf2b9a93914c90a34dd23d6f840
-      internalID: -1901435449
+      spriteID: f96094876e14f21489aebf299ef266d0
+      internalID: -329483588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_61
+      name: enemies-emission_47
       rect:
         serializedVersion: 2
         x: 0
@@ -1112,20 +1112,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec60be09ebd980a4cb843c84116cba53
-      internalID: -1286201963
+      spriteID: 724b90af73e96774bbc0f501983d5b65
+      internalID: 440097074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_62
+      name: enemies-emission_48
       rect:
         serializedVersion: 2
         x: 32
@@ -1133,20 +1133,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 343803fa512809544911df7bd1282cb4
-      internalID: 1651044443
+      spriteID: 5dcfe20dc3b030c4aa53e34deb2623a9
+      internalID: -1613675143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_63
+      name: enemies-emission_49
       rect:
         serializedVersion: 2
         x: 64
@@ -1154,20 +1154,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c0865ed015a4b045ad6ac899c700455
-      internalID: 429649567
+      spriteID: 1d9cfe012df5ba1469a600b95adf903e
+      internalID: 792040884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_64
+      name: enemies-emission_50
       rect:
         serializedVersion: 2
         x: 96
@@ -1175,20 +1175,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0703f668ef8ce4b4fa858c679d309975
-      internalID: 1828873436
+      spriteID: 19a25f0110bd7ad4fa220bc0c156fa6c
+      internalID: 1468859963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_66
+      name: enemies-emission_51
       rect:
         serializedVersion: 2
         x: 0
@@ -1196,20 +1196,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a6c7f536964c546b88931d9f6dfb9e
-      internalID: 1031442448
+      spriteID: db4acaacdc745f947916e43df0bc78a1
+      internalID: -1772418888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_67
+      name: enemies-emission_52
       rect:
         serializedVersion: 2
         x: 32
@@ -1217,20 +1217,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce91e4994e7efd4b8eb6c462dcbd194
-      internalID: -511305271
+      spriteID: 58cb307f2e564c449a3204e9c6956641
+      internalID: -258170886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_68
+      name: enemies-emission_53
       rect:
         serializedVersion: 2
         x: 64
@@ -1238,20 +1238,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b653abeadaf0c64eacdbe629cf8b420
-      internalID: 964891093
+      spriteID: ba85fa654a7a6ad4d83e6242d04d925e
+      internalID: -185588457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies_69
+      name: enemies-emission_54
       rect:
         serializedVersion: 2
         x: 96
@@ -1259,14 +1259,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81696412a6159464a88f51bc0c83b676
-      internalID: -1594855968
+      spriteID: 14cb6446ecbbf4b48bc09c020ea66be9
+      internalID: 2117921267
       vertices: []
       indices: 
       edges: []
@@ -1280,80 +1280,63 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: ad498108a36b7e045b91764c925c49a7, type: 3}
-      name: _Emission
+    secondaryTextures: []
     nameFileIdTable:
-      octop_idle_3: 184899796
-      drone_run_1: 637420075
-      octop_die_3: 121622525
-      octop_shoot_1: 315369130
-      octop_run_shoot_1: -1904592805
-      drone_shoot_2: -32510911
-      drone_idle_0: 1098009251
-      enemies_9: 1008565619
-      enemies_69: -1594855968
-      enemies_70: -1487166018
-      drone_run_3: 1605787574
-      octop_run_shoot_0: 1494709533
-      octop_run_shoot_2: -987084161
-      octop_spawn_1: 205639395
-      octop_die_1: 477039280
-      octop_spawn_0: -1211425
-      enemies_41: 2013094604
-      enemies_4: -2017602904
-      octop_shoot_2: 340936929
-      drone_die_1: -731104371
-      enemies_55: 967578632
-      octop_run_3: 73212690
-      enemies_56: 1863512478
-      enemies_72: 385197964
-      octop_idle_0: -2011376975
-      enemies_53: -857388604
-      drone_idle_1: 2019044394
-      drone_die_2: 70343469
-      drone_shoot_0: 1041145779
-      enemies_60: 1625612557
-      enemies_65: 1447711811
-      enemies_68: 964891093
-      enemies_71: 1196123037
-      octop_die_5: 1705719636
-      octop_idle_2: 616660413
-      enemies_63: 429649567
-      enemies_58: -2094080593
-      octop_die_4: -1273373022
-      octop_shoot_0: 1510088547
-      enemies_31: 1567204812
-      octop_die_2: 464205178
-      octop_die_0: -236982811
-      enemies_57: 2009816583
-      enemies_61: -1286201963
-      drone_run_0: 1992889236
-      octop_run_2: 111473496
-      enemies_66: 1031442448
-      enemies_59: -1901435449
-      octop_die_6: 1628355655
-      enemies_36: -1530891113
-      drone_idle_2: -542633488
-      octop_spawn_2: 1867752308
-      enemies_62: 1651044443
-      drone_shoot_3: -216212959
-      octop_spawn_4: 789303818
-      drone_shoot_1: -1852254187
-      octop_run_0: 38038379
-      drone_run_2: 1168758416
-      octop_run_shoot_3: 3704766
-      octop_shoot_3: 50953517
-      enemies_54: 686896371
-      drone_die_3: 1887767256
-      octop_run_1: 46715086
-      drone_die_0: -764767337
-      drone_idle_3: 1409100582
-      octop_idle_1: 1193197265
-      enemies_64: 1828873436
-      octop_spawn_3: -133198937
-      enemies_67: -511305271
-      enemies_14: -1144816836
+      enemies-emission_38: -1877683841
+      enemies-emission_45: 177277361
+      enemies-emission_3: 1887563800
+      enemies-emission_15: -1953162722
+      enemies-emission_8: 809181250
+      enemies-emission_35: 1005600701
+      enemies-emission_27: -1681558426
+      enemies-emission_46: -329483588
+      enemies-emission_4: 1389534437
+      enemies-emission_13: 1444968066
+      enemies-emission_9: -1071012196
+      enemies-emission_43: 566546608
+      enemies-emission_40: 2205007
+      enemies-emission_21: -387560514
+      enemies-emission_34: 1805989403
+      enemies-emission_12: -495614633
+      enemies-emission_31: 835290659
+      enemies-emission_50: 1468859963
+      enemies-emission_20: -1247700465
+      enemies-emission_29: 1411266213
+      enemies-emission_22: -234784662
+      enemies-emission_2: 1017449421
+      enemies-emission_51: -1772418888
+      enemies-emission_54: 2117921267
+      enemies-emission_48: -1613675143
+      enemies-emission_44: -717173016
+      enemies-emission_14: 99650816
+      enemies-emission_0: 982053863
+      enemies-emission_19: -1285043629
+      enemies-emission_37: 1993655308
+      enemies-emission_10: 1891711714
+      enemies-emission_39: 2089392642
+      enemies-emission_53: -185588457
+      enemies-emission_24: -1671951586
+      enemies-emission_26: 283068213
+      enemies-emission_36: -1314200727
+      enemies-emission_49: 792040884
+      enemies-emission_7: 256517415
+      enemies-emission_1: 353665570
+      enemies-emission_17: 983824400
+      enemies-emission_41: -849751860
+      enemies-emission_6: 891274970
+      enemies-emission_33: -303220461
+      enemies-emission_32: -146202254
+      enemies-emission_25: 2029572242
+      enemies-emission_16: 1278405800
+      enemies-emission_5: -455626729
+      enemies-emission_11: -1976743743
+      enemies-emission_30: 130520800
+      enemies-emission_28: 640777985
+      enemies-emission_52: -258170886
+      enemies-emission_18: 989281321
+      enemies-emission_47: 440097074
+      enemies-emission_23: -803483739
+      enemies-emission_42: -1204995410
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

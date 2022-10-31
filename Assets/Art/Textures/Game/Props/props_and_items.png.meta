@@ -3035,7 +3035,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 7c322412d0a836247ad157da5d735b22, type: 3}
+      name: _Emission
     nameFileIdTable:
       PropsAndItems_74: -1951998861
       PropsAndItems_79: 1868541463
