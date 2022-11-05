@@ -1,8 +1,8 @@
 ﻿using Common;
+using Common.Configs;
 using Common.Editor;
 using Common.Interpreters;
 using Common.Keys;
-using Common.Storages.Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,8 +35,8 @@ namespace Models.Unit
         private UnityEvent<int> onDie;
 
         public Vector2 Position => unitRigidbody.position;
-        public string Name { get; set; }
-        public float SpeedRatio => speed * Config.Get(Name, ConfigKey.Speed, 1f);
+        public UnitConfigObject UnitConfig { get; set; }
+        public float SpeedRatio => speed * UnitConfig.speed;
         public bool IsRun
         {
             get => _isRun;
@@ -79,7 +79,7 @@ namespace Models.Unit
 
         protected virtual void PreInitAndSetHealth()
         {
-            Health = Config.Get(Name, "health", 2);
+            Health = UnitConfig.health;
         }
 
         public void Initialization()
@@ -127,20 +127,18 @@ namespace Models.Unit
         private void RunOnHpChange(int delta)
         {
             var script = new Script();
-            script.SetVariable(ConfigKey.OwnName, Name.ToScriptValue());
             script.SetVariable(ConfigKey.CurrentHp, health.ToScriptValue());
             script.SetVariable(ConfigKey.DeltaHp, delta.ToScriptValue());
             script.SetVariable(ConfigKey.OwnPosition, Position.ToScriptValue());
-            script.Run(Config.Get(Name, ConfigKey.OnHpChange, ""));
+            script.Run(UnitConfig.onHpChange);
         }
 
         private void RunOnDie()
         {
             var script = new Script();
-            script.SetVariable(ConfigKey.OwnName, Name.ToScriptValue());
             script.SetVariable(ConfigKey.OwnPosition, Position.ToScriptValue());
-            script.SetVariable(ConfigKey.LevelExp, Config.Get(Name, ConfigKey.LevelExp, 0).ToScriptValue());
-            script.Run(Config.Get(Name, ConfigKey.OnDie, ""));
+            script.SetVariable(ConfigKey.LevelExp, UnitConfig.levelExp.ToScriptValue());
+            script.Run(UnitConfig.onDie);
         }
     }
 }

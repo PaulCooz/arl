@@ -1,6 +1,6 @@
-﻿using Common.Interpreters;
+﻿using Common.Configs;
+using Common.Interpreters;
 using Common.Keys;
-using Common.Storages.Configs;
 using Models.CollisionTriggers;
 using Models.Unit;
 using UnityEngine;
@@ -18,12 +18,12 @@ namespace Models.Guns
         private Rigidbody2D bulletRigidbody;
 
         [SerializeField]
-        private UnityEvent<string> onSetup;
+        private UnityEvent<UnitConfigObject> onSetup;
 
         public void Setup(BaseUnit ownUnit)
         {
             _ownUnit = ownUnit;
-            onSetup.Invoke(_ownUnit.Name);
+            onSetup.Invoke(_ownUnit.UnitConfig);
         }
 
         private void OnTriggerEnter2D(Collider2D collider2d)
@@ -35,11 +35,10 @@ namespace Models.Guns
 
         public void Push(in Vector2 direction, in bool isFromPlayer)
         {
-            var bulletConfig = Config.Get(_ownUnit.Name, ConfigKey.BulletConfig, "base_bullet");
-            var force = Config.Get(bulletConfig, ConfigKey.Force, 3f);
+            var bulletConfig = _ownUnit.UnitConfig.bulletConfig;
 
             collisionTrigger.isTriggerEnemy = isFromPlayer;
-            bulletRigidbody.velocity = direction * force;
+            bulletRigidbody.velocity = direction * bulletConfig.force;
         }
 
         public void Damage(BaseUnit unit)
@@ -47,20 +46,17 @@ namespace Models.Guns
             var script = new Script();
             FillDamageContext(unit, script);
 
-            var bulletConfig = Config.Get(_ownUnit.Name, ConfigKey.BulletConfig, "base_bullet");
-            script.Run(Config.Get(bulletConfig, ConfigKey.OnCollide, ""));
+            var bulletConfig = _ownUnit.UnitConfig.bulletConfig;
+            script.Run(bulletConfig.onCollide);
 
             Destroy(gameObject);
         }
 
         private void FillDamageContext(BaseUnit unit, Script script)
         {
-            var bulletConfig = Config.Get(_ownUnit.Name, ConfigKey.BulletConfig, "base_bullet");
+            var bulletConfig = _ownUnit.UnitConfig.bulletConfig;
 
-            script.SetVariable(ConfigKey.OwnName, _ownUnit.Name.ToScriptValue());
-            script.SetVariable(ConfigKey.EnemyName, unit.Name.ToScriptValue());
-
-            script.SetVariable(ConfigKey.Damage, Config.Get(bulletConfig, ConfigKey.Damage, 1).ToScriptValue());
+            script.SetVariable(ConfigKey.Damage, bulletConfig.damage.ToScriptValue());
             script.SetVariable(ConfigKey.CollidePosition, transform.position.ToScriptValue());
 
             script.SetProperty

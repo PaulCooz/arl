@@ -1,5 +1,5 @@
-﻿using Common.Keys;
-using Common.Storages.Configs;
+﻿using Common.Configs;
+using Common.Keys;
 using Common.Storages.Preferences;
 
 namespace Models.Unit
@@ -8,10 +8,10 @@ namespace Models.Unit
     {
         protected override void PreInitAndSetHealth()
         {
-            Name = ConfigKey.Player;
+            UnitConfig = Config.GetUnit(ConfigKey.Player);
 
             var hp = Preference.Game.PlayerHealth;
-            Health = hp <= 0 ? Config.Get(Name, "health", 2) : hp;
+            Health = hp <= 0 ? UnitConfig.health : hp;
 
             onHealthChange.AddListener(UpdatePrefs);
         }

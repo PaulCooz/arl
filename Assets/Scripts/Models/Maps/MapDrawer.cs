@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Common;
 using Common.Arrays;
-using Common.Storages.Configs;
+using Common.Configs;
 using Models.CollisionTriggers;
 using Models.Maps.Abstracts;
 using Models.Unit;
@@ -60,11 +60,11 @@ namespace Models.Maps
 
                 if (map[i, j].Contains(Entities.Enemy))
                 {
-                    var unitName = unitsConfig.GetUnitName(random);
+                    var unitName = unitsConfig.GetUnitConfig(random);
                     var enemy = Instantiate(EnemyPrefab(unitName), GetPosition(i, j), Quaternion.identity);
 
                     enemy.transform.SetParent(transform);
-                    enemy.Unit.Name = unitName;
+                    enemy.Unit.UnitConfig = unitName;
                     enemy.Initialization();
                 }
 
@@ -89,9 +89,9 @@ namespace Models.Maps
             }
         }
 
-        private UnitRoot EnemyPrefab(string unitName)
+        private UnitRoot EnemyPrefab(UnitConfigObject config)
         {
-            var key = Config.Get(unitName, "prefab_name", "octop");
+            var key = config.prefabName;
             foreach (var p in enemies)
             {
                 if (p.key == key) return p.value;

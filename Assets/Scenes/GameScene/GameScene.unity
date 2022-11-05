@@ -183,6 +183,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166a6491f37b4b598dd0d25316fc56ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startData:
+    height: 50
+    width: 50
+    room:
+      minHeight: 3
+      minWidth: 3
+      maxHeight: 12
+      maxWidth: 12
+    seed: 0
   mapDrawer: {fileID: 12949187}
   gameMaster: {fileID: 213550832}
   beforeFirstLevel:
@@ -215,10 +224,8 @@ MonoBehaviour:
   player: {fileID: 2079784876}
   gameMaster: {fileID: 213550832}
   enemies:
-  - key: octop
+  - key: Octop
     value: {fileID: 4601789057497224696, guid: 97a1952e5f6109048a870768d2b301c6, type: 3}
-  - key: drone
-    value: {fileID: 4601789057497224696, guid: 78f5e8d59bf21304ba233730fad8f815, type: 3}
   exitTriggerPrefab: {fileID: 4719426077775969413, guid: 7a3a4b09cfebb474bb8bb147a3f71768, type: 3}
   floorTiles:
   - {fileID: 11400000, guid: d27c7482aca168043b3dda8753b34a30, type: 2}

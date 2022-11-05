@@ -1,7 +1,0 @@
-﻿{
-  "parent": "base_interval_trigger",
-  "interval": 0.1,
-  "count": 1,
-  "is_enemy_trigger": false,
-  "on_trigger": "set_enemy_hp(get_enemy_hp() - damage)"
-}

@@ -36,11 +36,7 @@ MonoBehaviour:
   - name: on_die
     type: 3
     description: call on health = 0
-    scriptContext:
-    - key: player_hp
-      value: return current player health
-    - key: test
-      value: gg wp easy
+    scriptContext: []
   - name: health
     type: 0
     description: unit health

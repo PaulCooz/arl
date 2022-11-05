@@ -1,7 +1,4 @@
-﻿using System;
-using Common;
-using Common.Keys;
-using Common.Storages.Configs;
+﻿using Common.Configs;
 using UnityEngine;
 
 namespace Views.Guns.Bullets
@@ -13,8 +10,8 @@ namespace Views.Guns.Bullets
 
         public void Setup(string ownUnitName)
         {
-            var bulletConfig = Config.Get(ownUnitName, ConfigKey.BulletConfig, ConfigKey.BaseBullet);
-            var color = Config.Get(bulletConfig, ConfigKey.Color, Array.Empty<byte>()).ToColor();
+            var bulletConfig = Config.GetUnit(ownUnitName).bulletConfig;
+            var color = bulletConfig.color;
 
             spriteRenderer.color = color;
         }

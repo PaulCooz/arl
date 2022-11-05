@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common;
+using Common.Configs;
 using Common.Keys;
-using Common.Storages.Configs;
 using Common.Storages.Preferences;
 using Models.Maps.Abstracts;
 using UnityEngine;
@@ -14,6 +14,8 @@ namespace Models.Maps
         private MapGenerator _mapGenerator;
         private MapData _mapData;
 
+        [SerializeField]
+        private MapData startData;
         [SerializeField]
         private MapDrawer mapDrawer;
         [SerializeField]
@@ -34,7 +36,7 @@ namespace Models.Maps
 
         private void ReadMapData()
         {
-            _mapData = Config.Get<MapData>(ConfigKey.MapGeneration);
+            _mapData = startData;
         }
 
         private void NextLevel()

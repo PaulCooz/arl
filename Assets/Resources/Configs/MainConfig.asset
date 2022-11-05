@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d17453d6a64ec09ef03f8eae7d93b7, type: 3}
+  m_Name: MainConfig
+  m_EditorClassIdentifier: 
+  unitConfigs:
+  - key: Player
+    value: {fileID: 11400000, guid: 963a18dbf1d63c84bb5d64f8f0c292bf, type: 2}
+  - key: Octop
+    value: {fileID: 11400000, guid: fabf4e93cae21e04d80ede9d564bebc0, type: 2}
+  gunConfigs:
+  - key: EnemyGun
+    value: {fileID: 11400000, guid: ddf9430877fd06143ad809ccbd052868, type: 2}
+  - key: PlayerGun
+    value: {fileID: 11400000, guid: 59972d284c7120141b9c674f2f87dcbb, type: 2}
+  bulletConfigs:
+  - key: 
+    value: {fileID: 0}
+  - key: 
+    value: {fileID: 0}
+  triggerConfigs:
+  - key: IntervalTrigger
+    value: {fileID: 11400000, guid: 57d5dbbce0140b94b9273a697d041ced, type: 2}

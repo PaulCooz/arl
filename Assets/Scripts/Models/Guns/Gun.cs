@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Common;
 using Common.Arrays;
+using Common.Configs;
 using Common.Keys;
-using Common.Storages.Configs;
 using Models.CollisionTriggers;
 using Models.Unit;
 using UnityEngine;
@@ -48,8 +48,8 @@ namespace Models.Guns
         {
             get
             {
-                var gunConfig = Config.Get(OwnUnit.Name, ConfigKey.GunConfig, "base_gun");
-                return Config.Get(gunConfig, ConfigKey.AttackRadius, 4f);
+                var gunConfig = OwnUnit.UnitConfig.gunConfig;
+                return gunConfig.attackRadius;
             }
         }
 
@@ -73,8 +73,8 @@ namespace Models.Guns
 
         private IEnumerator<WaitForSeconds> ShootInvoking()
         {
-            var gunConfig = Config.Get(OwnUnit.Name, ConfigKey.GunConfig, "base_gun");
-            var delay = Config.Get(gunConfig, ConfigKey.AttackSpeed, 1f);
+            var gunConfig = OwnUnit.UnitConfig.gunConfig;
+            var delay = gunConfig.attackSpeed;
 
             yield return new WaitForSeconds(Random.Range(0f, delay));
 
@@ -129,13 +129,10 @@ namespace Models.Guns
 
         private void ShootTo(in BaseUnit enemy)
         {
-            var gunConfig = Config.Get(OwnUnit.Name, ConfigKey.GunConfig, "base_gun");
-            var scatter = Config.Get(gunConfig, ConfigKey.Scatter, 0f);
-            var count = Config.Get(gunConfig, ConfigKey.BulletsCount, 0f);
-
-            for (var i = 0; i < count; i++)
+            var gunConfig = OwnUnit.UnitConfig.gunConfig;
+            for (var i = 0; i < gunConfig.bulletsCount; i++)
             {
-                var range = Random.Range(-scatter, scatter);
+                var range = Random.Range(-gunConfig.scatter, gunConfig.scatter);
                 var direction = (enemy.Position - ownUnit.Position).Rotate(range).normalized;
 
                 var bullet = Instantiate

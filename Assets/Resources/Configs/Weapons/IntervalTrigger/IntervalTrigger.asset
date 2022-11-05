@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c489f9c4a64d068f75ffc17c31a95a, type: 3}
+  m_Name: IntervalTrigger
+  m_EditorClassIdentifier: 
+  interval: 1
+  count: 4
+  isEnemyTrigger: 1
+  colliderSize: {x: 1, y: 1}
+  colliderOffset: {x: 0, y: 0}
+  colliderEdgeRadius: 0.1
+  damage: 1
+  onTrigger: 

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Common;
+using Common.Configs;
 using Common.Interpreters;
 using Common.Keys;
-using Common.Storages.Configs;
 using Models.CollisionTriggers;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ namespace Models.Guns
     {
         private WaitForSeconds _waitForSeconds;
         private int _count;
-        private string _config;
+        private IntervalTriggerConfigObject _config;
 
         [SerializeField]
         private BoxCollider2D boxCollider;
@@ -21,14 +21,14 @@ namespace Models.Guns
 
         public void Setup(in string config)
         {
-            _config = config;
-            _waitForSeconds = new WaitForSeconds(Config.Get(_config, ConfigKey.Interval, 1f));
+            _config = Config.GetTrigger(config);
+            _waitForSeconds = new WaitForSeconds(_config.interval);
 
-            _count = Config.Get(_config, ConfigKey.Count, 3);
-            unitTrigger.isTriggerEnemy = Config.Get(_config, ConfigKey.IsEnemyTrigger, true);
-            boxCollider.size = Config.Get(_config, ConfigKey.ColliderSize, new[] {1f, 1f}).ToVector2();
-            boxCollider.offset = Config.Get(_config, ConfigKey.ColliderOffset, new[] {0f, 0f}).ToVector2();
-            boxCollider.edgeRadius = Config.Get(_config, ConfigKey.ColliderEdgeRadius, 0f);
+            _count = _config.count;
+            unitTrigger.isTriggerEnemy = _config.isEnemyTrigger;
+            boxCollider.size = _config.colliderSize;
+            boxCollider.offset = _config.colliderOffset;
+            boxCollider.edgeRadius = _config.colliderEdgeRadius;
 
             StartCoroutine(Fire());
         }
@@ -48,14 +48,13 @@ namespace Models.Guns
         private void AttackInRange()
         {
             var script = new Script();
-            script.SetVariable(ContextKey.Damage, Config.Get(_config, ConfigKey.Damage, 1f).ToScriptValue());
+            script.SetVariable(ContextKey.Damage, _config.damage.ToScriptValue());
 
             var units = unitTrigger.CollidersInRange.ToArray();
             for (var i = 0; i < units.Length; i++)
             {
                 var unit = units[i];
 
-                script.SetVariable(ContextKey.EnemyName, unit.Name.ToScriptValue());
                 script.SetProperty
                 (
                     ContextKey.EnemyHp,
@@ -63,7 +62,7 @@ namespace Models.Guns
                     value => unit.Health = value.IntValue
                 );
 
-                script.Run(Config.Get(_config, ConfigKey.OnTrigger, ""));
+                script.Run(_config.onTrigger);
             }
         }
     }
