@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Button text="base_unit" display-tooltip-when-elided="true" name="Root" style="-unity-text-align: middle-left; flex-direction: row; justify-content: flex-end;">
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:Label text="parent:" display-tooltip-when-elided="true" />
+            <ui:DropdownField index="0" choices="base_unit,player_unit,enemy_unit" name="Parent" />
+        </ui:VisualElement>
+        <ui:Button text="remove" display-tooltip-when-elided="true" name="Remove" style="background-color: rgb(136, 64, 64);" />
+    </ui:Button>
+</ui:UXML>

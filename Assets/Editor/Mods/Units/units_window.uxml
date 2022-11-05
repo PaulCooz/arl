@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="Content" style="flex-grow: 1; background-color: rgb(64, 64, 64); border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-left-color: rgb(88, 88, 88); border-right-color: rgb(88, 88, 88); border-top-color: rgb(88, 88, 88); border-bottom-color: rgb(88, 88, 88);" />
+    <ui:VisualElement>
+        <ui:TextField text="new_unit_name" name="AddUnit">
+            <ui:Button text="add" display-tooltip-when-elided="true" name="AddUnitButton" />
+        </ui:TextField>
+    </ui:VisualElement>
+</ui:UXML>
