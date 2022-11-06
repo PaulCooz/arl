@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Label text="Global" display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
+    <ui:TextField picking-mode="Ignore" text="void spawn_interval_trigger(str config; float3 pos)" readonly="true" tooltip="spawn trigger with &apos;config&apos; settings at global &apos;pos&apos;" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void add_experience(int count)" readonly="true" tooltip="add &apos;count&apos; exp to player" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="int get_player_hp()" readonly="true" tooltip="return current player hp" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void set_player_hp(int value)" readonly="true" tooltip="set current player hp" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void boom_effect(float3 pos)" readonly="true" tooltip="play once boom effect at &apos;pos&apos;" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void spawn_item(int id; float3 pos)" readonly="true" tooltip="spawn item &apos;id&apos; at &apos;pos&apos;" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="bool chance(int value)" tooltip="return true/false with chance &apos;value&apos;" readonly="true" style="font-size: 14px;" />
+</ui:UXML>

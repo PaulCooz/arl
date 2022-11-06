@@ -12,7 +12,7 @@ namespace Common.Configs
         public float speed;
         public string onHpChange;
         public string onDie;
-        public string levelExp;
-        public string prefabName;
+        public int levelExp;
+        public GameObject prefab;
     }
 }

@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Template name="global-context" src="project://database/Assets/Editor/global-context.uxml?fileID=9197481963319205126&amp;guid=f2d7bc61ee721174b9b356e87c0d240f&amp;type=3#global-context" />
+    <uie:PropertyField name="IntervalField" binding-path="interval" />
+    <uie:PropertyField name="CountField" binding-path="count" />
+    <uie:PropertyField name="IsEnemyTriggerField" binding-path="isEnemyTrigger" />
+    <uie:PropertyField name="ColliderSizeField" binding-path="colliderSize" />
+    <uie:PropertyField name="ColliderOffsetField" binding-path="colliderOffset" />
+    <uie:PropertyField name="ColliderEdgeRadiusField" binding-path="colliderEdgeRadius" />
+    <uie:PropertyField name="DamageField" binding-path="damage" />
+    <ui:VisualElement>
+        <uie:PropertyField name="OnTriggerField" binding-path="onTrigger" />
+        <ui:Foldout text="Context" value="false" style="font-size: 10px; color: rgb(133, 133, 133);">
+            <ui:Label text="Local" display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
+            <ui:TextField picking-mode="Ignore" text="var float damage" readonly="true" style="font-size: 14px;" />
+            <ui:TextField picking-mode="Ignore" text="property int enemy_hp" readonly="true" tooltip="for each enemy get/set hp" style="font-size: 14px;" />
+            <ui:Instance template="global-context" name="global-context" />
+        </ui:Foldout>
+    </ui:VisualElement>
+</ui:UXML>

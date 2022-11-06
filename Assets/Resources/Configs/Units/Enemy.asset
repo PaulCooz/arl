@@ -19,4 +19,4 @@ MonoBehaviour:
   onHpChange: 
   onDie: 
   levelExp: 1
-  prefabName: Octop
+  prefab: {fileID: 7946169029389667803, guid: 97a1952e5f6109048a870768d2b301c6, type: 3}

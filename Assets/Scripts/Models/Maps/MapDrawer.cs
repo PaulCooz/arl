@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using System.Collections.Generic;
 using Common.Arrays;
 using Common.Configs;
 using Models.CollisionTriggers;
@@ -23,8 +21,6 @@ namespace Models.Maps
         [SerializeField]
         private GameMaster gameMaster;
 
-        [SerializeField]
-        private Pair<string, UnitRoot>[] enemies;
         [SerializeField]
         private ExitCollisionTrigger exitTriggerPrefab;
 
@@ -91,13 +87,7 @@ namespace Models.Maps
 
         private UnitRoot EnemyPrefab(UnitConfigObject config)
         {
-            var key = config.prefabName;
-            foreach (var p in enemies)
-            {
-                if (p.key == key) return p.value;
-            }
-
-            throw new NullReferenceException();
+            return config.prefab.GetComponent<UnitRoot>();
         }
 
         public void Clear(UnityAction onComplete)

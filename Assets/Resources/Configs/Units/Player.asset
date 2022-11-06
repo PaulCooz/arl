@@ -18,5 +18,5 @@ MonoBehaviour:
   speed: 1.1
   onHpChange: 
   onDie: 
-  levelExp: 
+  levelExp: 1
   prefabName: 
