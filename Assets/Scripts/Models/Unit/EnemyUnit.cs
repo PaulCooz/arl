@@ -4,12 +4,12 @@
     {
         private void Awake()
         {
-            GameMaster.OnLevelDone += UnitDestroy;
+            GameMaster.OnClearOldLevel += UnitDestroy;
         }
 
         private void OnDestroy()
         {
-            GameMaster.OnLevelDone -= UnitDestroy;
+            GameMaster.OnClearOldLevel -= UnitDestroy;
         }
     }
 }

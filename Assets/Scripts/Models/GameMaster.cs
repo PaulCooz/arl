@@ -5,20 +5,33 @@ namespace Models
 {
     public class GameMaster : MonoBehaviour
     {
-        public UnityEvent onLevelCreated;
-        public UnityEvent onNextLevel;
+        [SerializeField]
+        private UnityEvent doneLevel;
+        [SerializeField]
+        private UnityEvent clearOldLevel;
+        [SerializeField]
+        private UnityEvent createdNewLevel;
 
-        public static event UnityAction OnLevelDone;
+        public static event UnityAction OnDoneLevel;
+        public static event UnityAction OnClearOldLevel;
+        public static event UnityAction OnCreatedNewLevel;
 
-        public void NextLevel()
+        public void DoneLevel()
         {
-            OnLevelDone?.Invoke();
-            onNextLevel.Invoke();
+            doneLevel.Invoke();
+            OnDoneLevel?.Invoke();
         }
 
-        public void LevelCreated()
+        public void ClearOldLevel()
         {
-            onLevelCreated.Invoke();
+            clearOldLevel.Invoke();
+            OnClearOldLevel?.Invoke();
+        }
+
+        public void CreatedNewLevel()
+        {
+            createdNewLevel.Invoke();
+            OnCreatedNewLevel?.Invoke();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Models.CollisionTriggers
             var isPlayer = other.CompareTag(Tags.Player);
             if (isPlayer)
             {
-                _gameMaster.NextLevel();
+                _gameMaster.DoneLevel();
 
                 enabled = false;
                 Destroy(gameObject);

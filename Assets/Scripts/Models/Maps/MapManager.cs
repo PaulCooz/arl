@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using Common;
-using Common.Configs;
-using Common.Keys;
 using Common.Storages.Preferences;
 using Models.Maps.Abstracts;
 using UnityEngine;
@@ -30,8 +28,12 @@ namespace Models.Maps
 
             ReadMapData();
             NextLevel();
+        }
 
-            GameMaster.OnLevelDone += OnLevelDone;
+        public void ClearAndCreateLevel()
+        {
+            Preference.Game.CurrentLevel++;
+            NextLevel();
         }
 
         private void ReadMapData()
@@ -59,13 +61,7 @@ namespace Models.Maps
 
             mapDrawer.Draw(_mapGenerator.GetNextMap(array, _mapData, roomFiller), _mapData.seed);
 
-            this.WaitFrames(1, gameMaster.LevelCreated);
-        }
-
-        private void OnLevelDone()
-        {
-            Preference.Game.CurrentLevel++;
-            NextLevel();
+            this.WaitFrames(1, gameMaster.CreatedNewLevel);
         }
     }
 }
