@@ -7,4 +7,8 @@
     <ui:TextField picking-mode="Ignore" text="void boom_effect(float3 pos)" readonly="true" tooltip="play once boom effect at &apos;pos&apos;" style="font-size: 14px;" />
     <ui:TextField picking-mode="Ignore" text="void spawn_item(int id; float3 pos)" readonly="true" tooltip="spawn item &apos;id&apos; at &apos;pos&apos;" style="font-size: 14px;" />
     <ui:TextField picking-mode="Ignore" text="bool chance(int value)" tooltip="return true/false with chance &apos;value&apos;" readonly="true" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="float min(float a; float b; ...)" readonly="true" tooltip="return min from all arguments" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="float max(float a; float b; ...)" readonly="true" tooltip="return max from all arguments" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void log(any a; any b; ...)" readonly="true" tooltip="push string (&apos;a&apos; + &apos;b&apos; + ...) to console" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void error(any a; any b; ...)" tooltip="like log, but stop thread" readonly="true" style="font-size: 14px;" />
 </ui:UXML>

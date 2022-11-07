@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47316115c530483a8323eee250ecdad8, type: 3}
-  m_Name: Enemy
+  m_Name: Drone
   m_EditorClassIdentifier: 
-  gunConfig: {fileID: 11400000, guid: ddf9430877fd06143ad809ccbd052868, type: 2}
+  gunConfig: {fileID: 11400000, guid: 453ab1da21128e14fba598334f96ce49, type: 2}
   bulletConfig: {fileID: 11400000, guid: 7d515a7c19124654fb3cca4eb9fde359, type: 2}
-  health: 5
+  health: 2
   speed: 1
   onHpChange: 
-  onDie: 
+  onDie: add_experience(level_exp)
   levelExp: 1
-  prefab: {fileID: 7946169029389667803, guid: 97a1952e5f6109048a870768d2b301c6, type: 3}
+  spawnChance: 1
+  prefab: {fileID: 7946169029389667803, guid: 78f5e8d59bf21304ba233730fad8f815, type: 3}
+  isPlayer: 0

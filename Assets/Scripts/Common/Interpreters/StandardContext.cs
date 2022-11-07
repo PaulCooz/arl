@@ -14,7 +14,6 @@ namespace Common.Interpreters
             in IDictionary<Core.Token, Core.BinOperation> operations
         )
         {
-            functions.Add("if", If);
             functions.Add("min", Min);
             functions.Add("max", Max);
             functions.Add("log", Log);
@@ -31,19 +30,6 @@ namespace Common.Interpreters
             operations.Add(Core.Token.Div, Div);
 
             variables.Add("pi", new NumberExpression(Mathf.PI));
-        }
-
-        private static Expression If(in IReadOnlyList<Expression> expressions)
-        {
-            var condition = new BooleanExpression(expressions[0].StringValue);
-            if (condition.Value)
-            {
-                return expressions[1];
-            }
-            else
-            {
-                return expressions.Count > 2 ? expressions[2] : new Expression("");
-            }
         }
 
         private static Expression Min(in IReadOnlyList<Expression> expressions)

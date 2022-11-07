@@ -8,6 +8,6 @@ namespace Common.Configs
         public float scatter;
         public int bulletsCount;
         public float attackRadius;
-        public float attackSpeed;
+        public float attackDelay;
     }
 }

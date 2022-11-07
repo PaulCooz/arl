@@ -223,9 +223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2079784876}
   gameMaster: {fileID: 213550832}
-  enemies:
-  - key: Octop
-    value: {fileID: 4601789057497224696, guid: 97a1952e5f6109048a870768d2b301c6, type: 3}
   exitTriggerPrefab: {fileID: 4719426077775969413, guid: 7a3a4b09cfebb474bb8bb147a3f71768, type: 3}
   floorTiles:
   - {fileID: 11400000, guid: d27c7482aca168043b3dda8753b34a30, type: 2}
@@ -1264,6 +1261,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerConfig: {fileID: 11400000, guid: 963a18dbf1d63c84bb5d64f8f0c292bf, type: 2}
 --- !u!1 &985417511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,15 +1358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fcde091c8fc4e84a94f22d7ce6e8cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards:
-  - description: damage + 1
-    command: global bonus_damage := bonus_damage + 1
-  - description: health + 2
-    command: set_player_hp(get_player_hp() + 2)
-  - description: health + 50%
-    command: 'hp := get_player_hp()
-
-      set_player_hp(hp + max(1; hp * 0.5))'
+  cardsConfig: {fileID: 11400000, guid: 82188426ae2efc249a90aef6b13539ed, type: 2}
   onHide:
     m_PersistentCalls:
       m_Calls:

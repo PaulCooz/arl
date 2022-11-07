@@ -1,14 +1,17 @@
 ﻿using Common.Configs;
-using Common.Keys;
 using Common.Storages.Preferences;
+using UnityEngine;
 
 namespace Models.Unit
 {
     public class PlayerUnit : BaseUnit
     {
+        [SerializeField]
+        private UnitConfigObject playerConfig;
+
         protected override void PreInitAndSetHealth()
         {
-            UnitConfig = Config.GetUnit(ConfigKey.Player);
+            UnitConfig = playerConfig;
 
             var hp = Preference.Game.PlayerHealth;
             Health = hp <= 0 ? UnitConfig.health : hp;

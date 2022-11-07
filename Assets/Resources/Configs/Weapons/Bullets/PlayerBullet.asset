@@ -15,4 +15,4 @@ MonoBehaviour:
   color: {r: 0, g: 1, b: 0, a: 1}
   damage: 1
   force: 5
-  onCollide: 
+  onCollide: set_enemy_hp(get_enemy_hp() - damage)

@@ -1,4 +1,6 @@
-﻿using Common.Interpreters;
+﻿using Common;
+using Common.Configs;
+using Common.Interpreters;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +12,7 @@ namespace Models.Progressions
         private Card _right;
 
         [SerializeField]
-        private Card[] cards;
+        private CardsConfigObject cardsConfig;
 
         [SerializeField]
         private UnityEvent onHide;
@@ -23,13 +25,13 @@ namespace Models.Progressions
 
         private void GetCards(out Card left, out Card right)
         {
-            var i = Random.Range(0, cards.Length);
-            var j = Random.Range(0, cards.Length);
+            var i = Random.Range(0, cardsConfig.cards.Length);
+            var j = Random.Range(0, cardsConfig.cards.Length);
 
-            if (i == j) j = (j + 1) % cards.Length;
+            if (i == j) j = (j + 1) % cardsConfig.cards.Length;
 
-            left = cards[i];
-            right = cards[j];
+            left = cardsConfig.cards[i];
+            right = cardsConfig.cards[j];
         }
 
         public void OnLevelUp()

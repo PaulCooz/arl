@@ -8,12 +8,9 @@ namespace Views.Guns.Bullets
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        public void Setup(string ownUnitName)
+        public void Setup(UnitConfigObject config)
         {
-            var bulletConfig = Config.GetUnit(ownUnitName).bulletConfig;
-            var color = bulletConfig.color;
-
-            spriteRenderer.color = color;
+            spriteRenderer.color = config.bulletConfig.color;
         }
     }
 }

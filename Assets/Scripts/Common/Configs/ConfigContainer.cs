@@ -4,31 +4,24 @@ using UnityEngine;
 namespace Common.Configs
 {
     [CreateAssetMenu]
-    public class Config : ScriptableObject
+    public class ConfigContainer : ScriptableObject
     {
-        [SerializeField]
-        private Pair<string, UnitConfigObject>[] unitConfigs;
         [SerializeField]
         private Pair<string, IntervalTriggerConfigObject>[] triggerConfigs;
 
-        private static Config _instance;
+        private static ConfigContainer _instance;
 
-        public static Config Instance
+        private static ConfigContainer Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = Resources.Load<Config>("Configs/MainConfig");
+                    _instance = Resources.Load<ConfigContainer>("Configs/ConfigsContainer");
                 }
 
                 return _instance;
             }
-        }
-
-        public static UnitConfigObject GetUnit(string config)
-        {
-            return Instance.unitConfigs.First(c => c.key == config).value;
         }
 
         public static IntervalTriggerConfigObject GetTrigger(string config)

@@ -13,6 +13,9 @@ namespace Common.Configs
         public string onHpChange;
         public string onDie;
         public int levelExp;
+        public int spawnChance;
         public GameObject prefab;
+
+        public bool isPlayer;
     }
 }

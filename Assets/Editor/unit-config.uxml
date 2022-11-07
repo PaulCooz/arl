@@ -1,4 +1,4 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xmlns="UnityEngine.UIElements" e="UnityEditor.UIElements" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xmlns="UnityEngine.UIElements" e="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Template name="global-context" src="project://database/Assets/Editor/global-context.uxml?fileID=9197481963319205126&amp;guid=f2d7bc61ee721174b9b356e87c0d240f&amp;type=3#global-context" />
     <uie:PropertyField binding-path="gunConfig" name="GunConfigField" />
     <uie:PropertyField binding-path="bulletConfig" name="BulletConfigField" />
@@ -23,6 +23,8 @@
             <ui:Instance template="global-context" name="global-context" />
         </ui:Foldout>
     </ui:VisualElement>
+    <uie:PropertyField name="IsPlayerField" binding-path="isPlayer" />
     <uie:PropertyField binding-path="levelExp" name="LevelExpField" />
     <uie:PropertyField binding-path="prefab" name="PrefabField" />
+    <uie:PropertyField name="SpawnChanceField" binding-path="spawnChance" tooltip="chance ratio (0 for disable)" />
 </ui:UXML>

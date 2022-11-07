@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 213ad118d67a46f790d9370ee17b6f9f, type: 3}
-  m_Name: SpawnConfig
+  m_Script: {fileID: 11500000, guid: ec88021f281f44248deea464efca4aea, type: 3}
+  m_Name: OctopGun
   m_EditorClassIdentifier: 
-  units:
-  - unit: {fileID: 11400000, guid: fabf4e93cae21e04d80ede9d564bebc0, type: 2}
-    chance: 1
+  scatter: 30
+  bulletsCount: 3
+  attackRadius: 5
+  attackDelay: 1.4

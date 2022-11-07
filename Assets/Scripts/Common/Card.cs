@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Models.Progressions
+namespace Common
 {
     [Serializable]
     public struct Card

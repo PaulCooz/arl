@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c6dadf4615498c9d8138873f3a962a, type: 3}
+  m_Name: Cards
+  m_EditorClassIdentifier: 
+  cards:
+  - description: health + 2
+    command: set_player_hp(get_player_hp() + 2)
+  - description: health + 30%
+    command: 'hp := get_player_hp()
+
+      set_player_hp(hp + max(1; hp * 0.3))'
+  - description: exp + 2
+    command: add_experience(2)

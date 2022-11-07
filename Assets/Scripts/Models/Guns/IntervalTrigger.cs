@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Common;
 using Common.Configs;
 using Common.Interpreters;
 using Common.Keys;
@@ -21,7 +20,7 @@ namespace Models.Guns
 
         public void Setup(in string config)
         {
-            _config = Config.GetTrigger(config);
+            _config = ConfigContainer.GetTrigger(config);
             _waitForSeconds = new WaitForSeconds(_config.interval);
 
             _count = _config.count;

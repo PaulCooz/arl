@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47316115c530483a8323eee250ecdad8, type: 3}
-  m_Name: Player
+  m_Name: Octop
   m_EditorClassIdentifier: 
-  gunConfig: {fileID: 11400000, guid: 59972d284c7120141b9c674f2f87dcbb, type: 2}
-  bulletConfig: {fileID: 11400000, guid: e2c2e149202f6e2469ea33d4068aedcf, type: 2}
-  health: 10
-  speed: 1.1
+  gunConfig: {fileID: 11400000, guid: ddf9430877fd06143ad809ccbd052868, type: 2}
+  bulletConfig: {fileID: 11400000, guid: 7d515a7c19124654fb3cca4eb9fde359, type: 2}
+  health: 4
+  speed: 1
   onHpChange: 
-  onDie: 
-  levelExp: 1
-  spawnChance: 0
-  prefab: {fileID: 0}
-  isPlayer: 1
+  onDie: add_experience(level_exp)
+  levelExp: 2
+  spawnChance: 1
+  prefab: {fileID: 7946169029389667803, guid: 97a1952e5f6109048a870768d2b301c6, type: 3}
+  isPlayer: 0

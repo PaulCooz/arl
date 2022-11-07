@@ -74,7 +74,7 @@ namespace Models.Guns
         private IEnumerator<WaitForSeconds> ShootInvoking()
         {
             var gunConfig = OwnUnit.UnitConfig.gunConfig;
-            var delay = gunConfig.attackSpeed;
+            var delay = gunConfig.attackDelay;
 
             yield return new WaitForSeconds(Random.Range(0f, delay));
 
