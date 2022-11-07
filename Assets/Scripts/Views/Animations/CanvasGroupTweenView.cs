@@ -1,5 +1,6 @@
 ﻿using Common.Animations;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Views.Animations
 {
@@ -17,14 +18,15 @@ namespace Views.Animations
             }
         }
 
-        public void Alpha(float value, float duration)
+        public void Alpha(float value, float duration, UnityAction onDone = null)
         {
             this.ChangeValue
             (
                 () => Group.alpha,
                 v => Group.alpha = v,
                 value,
-                duration
+                duration,
+                onDone
             );
         }
 

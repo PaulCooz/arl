@@ -1,4 +1,5 @@
-﻿using Common.Storages;
+﻿using Common.Keys;
+using Common.Storages;
 using Common.Storages.Preferences;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,14 +14,13 @@ namespace Models
 
         public void Continue()
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene(Scenes.Game);
         }
 
         public void NewGame()
         {
-            if (Storage.HasPrefsFile) Preference.Files.DeleteAll();
-
-            SceneManager.LoadScene("GameScene");
+            Preference.Game.ToDefault();
+            SceneManager.LoadScene(Scenes.Game);
         }
 
         public void Sound()

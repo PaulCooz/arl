@@ -2,30 +2,45 @@
 {
     public class GamePrefs : Prefs
     {
+        private const string CurrentLevelKey = "current_level";
+        private const string PointsKey = "points";
+        private const string AimPointsKey = "aim_points";
+        private const string PlayerHealthKey = "player_health";
+
+        private static readonly string[] AllKeys = {CurrentLevelKey, PointsKey, AimPointsKey, PlayerHealthKey};
+
         public GamePrefs(in IPrefsProvider provider) : base(in provider) { }
 
         public int CurrentLevel
         {
-            get => provider.GetInt("current_level", 0);
-            set => provider.SetInt("current_level", value);
+            get => provider.GetInt(CurrentLevelKey, 0);
+            set => provider.SetInt(CurrentLevelKey, value);
         }
 
         public int Points
         {
-            get => provider.GetInt("points", 0);
-            set => provider.SetInt("points", value);
+            get => provider.GetInt(PointsKey, 0);
+            set => provider.SetInt(PointsKey, value);
         }
 
         public int AimPoints
         {
-            get => provider.GetInt("aim_points", 5);
-            set => provider.SetInt("aim_points", value);
+            get => provider.GetInt(AimPointsKey, 5);
+            set => provider.SetInt(AimPointsKey, value);
         }
 
         public int PlayerHealth
         {
-            get => provider.GetInt("player_health", -1);
-            set => provider.SetInt("player_health", value);
+            get => provider.GetInt(PlayerHealthKey, -1);
+            set => provider.SetInt(PlayerHealthKey, value);
+        }
+
+        public void ToDefault()
+        {
+            foreach (var key in AllKeys)
+            {
+                provider.DeleteKey(key);
+            }
         }
     }
 }

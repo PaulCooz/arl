@@ -11,15 +11,14 @@ namespace Models
         private UnityEvent clearOldLevel;
         [SerializeField]
         private UnityEvent createdNewLevel;
+        [SerializeField]
+        private UnityEvent gameOver;
 
-        public static event UnityAction OnDoneLevel;
         public static event UnityAction OnClearOldLevel;
-        public static event UnityAction OnCreatedNewLevel;
 
         public void DoneLevel()
         {
             doneLevel.Invoke();
-            OnDoneLevel?.Invoke();
         }
 
         public void ClearOldLevel()
@@ -31,7 +30,11 @@ namespace Models
         public void CreatedNewLevel()
         {
             createdNewLevel.Invoke();
-            OnCreatedNewLevel?.Invoke();
+        }
+
+        public void PlayerDie()
+        {
+            gameOver.Invoke();
         }
     }
 }

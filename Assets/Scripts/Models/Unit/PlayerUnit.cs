@@ -1,6 +1,7 @@
 ﻿using Common.Configs;
 using Common.Storages.Preferences;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Models.Unit
 {
@@ -8,6 +9,8 @@ namespace Models.Unit
     {
         [SerializeField]
         private UnitConfigObject playerConfig;
+        [SerializeField]
+        private UnityEvent onReset;
 
         protected override void PreInitAndSetHealth()
         {
@@ -22,6 +25,12 @@ namespace Models.Unit
         private void UpdatePrefs(int newHealth)
         {
             Preference.Game.PlayerHealth = newHealth;
+        }
+
+        public void ResetState()
+        {
+            Health = UnitConfig.health;
+            onReset.Invoke();
         }
     }
 }
