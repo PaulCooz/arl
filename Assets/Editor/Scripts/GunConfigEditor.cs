@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 namespace Editor.Scripts
 {
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(IntervalTriggerConfigObject))]
-    public class TriggerConfigEditor : UnityEditor.Editor
+    [CustomEditor(typeof(GunConfigObject))]
+    public class GunConfigEditor : UnityEditor.Editor
     {
         public override VisualElement CreateInspectorGUI()
         {
             var customInspector = new VisualElement();
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/trigger-config.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/gun-config.uxml");
             visualTree.CloneTree(customInspector);
             return customInspector;
         }

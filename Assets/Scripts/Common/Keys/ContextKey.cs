@@ -11,5 +11,6 @@
         public const string BoomEffect = "boom_effect";
         public const string SpawnItem = "spawn_item";
         public const string Chance = "chance";
+        public const string PlaySound = "play_sound";
     }
 }

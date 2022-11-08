@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 
 namespace Editor.Scripts
 {
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(BulletConfigObject))]
     public class BulletConfigEditor : UnityEditor.Editor
     {

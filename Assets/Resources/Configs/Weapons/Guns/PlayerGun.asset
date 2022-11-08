@@ -16,3 +16,4 @@ MonoBehaviour:
   bulletsCount: 1
   attackRadius: 5
   attackDelay: 0.6
+  onShoot: play_sound('laser_gun_blaster_fire'; 0.7; own_position)

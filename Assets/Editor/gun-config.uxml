@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Template name="global-context" src="project://database/Assets/Editor/global-context.uxml?fileID=9197481963319205126&amp;guid=f2d7bc61ee721174b9b356e87c0d240f&amp;type=3#global-context" />
+    <uie:PropertyField binding-path="scatter" />
+    <uie:PropertyField binding-path="bulletsCount" />
+    <uie:PropertyField binding-path="attackRadius" />
+    <uie:PropertyField binding-path="attackDelay" />
+    <ui:VisualElement>
+        <uie:PropertyField binding-path="onShoot" />
+        <ui:Foldout text="Context" value="false" style="font-size: 10px; color: rgb(133, 133, 133);">
+            <ui:Label text="Local" display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
+            <ui:TextField picking-mode="Ignore" text="var float2 own_position" tooltip="unit position" style="font-size: 14px;" />
+            <ui:Instance template="global-context" name="global-context" />
+        </ui:Foldout>
+    </ui:VisualElement>
+</ui:UXML>

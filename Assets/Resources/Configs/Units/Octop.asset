@@ -17,7 +17,9 @@ MonoBehaviour:
   health: 4
   speed: 1
   onHpChange: 
-  onDie: add_experience(level_exp)
+  onDie: 'add_experience(level_exp)
+
+    play_sound(''explosion_impact''; 0.5; own_position)'
   levelExp: 2
   spawnChance: 1
   prefab: {fileID: 7946169029389667803, guid: 97a1952e5f6109048a870768d2b301c6, type: 3}

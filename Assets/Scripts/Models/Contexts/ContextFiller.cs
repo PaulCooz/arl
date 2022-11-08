@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Common;
+using Common.Audios;
 using Common.Interpreters;
 using Common.Interpreters.Expressions;
 using Common.Keys;
@@ -33,6 +35,21 @@ namespace Models.Contexts
             Context.SetGlobalFunction(ContextKey.BoomEffect, BoomEffect);
             Context.SetGlobalFunction(ContextKey.SpawnItem, SpawnItem);
             Context.SetGlobalFunction(ContextKey.Chance, Chance);
+            Context.SetGlobalFunction(ContextKey.PlaySound, PlaySound);
+        }
+
+        private Expression PlaySound(in IReadOnlyList<Expression> expressions)
+        {
+            var values = expressions.ToValues();
+
+            var id = values[0].StringValue;
+            var volume = values.Count > 1 ? values[1].DoubleValue : 1;
+            var position = values.Count > 2 ? (Vector2) values[2].Vector3Value : playerUnit.Position;
+
+            var sound = SoundMaster.Instance.PlayOnce(id, (float) volume);
+            sound.transform.position = position;
+
+            return Expression.Empty;
         }
 
         private Expression Chance(in IReadOnlyList<Expression> expressions)

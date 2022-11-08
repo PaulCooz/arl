@@ -12,6 +12,8 @@ namespace Common.Configs
         public Vector2 colliderOffset;
         public float colliderEdgeRadius;
         public float damage;
+
+        [TextArea]
         public string onTrigger;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Editor.Scripts
 {
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(UnitConfigObject))]
     public class UnitConfigEditor : UnityEditor.Editor
     {

@@ -9,5 +9,8 @@ namespace Common.Configs
         public int bulletsCount;
         public float attackRadius;
         public float attackDelay;
+
+        [TextArea]
+        public string onShoot;
     }
 }

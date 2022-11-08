@@ -10,8 +10,13 @@ namespace Common.Configs
 
         public int health;
         public float speed;
+
+        [TextArea]
         public string onHpChange;
+
+        [TextArea]
         public string onDie;
+
         public int levelExp;
         public int spawnChance;
         public GameObject prefab;

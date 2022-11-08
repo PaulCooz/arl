@@ -11,4 +11,7 @@
     <ui:TextField picking-mode="Ignore" text="float max(float a; float b; ...)" readonly="true" tooltip="return max from all arguments" style="font-size: 14px;" />
     <ui:TextField picking-mode="Ignore" text="void log(any a; any b; ...)" readonly="true" tooltip="push string (&apos;a&apos; + &apos;b&apos; + ...) to console" style="font-size: 14px;" />
     <ui:TextField picking-mode="Ignore" text="void error(any a; any b; ...)" tooltip="like log, but stop thread" readonly="true" style="font-size: 14px;" />
+    <ui:TextField picking-mode="Ignore" text="void play_sound(str id; float vol = 1f; float2 pos)" readonly="true" tooltip="play sound with volume &apos;vol&apos; (optional, [0; 1]) at position &apos;pos&apos;" style="font-size: 14px;">
+        <ui:DropdownField index="0" choices="ids,laser_gun_blaster_fire,explosion_impact" />
+    </ui:TextField>
 </ui:UXML>

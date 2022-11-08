@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common;
 using Common.Arrays;
-using Common.Configs;
+using Common.Interpreters;
 using Common.Keys;
 using Models.CollisionTriggers;
 using Models.Unit;
@@ -145,6 +145,15 @@ namespace Models.Guns
                 bullet.Setup(OwnUnit);
                 bullet.Push(direction, isFromPlayer);
             }
+
+            RunOnShoot();
+        }
+
+        private void RunOnShoot()
+        {
+            var script = new Script();
+            script.SetVariable(ConfigKey.OwnPosition, OwnUnit.Position.ToScriptValue());
+            script.Run(OwnUnit.UnitConfig.gunConfig.onShoot);
         }
 
         private float Distance(in BaseUnit target)

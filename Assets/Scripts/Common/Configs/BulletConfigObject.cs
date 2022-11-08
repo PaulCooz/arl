@@ -8,6 +8,8 @@ namespace Common.Configs
         public Color color;
         public float damage;
         public float force;
+
+        [TextArea]
         public string onCollide;
     }
 }
