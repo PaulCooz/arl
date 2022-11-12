@@ -25,5 +25,11 @@ namespace Controllers
             _mainControls.Player.UseLeft.performed += _ => inputEvents.useLeft.Invoke();
             _mainControls.Player.UseRight.performed += _ => inputEvents.useRight.Invoke();
         }
+
+        private void OnDestroy()
+        {
+            _mainControls.Disable();
+            _mainControls.Dispose();
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace Models.Guns
 {
     public class Gun : MonoBehaviour
     {
+        private const float BulletPositionOffset = 0.3f;
+
         private BaseUnit _ownUnit;
         private bool _hasInRange;
 
@@ -134,11 +136,12 @@ namespace Models.Guns
             {
                 var range = Random.Range(-gunConfig.scatter, gunConfig.scatter);
                 var direction = (enemy.Position - ownUnit.Position).Rotate(range).normalized;
+                var startPositionOffset = (Vector3) direction * BulletPositionOffset;
 
                 var bullet = Instantiate
                 (
                     bulletPrefab,
-                    gunBarrel.position,
+                    gunBarrel.position + startPositionOffset,
                     Quaternion.Euler(0, 0, Mathf.Sign(direction.y) * Vector2.Angle(direction, Vector2.right))
                 );
 
