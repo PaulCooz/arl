@@ -6,7 +6,7 @@ using Models.Unit;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Models.Guns
+namespace Models.Weapons
 {
     public class Bullet : MonoBehaviour
     {

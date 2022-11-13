@@ -5,7 +5,7 @@ using Common.Keys;
 using Models.CollisionTriggers;
 using UnityEngine;
 
-namespace Models.Guns
+namespace Models.Weapons
 {
     public class IntervalTrigger : MonoBehaviour
     {

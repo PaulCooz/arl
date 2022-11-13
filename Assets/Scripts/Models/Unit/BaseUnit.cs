@@ -32,11 +32,14 @@ namespace Models.Unit
         [SerializeField]
         private UnityEvent<int, bool> onRun;
         [SerializeField]
-        private UnityEvent<int> onDie;
+        private UnityEvent onDie;
+        [SerializeField]
+        private UnityEvent<int, bool> onDieChange;
 
         public Vector2 Position => unitRigidbody.position;
         public UnitConfigObject UnitConfig { get; set; }
         public float SpeedRatio => speed * UnitConfig.speed;
+
         public bool IsRun
         {
             get => _isRun;
@@ -48,6 +51,7 @@ namespace Models.Unit
                 onRun.Invoke(AnimationKey.RunProp, _isRun);
             }
         }
+
         public bool IsLockLeft
         {
             get => _isLockLeft;
@@ -59,6 +63,7 @@ namespace Models.Unit
                 turnLeft.Invoke(_isLockLeft);
             }
         }
+
         public int Health
         {
             get => health;
@@ -85,8 +90,10 @@ namespace Models.Unit
         public void Initialization()
         {
             PreInitAndSetHealth();
+
             enabled = true;
             onAwakeUnit.Invoke(this);
+            onDieChange.Invoke(AnimationKey.DieProp, false);
         }
 
         public void Translate(Vector2 delta)
@@ -115,7 +122,8 @@ namespace Models.Unit
 
         private void Die()
         {
-            onDie.Invoke(AnimationKey.DieTrigger);
+            onDie.Invoke();
+            onDieChange.Invoke(AnimationKey.DieProp, true);
             if (Health == 0) RunOnDie();
         }
 

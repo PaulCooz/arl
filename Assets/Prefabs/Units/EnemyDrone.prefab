@@ -71,7 +71,7 @@ MonoBehaviour:
   tags:
   - Player
   minDistance: 1
---- !u!1 &3561225345798982271
+--- !u!1 &7370094088369622141
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,8 +79,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 903897575755961132}
-  - component: {fileID: 965040920876487931}
+  - component: {fileID: 4426628719933129231}
+  - component: {fileID: 5483993367235963571}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -88,28 +88,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &903897575755961132
+--- !u!4 &4426628719933129231
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3561225345798982271}
+  m_GameObject: {fileID: 7370094088369622141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7946169029389667802}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &965040920876487931
+--- !u!114 &5483993367235963571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3561225345798982271}
+  m_GameObject: {fileID: 7370094088369622141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -170,8 +170,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.25
-  m_PointLightOuterRadius: 1.25
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 4601789057497224696}
   - component: {fileID: 2470491455020068905}
   m_Layer: 0
-  m_Name: EnemyOctop
+  m_Name: EnemyDrone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,7 +350,7 @@ Transform:
   - {fileID: 7946169030449215717}
   - {fileID: 7946169029218067342}
   - {fileID: 6458394575822995883}
-  - {fileID: 903897575755961132}
+  - {fileID: 4426628719933129231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -388,8 +388,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.12}
-  m_Size: {x: 0.5, y: 0.7}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.25, y: 0.45}
   m_Direction: 0
 --- !u!114 &4601789057497224696
 MonoBehaviour:
@@ -414,7 +414,7 @@ Animator:
   m_GameObject: {fileID: 7946169029389667803}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3161b803bf3c3684cb88b7b9a0328ad5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4bb028e324015c64ca75a56e7970ec56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1211425, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  m_Sprite: {fileID: 1098009251, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   unitRigidbody: {fileID: 7946169029389667797}
-  speed: 43
+  speed: 63
   onAwakeUnit:
     m_PersistentCalls:
       m_Calls:
@@ -619,9 +619,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDieChange:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 2470491455020068905}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
+        m_MethodName: SetBool
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

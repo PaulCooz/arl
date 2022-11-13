@@ -1723,10 +1723,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2079784877}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 0
+      - m_Target: {fileID: 213550832}
+        m_TargetAssemblyTypeName: Models.GameMaster, Models
+        m_MethodName: PlayerDie
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1735,10 +1735,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 213550832}
-        m_TargetAssemblyTypeName: Models.GameMaster, Models
-        m_MethodName: PlayerDie
-        m_Mode: 1
+  onDieChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2079784877}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetBool
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
