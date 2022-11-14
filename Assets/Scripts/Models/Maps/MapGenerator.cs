@@ -10,13 +10,13 @@ namespace Models.Maps
     public class MapGenerator : IMapGenerator
     {
         private BinaryTree<Room> _roomTree;
-        private Random _random;
+        private Random _rand;
         private MapData _data;
 
         public Map GetNextMap(in List<Entities>[,] array, in MapData mapData, in IRoomFiller roomFiller)
         {
             _data = mapData;
-            _random = new Random(_data.seed);
+            _rand = new Random(_data.seed);
 
             var mainRoom = new Room(_data.height, _data.width, 0, 0, _data.height, _data.width);
             _roomTree = new BinaryTree<Room>(mainRoom);
@@ -24,8 +24,8 @@ namespace Models.Maps
             CreateNextRooms(0, mainRoom.Height, 0, mainRoom.Width);
 
             var rooms = _roomTree.GetAllLeaves();
-            var start = _random.Next(0, rooms.Count);
-            var exit = _random.Next(0, rooms.Count);
+            var start = _rand.Next(0, rooms.Count);
+            var exit = _rand.Next(0, rooms.Count);
             if (start == exit) exit = (exit + 1) % rooms.Count;
 
             FillRooms(roomFiller, rooms, start, exit);
@@ -40,16 +40,27 @@ namespace Models.Maps
         {
             for (var i = 0; i < rooms.Count; i++)
             {
-                roomFiller.Fill(rooms[i], i == start, i == exit, _random);
+                if (i == start)
+                {
+                    roomFiller.FillStart(rooms[i], _rand);
+                }
+                else if (i == exit)
+                {
+                    roomFiller.FillExit(rooms[i], _rand);
+                }
+                else
+                {
+                    roomFiller.FillCommon(rooms[i], _rand);
+                }
             }
         }
 
         private void CreateNextRooms(int minX, int maxX, int minY, int maxY)
         {
             var room = _roomTree.CurrentValue;
-            var isDivide = DivideRoom(minX, maxX, minY, maxY, room, out var leftRoom, out var rightRoom);
-            var stopDividing = _roomTree.Count > 3 && SizeInRange(room) && _random.Chance(25);
-            if (!isDivide || stopDividing) return;
+            var isDivided = DivideRoom(minX, maxX, minY, maxY, room, out var leftRoom, out var rightRoom);
+            var stopDividing = _roomTree.NodesCount > 3 && LessThanMaxSize(room) && _rand.Chance(25);
+            if (!isDivided || stopDividing) return;
 
             _roomTree.AddNode(leftRoom, true);
             _roomTree.Down(true);
@@ -62,7 +73,7 @@ namespace Models.Maps
             _roomTree.Up();
         }
 
-        private bool SizeInRange(Room room)
+        private bool LessThanMaxSize(in Room room)
         {
             return room.Width < _data.room.maxWidth && room.Height < _data.room.maxHeight;
         }
@@ -105,7 +116,7 @@ namespace Models.Maps
             for (var i = 0; i < rooms.Count; i++)
             for (var j = i + 1; j < rooms.Count; j++)
             {
-                var isTooMuchConnected = rooms[i].IsConnected(rooms[j]) && _random.Chance(50);
+                var isTooMuchConnected = rooms[i].IsConnected(rooms[j]) && _rand.Chance(50);
                 var isHaveOneWayI = (i == start || i == exit) && rooms[i].IsImpasse;
                 var isHaveOneWayJ = (j == start || j == exit) && rooms[j].IsImpasse;
 
@@ -126,7 +137,7 @@ namespace Models.Maps
                     var row = (int?) null;
                     for (var h = minCommonX; h < maxCommonX; h++)
                     {
-                        if (CanDoRow(h, map, rooms[i], rooms[j]) && (!row.HasValue || !_random.Chance(50)))
+                        if (CanDoRow(h, map, rooms[i], rooms[j]) && (!row.HasValue || !_rand.Chance(50)))
                         {
                             row = h;
                         }
@@ -144,7 +155,7 @@ namespace Models.Maps
                     var column = (int?) null;
                     for (var w = minCommonY; w < maxCommonY; w++)
                     {
-                        if (CanDoColumn(w, map, rooms[i], rooms[j]) && (!column.HasValue || !_random.Chance(50)))
+                        if (CanDoColumn(w, map, rooms[i], rooms[j]) && (!column.HasValue || !_rand.Chance(50)))
                         {
                             column = w;
                         }

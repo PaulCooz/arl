@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba93fad5fbf4a6f829924146636ff2b, type: 3}
+  m_Name: LevelProgression
+  m_EditorClassIdentifier: 
+  levels:
+  - units:
+    - {fileID: 11400000, guid: e9cb55dbd93a53b4084ff297fc5810f2, type: 2}
+    map:
+      height: 20
+      width: 20
+      room:
+        minHeight: 3
+        minWidth: 3
+        maxHeight: 5
+        maxWidth: 5
+      seed: 0
+    isBossFight: 0
+  - units:
+    - {fileID: 11400000, guid: fabf4e93cae21e04d80ede9d564bebc0, type: 2}
+    map:
+      height: 10
+      width: 10
+      room:
+        minHeight: 4
+        minWidth: 4
+        maxHeight: 8
+        maxWidth: 8
+      seed: 0
+    isBossFight: 1
+  infinity:
+    units:
+    - {fileID: 11400000, guid: e9cb55dbd93a53b4084ff297fc5810f2, type: 2}
+    - {fileID: 11400000, guid: fabf4e93cae21e04d80ede9d564bebc0, type: 2}
+    map:
+      height: 30
+      width: 30
+      room:
+        minHeight: 3
+        minWidth: 3
+        maxHeight: 10
+        maxWidth: 10
+      seed: 0
+    isBossFight: 0

@@ -35,10 +35,7 @@ namespace Models.Maps
         [SerializeField]
         private Tilemap wallsTilemap;
 
-        [SerializeField]
-        private UnitsConfigHelper unitsConfig;
-
-        public void Draw(in Map map, int seed)
+        public void Draw(in Map map, in int seed, in UnitConfigObject[] units)
         {
             var random = new System.Random(seed);
             for (var i = 0; i < map.Height; i++)
@@ -56,7 +53,7 @@ namespace Models.Maps
 
                 if (map[i, j].Contains(Entities.Enemy))
                 {
-                    var unitName = unitsConfig.GetUnitConfig(random);
+                    var unitName = units.Random(random);
                     var enemy = Instantiate(EnemyPrefab(unitName), GetPosition(i, j), Quaternion.identity);
 
                     enemy.transform.SetParent(transform);

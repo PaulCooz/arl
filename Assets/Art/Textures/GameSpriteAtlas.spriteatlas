@@ -50,15 +50,6 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -667456687, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: -562643822, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: 36947578, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: -191166443, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: 1384631876, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: -253865226, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: 484027486, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: 948828246, guid: 656c78422d1c57f4e82e45bf327a0f1f, type: 3}
-  - {fileID: 21300000, guid: 60735643808186945ad5c2e4070c24f5, type: 3}
   - {fileID: 557987976, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -1985455563, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -746788901, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
@@ -173,6 +164,11 @@ SpriteAtlas:
   - {fileID: 1193529594, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
   - {fileID: -1293949847, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
   - {fileID: 871072635, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
+  - {fileID: -1704084633, guid: ad3ffb8d7fe0a8d4bb57cda0b23d3341, type: 3}
+  - {fileID: -2037752731, guid: ad3ffb8d7fe0a8d4bb57cda0b23d3341, type: 3}
+  - {fileID: 356351665, guid: ad3ffb8d7fe0a8d4bb57cda0b23d3341, type: 3}
+  - {fileID: -999282421, guid: ad3ffb8d7fe0a8d4bb57cda0b23d3341, type: 3}
+  - {fileID: -1653956579, guid: ad3ffb8d7fe0a8d4bb57cda0b23d3341, type: 3}
   - {fileID: -1678912432, guid: 60b4c393cbbc33e40b880e009a0c9a57, type: 3}
   - {fileID: 2057724589, guid: 60b4c393cbbc33e40b880e009a0c9a57, type: 3}
   - {fileID: -1466554563, guid: 60b4c393cbbc33e40b880e009a0c9a57, type: 3}
@@ -344,15 +340,6 @@ SpriteAtlas:
   - {fileID: -1388966027, guid: f0ca4154f07338747acb3b3670b548d0, type: 3}
   - {fileID: 866368791, guid: f0ca4154f07338747acb3b3670b548d0, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Talk1
-  - Talk0
-  - Idle3
-  - Idle2
-  - Idle1
-  - Idle0
-  - Idle5
-  - Idle4
-  - Players
   - Floor_17
   - Floor_11
   - Floor_13
@@ -467,6 +454,11 @@ SpriteAtlas:
   - boom_2
   - boom_1
   - boom_0
+  - idle_4
+  - idle_0
+  - idle_1
+  - idle_2
+  - idle_3
   - PropsAndItems_96
   - PropsAndItems_97
   - PropsAndItems_94

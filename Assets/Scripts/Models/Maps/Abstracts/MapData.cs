@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.Editor;
 
 namespace Models.Maps.Abstracts
 {
@@ -9,6 +10,7 @@ namespace Models.Maps.Abstracts
         public int width;
         public RoomData room;
 
+        [ReadOnly]
         public int seed;
     }
 }

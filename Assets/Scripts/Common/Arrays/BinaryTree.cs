@@ -22,14 +22,14 @@ namespace Common.Arrays
 
         private Node _current;
 
-        public int Count { get; private set; }
+        public int NodesCount { get; private set; }
         public T CurrentValue => _current.Value;
 
         public BinaryTree(in T value)
         {
             _current = new Node(null) {Value = value};
             _root = _current;
-            Count = 1;
+            NodesCount = 1;
         }
 
         public List<T> GetAllLeaves()
@@ -67,7 +67,7 @@ namespace Common.Arrays
                 _current.Right = newNode;
             }
 
-            Count++;
+            NodesCount++;
         }
 
         public void Down(in bool isLeft)

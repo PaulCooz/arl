@@ -1,7 +1,13 @@
-﻿namespace Models.Maps.Abstracts
+﻿using System.Collections.Generic;
+
+namespace Models.Maps.Abstracts
 {
     public interface IRoomFiller
     {
-        void Fill(in Room room, in bool isStart, in bool isExit, in System.Random random);
+        void Setup(in List<Entities>[,] array);
+
+        void FillStart(in Room room, System.Random random);
+        void FillCommon(in Room room, System.Random random);
+        void FillExit(in Room room, System.Random random);
     }
 }

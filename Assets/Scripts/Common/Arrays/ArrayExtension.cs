@@ -47,5 +47,10 @@ namespace Common.Arrays
         {
             return readOnlyList[UnityEngine.Random.Range(0, readOnlyList.Count)];
         }
+
+        public static T Random<T>(this IReadOnlyList<T> readOnlyList, in Random random)
+        {
+            return readOnlyList[random.Next(0, readOnlyList.Count)];
+        }
     }
 }

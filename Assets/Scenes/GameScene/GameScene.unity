@@ -183,21 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166a6491f37b4b598dd0d25316fc56ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startData:
-    height: 40
-    width: 40
-    room:
-      minHeight: 4
-      minWidth: 4
-      maxHeight: 12
-      maxWidth: 12
-    seed: 0
+  progression: {fileID: 11400000, guid: 869febdc35b3d70429808f1c035c5d12, type: 2}
   mapDrawer: {fileID: 12949187}
   gameMaster: {fileID: 213550832}
   beforeFirstLevel:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1785757612}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Realisations.Models.Unit.UnitsConfigHelper, Models.Realisations
         m_MethodName: BeforeFirstLevel
         m_Mode: 1
@@ -243,7 +235,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aaed9ec32fe1bd643ae4db2694239e94, type: 2}
   floorTilemap: {fileID: 1798997982}
   wallsTilemap: {fileID: 1841617313}
-  unitsConfig: {fileID: 1785757612}
 --- !u!1 &24036918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1360071537}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &731721704
 MonoBehaviour:
@@ -1861,7 +1852,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1360071537}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1090437204
 MonoBehaviour:
@@ -2992,7 +2983,6 @@ Transform:
   m_Children:
   - {fileID: 213550831}
   - {fileID: 434932315}
-  - {fileID: 1785757611}
   - {fileID: 2144564986}
   - {fileID: 1090437203}
   - {fileID: 2100996196}
@@ -3506,50 +3496,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1 &1785757610
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1785757611}
-  - component: {fileID: 1785757612}
-  m_Layer: 0
-  m_Name: Config
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1785757611
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785757610}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1360071537}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1785757612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785757610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f819f272b04f83b67bceda8224f0aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1798997980
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,7 +4719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1360071537}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2100996197
 MonoBehaviour:
@@ -4826,7 +4772,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1360071537}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2144564987
 MonoBehaviour:

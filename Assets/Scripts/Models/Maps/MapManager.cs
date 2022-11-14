@@ -2,6 +2,7 @@
 using Common;
 using Common.Storages.Preferences;
 using Models.Maps.Abstracts;
+using Models.Progressions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,11 +10,8 @@ namespace Models.Maps
 {
     public class MapManager : MonoBehaviour
     {
-        private MapGenerator _mapGenerator;
-        private MapData _mapData;
-
         [SerializeField]
-        private MapData startData;
+        private LevelProgressionObject progression;
         [SerializeField]
         private MapDrawer mapDrawer;
         [SerializeField]
@@ -26,7 +24,6 @@ namespace Models.Maps
         {
             beforeFirstLevel.Invoke();
 
-            ReadMapData();
             NextLevel();
         }
 
@@ -36,32 +33,44 @@ namespace Models.Maps
             NextLevel();
         }
 
-        private void ReadMapData()
-        {
-            _mapData = startData;
-        }
-
         private void NextLevel()
         {
-            _mapData.seed = Preference.Game.CurrentLevel;
             mapDrawer.Clear(CreateNewMap);
         }
 
         private void CreateNewMap()
         {
-            var array = new List<Entities>[_mapData.height, _mapData.width];
-            for (var i = 0; i < _mapData.height; i++)
-            for (var j = 0; j < _mapData.width; j++)
+            progression.GetData(Preference.Game.CurrentLevel, out var map, out var units, out var isBossFight);
+
+            var array = new List<Entities>[map.height, map.width];
+
+            for (var i = 0; i < map.height; i++)
+            for (var j = 0; j < map.width; j++)
             {
                 array[i, j] = new List<Entities>();
             }
 
-            _mapGenerator = new MapGenerator();
-            var roomFiller = new RoomFiller(array);
+            GetMapCreators(isBossFight, out var mapGenerator, out var roomFiller);
+            roomFiller.Setup(array);
 
-            mapDrawer.Draw(_mapGenerator.GetNextMap(array, _mapData, roomFiller), _mapData.seed);
+            var nextMap = mapGenerator.GetNextMap(array, map, roomFiller);
+            mapDrawer.Draw(nextMap, map.seed, units);
 
             this.WaitFrames(1, gameMaster.CreatedNewLevel);
+        }
+
+        private void GetMapCreators(in bool isBossFight, out IMapGenerator generator, out IRoomFiller filler)
+        {
+            if (isBossFight)
+            {
+                generator = new MapBossGenerator();
+                filler = new BossRoomFiller();
+            }
+            else
+            {
+                generator = new MapGenerator();
+                filler = new RoomFiller();
+            }
         }
     }
 }
