@@ -19,7 +19,7 @@ namespace Editor.Scripts
 
         private void CreateGUI()
         {
-            _inputTextField = new TextField {style = {fontSize = 30}};
+            _inputTextField = new TextField {style = {fontSize = 30}, multiline = true};
             _outputTextField = new TextField {isReadOnly = true, style = {fontSize = 30}};
 
             rootVisualElement.Add(_inputTextField);
@@ -29,10 +29,9 @@ namespace Editor.Scripts
 
         private void Execute()
         {
-            if (_context == null) _context = new Context();
-
-            var script = new Script(_context);
-            _outputTextField.value = script.Run(_inputTextField.value).StringValue;
+            var env = new XLua.LuaEnv();
+            env.DoString(_inputTextField.value);
+            env.Dispose();
         }
     }
 }

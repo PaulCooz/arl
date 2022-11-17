@@ -50,6 +50,7 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: c5f3c647094e11745a72d417963c3187, type: 3}
   - {fileID: 557987976, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -1985455563, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -746788901, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
@@ -78,6 +79,11 @@ SpriteAtlas:
   - {fileID: -620635107, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: -348219360, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
   - {fileID: 202155736, guid: 75bae3af6317b9342a1d92f9d6ed7798, type: 3}
+  - {fileID: 1893590661, guid: f7a13abd89890ba49a48c8604acf5133, type: 3}
+  - {fileID: -1088379388, guid: f7a13abd89890ba49a48c8604acf5133, type: 3}
+  - {fileID: -438369558, guid: f7a13abd89890ba49a48c8604acf5133, type: 3}
+  - {fileID: -561697294, guid: f7a13abd89890ba49a48c8604acf5133, type: 3}
+  - {fileID: 1790068331, guid: f7a13abd89890ba49a48c8604acf5133, type: 3}
   - {fileID: 194674136, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
   - {fileID: -760765589, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
   - {fileID: 1215600668, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
@@ -102,6 +108,11 @@ SpriteAtlas:
   - {fileID: -404544338, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
   - {fileID: -631406753, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
   - {fileID: -78217961, guid: 2c2ce9892eaed2e4c8bfa4cf8c50bdc1, type: 3}
+  - {fileID: 2008731529, guid: 8da98ee559021344baa556e5c9058392, type: 3}
+  - {fileID: -1098859153, guid: 8da98ee559021344baa556e5c9058392, type: 3}
+  - {fileID: -23990871, guid: 8da98ee559021344baa556e5c9058392, type: 3}
+  - {fileID: -1657777623, guid: 8da98ee559021344baa556e5c9058392, type: 3}
+  - {fileID: -1714954090, guid: 8da98ee559021344baa556e5c9058392, type: 3}
   - {fileID: -1904592805, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 1494709533, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 3704766, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
@@ -157,6 +168,12 @@ SpriteAtlas:
   - {fileID: 1651044443, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: 429649567, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
   - {fileID: -1286201963, guid: 442d72b9a092bf442be89de046f6359e, type: 3}
+  - {fileID: 1529892149, guid: 78a8b9b640aec5146ba0fbd83f92232f, type: 3}
+  - {fileID: 473336831, guid: 78a8b9b640aec5146ba0fbd83f92232f, type: 3}
+  - {fileID: -1921651132, guid: 78a8b9b640aec5146ba0fbd83f92232f, type: 3}
+  - {fileID: 486151990, guid: 78a8b9b640aec5146ba0fbd83f92232f, type: 3}
+  - {fileID: 802611068, guid: 78a8b9b640aec5146ba0fbd83f92232f, type: 3}
+  - {fileID: 1554039239, guid: 78a8b9b640aec5146ba0fbd83f92232f, type: 3}
   - {fileID: -872050985, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
   - {fileID: 823251896, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
   - {fileID: 605228064, guid: 89bd3d0115ff50648bab1de62ad3407e, type: 3}
@@ -339,7 +356,15 @@ SpriteAtlas:
   - {fileID: 778085918, guid: f0ca4154f07338747acb3b3670b548d0, type: 3}
   - {fileID: -1388966027, guid: f0ca4154f07338747acb3b3670b548d0, type: 3}
   - {fileID: 866368791, guid: f0ca4154f07338747acb3b3670b548d0, type: 3}
+  - {fileID: -1235314712, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
+  - {fileID: 383062484, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
+  - {fileID: -1178633006, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
+  - {fileID: 207033329, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
+  - {fileID: 602200590, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
+  - {fileID: 1989429252, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
+  - {fileID: 157934930, guid: 2d1721c830c08d44ebae2cf6df067b7c, type: 3}
   m_PackedSpriteNamesToIndex:
+  - shoot-emission
   - Floor_17
   - Floor_11
   - Floor_13
@@ -368,6 +393,11 @@ SpriteAtlas:
   - Wall_3
   - Wall_0
   - Wall_1
+  - run_4
+  - run_3
+  - run_2
+  - run_1
+  - run_0
   - spawn_1
   - spawn_0
   - spawn_3
@@ -392,6 +422,11 @@ SpriteAtlas:
   - run_shoot_2
   - run_shoot_1
   - run_shoot_0
+  - shoot_4
+  - shoot_1
+  - shoot_0
+  - shoot_3
+  - shoot_2
   - octop_run_shoot_1
   - octop_run_shoot_0
   - octop_run_shoot_3
@@ -447,6 +482,12 @@ SpriteAtlas:
   - enemies_62
   - enemies_63
   - enemies_61
+  - die_2
+  - die_3
+  - die_0
+  - die_1
+  - die_4
+  - die_5
   - boom_6
   - boom_5
   - boom_4
@@ -629,6 +670,13 @@ SpriteAtlas:
   - Bullets_4
   - Bullets_9
   - Bullets_8
+  - spawn_5
+  - spawn_4
+  - spawn_6
+  - spawn_1
+  - spawn_0
+  - spawn_3
+  - spawn_2
   m_RenderDataMap: {}
   m_Tag: GameSpriteAtlas
   m_IsVariant: 0

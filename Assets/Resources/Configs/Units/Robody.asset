@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47316115c530483a8323eee250ecdad8, type: 3}
+  m_Name: Robody
+  m_EditorClassIdentifier: 
+  gunConfig: {fileID: 11400000, guid: ddf9430877fd06143ad809ccbd052868, type: 2}
+  bulletConfig: {fileID: 11400000, guid: 7d515a7c19124654fb3cca4eb9fde359, type: 2}
+  health: 10
+  speed: 1.5
+  onHpChange: 
+  onDie: 'add_experience(level_exp)
+
+    play_sound(''explosion_impact''; 0.8; own_position)'
+  levelExp: 10
+  spawnChance: 1
+  prefab: {fileID: 7946169029389667803, guid: e0ff7af2653e1aa40b13640ab226579e, type: 3}
+  isPlayer: 0

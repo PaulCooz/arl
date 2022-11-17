@@ -26,7 +26,7 @@ MonoBehaviour:
       seed: 0
     isBossFight: 0
   - units:
-    - {fileID: 11400000, guid: fabf4e93cae21e04d80ede9d564bebc0, type: 2}
+    - {fileID: 11400000, guid: 2faf060176c18254896c33d6ca9914dd, type: 2}
     map:
       height: 10
       width: 10
